@@ -1,0 +1,994 @@
+---
+title: "Shaping the Transnational Public Sphere in the Chinese press (revisions)"
+author: "Cécile Armand"
+date: "`r lubridate::today()`"
+tags: [bilingual, press, structural topic modeling, transnational]  
+abstract: |
+  This document supplements the previous documentation destined to accompany the paper titled "Shaping the Transnational Public Sphere in Republican China: Discourses and Practices of the Rotary Club in the Shanghai press (1919-1949)" submitted to the *Journal of Digital History*. This second document provides the code for time-based topic modeling and named entity extraction (part 2), mapping locations (part 3), and semantic analysis (part 4) in the Chinese-language newspaper *Shenbao*. A similar document is devoted specifically to English-language periodicals. 
+  
+   <style>
+    body {
+    text-align: justify}
+  </style>
+    
+output: 
+  html_document:
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    number_sections: false
+    code_folding: show # hide
+    fig_caption: true
+    df_print: paged
+---
+
+```{r setup, include=FALSE, eval = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(histtext)
+library(quanteda)
+library(tidytext)
+library(widyr)
+library(sf)
+
+```
+
+# Populating the public sphere (Part 2)
+
+## Filtering topics (Step 1)
+
+Select the documents that contain at least 0.02% of topic 2, 0.01% of topic 3, and 0.02% of topic 10 in the 10-topic model (368 documents). 
+
+```{r eval = FALSE}
+
+library(tidyverse)
+
+doc2 <- topicprop10 %>% filter(Topic2 > 0.02) # 282
+doc3 <- topicprop10 %>% filter(Topic3 > 0.01)  # 340
+doc10 <- topicprop10 %>% filter(Topic10 > 0.02)  # 250
+
+# bind rows and remove duplicates 
+
+docall <- bind_rows(doc2, doc3, doc10)
+docall <- unique(docall) # 368 articles
+```
+
+## Refining text units (Step 2) 
+
+Retrieve the full text of documents from the *Shenbao* corpus (pre-tokenized version) using [histtext](https://bookdown.enpchina.eu/HistText_Book/query-functions.html#full-text-retrieval) and compute the length of articles (number of tokens) to filter articles of sufficient length (those that contain at least 10 tokens). 345 articles remain. 
+```{r eval = FALSE}
+library(histtext)
+library(quanteda)
+
+docall_ft <- get_documents(docall, "shunpao-tok")
+docall_ft <- docall_ft %>% mutate(length = ntoken(tokenized))
+
+# filter out texts with 10 tokens or less
+
+docall_ft <- docall_ft %>% filter(length >10) # 345 articles
+
+```
+<br>
+The revised Chinese corpus contains a total of 345 articles. Next, we export the dataset to extract the relevant news items from mixed-content articles: 
+```{r eval = FALSE}
+write.csv(docall_ft, "docall_ft.csv")
+```
+<br>
+We re-import the dataset of properly segmented articles, which will be used for topic modeling: 
+```{r eval = FALSE}
+library(readr)
+revised_zh <- read_delim("revised_zh.csv", 
+                         delim = ";", escape_double = FALSE, trim_ws = TRUE)
+```
+<br>
+Next, we create a customized list of stopwords to remove to improve the results of topic modeling. 
+
+First, we retrieve the individual tokens using [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html). Additionally, we compute their length and their frequency to select the tokens that contains at least 2 characters and appear more than 10 times in the corpus. In the final line, we export this preliminary list for manual refinement in Excel: 
+```{r eval = FALSE}
+library(tidytext)
+
+token <- revised_zh %>% select(DocId, tokenized)
+
+token <- token %>% 
+  unnest_tokens(output = token, input = tokenized) 
+
+token_count <- token %>% group_by(token) %>% count() %>% mutate(length = nchar(token))
+
+stop_word <- token_count %>% filter(length >1) %>% filter(n >10)
+
+write.csv(stop_word, "stop_word.csv")
+
+```
+<br>
+Finally, we re-import the manually refined list and we transform it into a vector to be used when building topic model:
+```{r eval = FALSE}
+
+# import selected stop words
+library(readr)
+stop <- read_csv("stop.csv")
+
+# create vector 
+stopvec <- as.vector(stop)
+stopvec<-unlist(stopvec)
+```
+
+
+## Time-based topic modelling (Step 3)
+
+Define time windows
+```{r eval = FALSE}
+
+revised_eng %>% group_by(period) %>% count()
+
+p1 <- revised_zh %>% filter(period == "1919-1929") # 62 articles
+p2 <- revised_zh %>% filter(period == "1930-1937") # 141 articles
+p3 <- revised_zh %>% filter(period == "1938-1949") # 142 articles
+
+```
+<br>
+
+<div class="alert alert-success" role="alert"> 
+In the following, we focus on period 1. The same method was applied to the two later periods. To avoid repetition, we do not replicate the code. </div>
+
+Build a 5-topic model using [stm](https://www.structuraltopicmodel.com/):  
+```{r eval = FALSE}
+
+# select metadata
+
+meta <- p1 %>% transmute(DocId, Title, Date, year)  
+meta <- as.data.frame(meta)
+
+# create stm corpus object 
+
+corpus <- stm::textProcessor(p1$tokenized,
+                             metadata = meta, 
+                             stem = FALSE, 
+                             wordLengths = c(2, Inf), 
+                             verbose = FALSE, 
+                             customstopwords = stopvec) 
+
+stm::plotRemoved(corpus$documents, lower.thresh = c(0,10, by=5)) 
+
+out <- stm::prepDocuments(corpus$documents, 
+                          corpus$vocab, 
+                          corpus$meta) 
+
+# build the 5-topic model 
+
+# 5-topic model
+mod.5 <- stm::stm(out$documents, 
+                  out$vocab, K=5, 
+                  prevalence =~ year, 
+                  data=out$meta, verbose = FALSE)
+
+
+```
+<br>
+Estimate the effect of time (year) on topic prevalence: 
+```{r eval = FALSE}
+year5 <- stm::estimateEffect(1:5 ~ year, mod.5, meta=out$meta)
+```
+<br>
+Explore the topics
+```{r eval = FALSE}
+plot.STM(mod.5,"summary", n=5)
+```
+<br>
+
+## Topical clusters
+
+This section explains how to cluster documents based on their topic proportions using Principal Component Analysis (PCA) and Hierarchical Clustering (HCPC).
+
+Extract topic proportions: 
+```{r eval = FALSE}
+topicprop5<-make.dt(mod.5, meta)
+```
+<br>
+Prepare the data for PCA: 
+```{r eval = FALSE}
+pca5 <- topicprop5 %>% select(DocId, Topic1, Topic2, Topic3, Topic4, Topic5)
+pca5 <- pca5 %>% column_to_rownames("DocId")
+```
+<br>
+Load the [FactoMineR](http://factominer.free.fr/) package and run PCA and HCPC functions: 
+```{r eval = FALSE}
+library(FactoMineR)
+
+res.PCA<-PCA(pca5,graph=FALSE)
+res.HCPC<-HCPC(res.PCA,nb.clust=5,consol=FALSE,graph=FALSE)
+```
+
+<br> 
+Optionally, plot the results of PCA and HCPC: 
+```{r eval = FALSE}
+plot.PCA(res.PCA,choix='var',title="PCA graph of variables (topic proportions)")
+plot.PCA(res.PCA,title="PCA graph of individuals (documents)")
+```
+<br> 
+Extract and relabel topical clusters
+```{r eval = FALSE}
+# extract clusters 
+pca_clusters <- as.data.frame(res.HCPC$data.clust)
+pca_clusters <- rownames_to_column(pca_clusters, "DocId") %>% select(DocId, clust) %>% rename(clust5 = clust)
+# add topic labels
+pca_clusters <- pca_clusters %>% mutate (label5 = fct_recode(clust5, "International peace" = "1", 
+                                            "Transpacific networks" = "2", 
+                                            "Sino-US exchanges" = "3", 
+                                            "Youth/Health" = "4", 
+                                            "Education" = "5"))
+```
+<br> 
+Join clusters with other metadata: 
+```{r eval = FALSE}
+pca_clusters_meta <- left_join(pca_clusters, meta)
+```
+
+## Retrieving actors (Step 4)
+
+<div class="alert alert-success" role="alert"> 
+In the following, we focus on period 1. The same method was applied to the two later periods. To avoid repetition, we do not replicate the code. </div>
+
+Extract named entities using histtext [ner_on_df](https://bookdown.enpchina.eu/HistText_Book/named-entity-recognition-ner.html#ner-on-external-documents) function. We applied different models depending on the category of entities. For persons, we applied the model specifically designed for retrieving persons' names, taking into account inserted titles, incomplete names, and co-references. For organizations and locations, we applied the generic spaCy model finely tuned for historical texts in Chinese. More information on these models are available in the [HistText Manual](https://bookdown.enpchina.eu/HistText_Book/named-entity-recognition-ner.html). For more technical details, please refer to Baptiste Blouin's research papers ([Blouin and Magistry, 2020](https://aclanthology.org/2020.paclic-1.1/); [Blouin et al., 2021](https://aclanthology.org/2021.nlp4dh-1.18.pdf)). 
+
+Extract names of persons: 
+```{r eval=FALSE }
+
+library(histtext)
+p1_pers <- ner_on_df(p1, "Text", id_column="DocId", model = "trftc_person_4class:zh:ner") # 314 names
+
+```
+<br>
+Extract other entities and select the entities of interest (organizations and locations): 
+```{r eval = FALSE}
+
+p1_ner <- ner_on_df(p1, "Text", id_column="DocId", model = "spacy:zh:ner")
+p1_org <- p1_ner %>% filter(Type == "ORG") # 352 ORGANIZATIONS
+p1_loc <- p1_ner %>% filter(Type %in% c("LOC", "GPE")) # 229 LOC/GPE
+
+```
+
+### Persons 
+
+The returns a list of names organized into four categories: full names (full), co-references (ref), incomplete names (incomplete), and names with titles (title). For this research, we chose to focus on full names and we compute their frequency to have a preliminary list of the most prominent persons. 
+```{r eval = FALSE}
+
+p1_pers_full <- p1_pers %>% filter(Type == "Full") %>% distinct(DocId, Text) 
+
+p1_pers_full <- p1_pers_full %>% mutate(length = nchar(Text))
+p1_pers_full <- p1_pers_full %>% group_by(Text) %>% add_tally()
+p1_top_pers <- p1_pers_full %>% distinct(Text, n)
+
+```
+<br>
+Build a two-mode network linking persons and the documents in which they are mentioned: 
+```{r eval = FALSE}
+
+# create edge list from list of documents and persons
+
+edge <- p1_pers_full
+
+# create node list 
+
+pers_node <- edge %>% select(FullName) %>% rename(Name = FullName) %>% mutate(Type = "PERS") %>% unique()
+doc_node <- edge %>% select(DocId) %>% rename(Name = DocId) %>% mutate(Type = "DOC") %>% unique()
+node <- bind_rows(pers_node, doc_node)
+
+# transform edge list into network with igraph
+
+library(igraph)
+
+e.list <- edge
+v.attr <- node
+
+G <- graph.data.frame(e.list, vertices=v.attr, directed=FALSE)
+
+# index the color and shape to the type of node
+
+bipartite.mapping(G)
+
+V(G)$type <- bipartite_mapping(G)$type
+V(G)$color <- ifelse(V(G)$type, "red", "orange")
+V(G)$shape <- ifelse(V(G)$type, "square", "circle")
+E(G)$color <- "lightgray"
+
+
+l <- layout.fruchterman.reingold(G)
+
+# plot the network
+
+plot(G, 
+     layout=l,
+     vertex.size=5, 
+     vertex.label.cex=0.3,
+     vertex.label.color="black", 
+     vertex.label.family="Arial")
+
+# remove labels to enhance legibility
+
+plot(G, 
+     layout=l,
+     vertex.size=5, 
+     vertex.label.cex=0.3,
+     vertex.label = NA, 
+     vertex.label.color="black")
+```
+
+### Organizations 
+
+Data cleaning of organizations. 
+```{r eval = FALSE}
+
+# atomize list of names 
+
+p1_org <- p1_org %>% separate_rows(Text, sep = "·", convert = FALSE) # we now have 395 organizations
+
+# count characters 
+
+p1_org <- p1_org %>% mutate(length = nchar(Text))
+
+# extract the 2 last characters to build a preliminary categorization of the organizations
+
+p1_org <- p1_org %>% mutate(suf2 = str_sub(Text,-2,-1))
+
+# export for manual refinement in Excel 
+
+write.csv(p1_org_zh, "p1_org_zh.csv")
+
+# reimport clean data
+
+library(readr)
+p1_org_clean <- read_delim("p1_org_clean.csv", 
+                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+# recount length
+
+p1_org_clean <- p1_org_clean %>% mutate(length = nchar(Text_clean))
+
+# extract last characters again to classify organizations 
+
+p1_org_clean <- p1_org_clean %>% mutate(class = str_sub(Text_clean,-2,-1)) 
+
+# identify characteristics of particular interest (Shanghai-based organizations, Rotary, YMCA, and business enterprises)  
+p1_org_clean <- p1_org_clean %>%  mutate(local = str_extract(Text, "上海")) %>% 
+  mutate(ymca = str_extract(Text, "青年")) %>% 
+  mutate(rotary = str_extract(Text, "扶輪"))  %>% 
+  mutate(company = str_extract(Text, "公司")) 
+
+# select unique pairs
+
+p1_org_unique <- p1_org_clean %>% distinct(DocId, Text_clean, class, local, rotary, ymca) # 262 unique pairs
+
+# rank organizations based on their frequency
+
+p1_org_count<- p1_org_unique %>% distinct(DocId, Text_clean) %>% group_by(Text_clean) %>% count()
+
+# count by categories/sectors
+
+p1_org_unique %>% distinct(Text_clean, class) %>% group_by(class) %>% count(sort = TRUE)
+
+# export edge list and node list 
+
+p1_edge_org <- p1_org_unique %>% select(DocId, Text_clean)
+p1_node_org  <- p1_org_unique %>% distinct(Text_clean, class)
+
+write.csv(p1_edge_org, "p1zh_pers_edge.csv")
+write.csv(p1_node_org, "p1zh_org_node.csv")
+
+```
+
+### Locations 
+
+Atomize list, count length and frequency, and export for further processing: 
+```{r eval = FALSE}
+
+p1_loc <- p1_loc %>% separate_rows(Text, sep = "·", convert = FALSE) %>% 
+  mutate(length = nchar(Text)) %>% 
+  group_by(Text) %>% 
+  add_tally()
+
+write.csv(p1_p1_locloc_zh, "p1_loc.csv")
+```
+
+
+# Mapping the Public Sphere (Part 3)
+
+## Countries
+```{r eval = FALSE}
+
+# load locations data 
+
+loc_map <- read_delim("maps/loc_map.csv", 
+                      delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+# select countries 
+
+loc_map_country  <-  loc_map %>% mutate(Country = Place) %>% mutate(Prov_Py = Province) %>% 
+  filter(Type == "Country") %>% mutate(Prov_Py = Province) %>% 
+  select(Language, Period, Type, Country, Count)
+
+# load packages
+
+install.packages("tmap", repos = c("https://r-tmap.r-universe.dev",
+                                   "https://cloud.r-project.org"))
+library(tmap)    # for static and interactive maps
+library(leaflet) # for interactive maps
+library(sf)
+library(maps)
+
+# load country data
+
+world_name <- world %>% as.data.frame()
+world_name <- world_name %>% rename(Country = name_long)
+
+# join with my list of countries
+
+loc_map_country <- inner_join(loc_map_country, world_name)
+loc_map_country_zh <- loc_map_country %>% filter(Language == "Chinese")
+
+# compute mean frequencies across period
+
+loc_map_country_zh_mean <- loc_map_country_zh %>% 
+  group_by(Country, iso_a2, geom) %>% 
+  summarise(mean = round(mean(Count), 0)) %>% ungroup()
+
+# convert dataframe into shapefile 
+
+loc_map_country_zh_sf <- st_as_sf(loc_map_country_zh_mean, sf_column_name = "geom", crs = "WGS84")
+
+# Create a color palette for the map using bins and quantiles 
+
+mypalette_zh <- colorBin( palette="YlOrRd", domain=loc_map_country_zh_mean$mean, na.color="transparent", bins = 5)
+mypalette_zh2 <- colorQuantile(palette="YlOrRd", domain=loc_map_country_zh_mean$mean, na.color="transparent")
+
+# create choropleth maps
+
+leaflet(loc_map_country_zh_sf) %>% 
+  addTiles()  %>% 
+  setView( lat=10, lng=0 , zoom=2) %>%
+  addPolygons( stroke = FALSE, fillOpacity = 0.9, smoothFactor = 0.5, color = ~colorBin("YlOrRd", mean)(mean) ) %>%
+  addLegend( pal=mypalette_zh, values=~mean, opacity=0.9, title = "Mean frequency", position = "bottomleft" )
+
+
+leaflet(loc_map_country_zh_sf) %>% 
+  addTiles()  %>% 
+  setView( lat=10, lng=0 , zoom=2) %>%
+  addPolygons( stroke = FALSE, fillOpacity = 0.9, smoothFactor = 0.5, color = ~colorQuantile("YlOrRd", mean)(mean) ) %>%
+  addLegend( pal=mypalette_zh2, values=~mean, opacity=0.9, title = "Mean frequency", position = "bottomleft" )
+
+
+```
+
+## Cities
+
+```{r eval = FALSE}
+
+# create city data
+
+loc_map_zh_to_join <-  loc_map %>% mutate(Name = Place) %>% mutate(Prov_Py = Province) %>% filter(Country == "China")
+
+# Chinese cities/provinces
+
+MCGD_Data2023.06.21 <- read.csv("~/publicsphere/maps/MCGD_Data2023-06-21.csv")
+mcgd <- MCGD_Data2023.06.21
+
+# join with Chinese coordinates 
+
+zh_city <- inner_join(loc_map_zh_to_join, mcgd)
+
+missing <- setdiff(loc_map_zh_to_join$Name, zh_city$Name)
+missing <- as.data.frame(missing)
+
+write.csv(zh_city, "zh_city.csv")
+
+# reload clean data
+
+zh_city2 <- read_delim("maps/zh_city2.csv", 
+                       delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+# filter non Chinese cities
+
+loc_map_cities <-  loc_map %>% mutate(Name = Place) %>% filter(Type == "City") %>% filter(!Country == "China")
+
+# join with geocoordinates
+
+library(maps)
+data(world.cities)
+
+world_cities <- world.cities %>% as.data.frame()
+world_cities2 <- world_cities %>% mutate(name = str_remove_all(name, "'"))
+world_cities2 <- world_cities2 %>% select(Name, country.etc, lat, long)
+
+loc_map_cities_latlong <- inner_join(loc_map_cities, world_cities2)
+loc_map_cities_latlong <- left_join(loc_map_cities, world_cities2)
+
+# find duplicates 
+
+pb <- loc_map_cities_latlong %>% group_by(Name, country.etc) %>% count() %>% filter(n>1)
+
+# reload cleaned cities 
+
+cities_clean <- read_delim("cities_clean.csv", 
+                           delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+cities_to_join <- cities_clean %>% select(Language, Period, Country, Name, Count, lat, long)
+
+zh_city2_to_join <- zh_city2 %>% select(Language, Period, Country, Name, Count, LAT, LONG) %>% rename(lat = LAT, long = LONG)  
+
+all_cities <- bind_rows(cities_to_join, zh_city2_to_join)
+
+all_cities <- all_cities %>% mutate(City = str_replace(Name, "Jiangsu", "Shanghai"))
+
+# filter by language 
+
+all_cities_zh <- all_cities %>% filter(Language == "Chinese")
+
+# compute mean 
+
+loc_map_city_zh_mean <- all_cities_zh %>% 
+  group_by(Name, lat, long) %>% 
+  summarise(mean = round(mean(Count), 0)) %>% ungroup()
+
+# map with leaflet
+
+loc_map_city_zh_mean %>%
+  leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers( radius = ~log(mean)*3,
+                    label = ~Name,
+                    color = "white",
+                    weight = 2,
+                    opacity = 0.6,
+                    fill = TRUE,
+                    fillColor = "red",
+                    fillOpacity = 0.9,
+                    stroke = TRUE,
+                    popup = ~paste( "City:", Name ,
+                                    "",
+                                    "Mean frequency:", mean))
+
+
+
+```
+
+
+# Articulating the Public Sphere (Part 4)
+
+## 國-based terms
+
+### Concordance 
+
+Retrieve 國-based terms using concordance: 
+```{r eval = FALSE}
+
+# load packages
+
+library(tidyverse)
+library(tidytext)
+library(widyr)
+library(tidytext)
+
+library(igraph)
+library(tidygraph)
+library(ggraph)
+
+# select relevant variables (Text and DocId) from the initial corpora 
+
+guo <- revised_zh %>% select(DocId, tokenized)
+
+# retrieve 國 in context
+
+guo_conc<- histtext::search_concordance_on_df(sample, "國", id_column = "DocId", 
+                                               context_size = 20, 
+                                               case_sensitive = FALSE)
+
+# select first characters in after and join match + after 
+
+guo2 <- guo_conc %>% select(DocId, Before, Match, After)%>% 
+  mutate(Before = str_replace(Before, "、", "")) %>% 
+  mutate(Before = str_replace(Before, "·", "")) %>% 
+  mutate(Before = str_replace(Before, "·", "")) %>% 
+  mutate(Before = str_replace(Before, "）", "")) %>%
+  mutate(Before = str_replace(Before, "，", "")) %>% 
+  mutate(Before = str_replace(Before, "、", ""))%>% 
+  mutate(Before = str_replace(Before, "：", ""))%>% 
+  mutate(Before = str_replace(Before, "「", ""))%>% 
+  mutate(Before = str_replace(Before, "〕", ""))%>% 
+  mutate(After = str_replace(After, "」", "")) %>% 
+  mutate(After = str_replace(After, "，", "")) %>% 
+  mutate(After = str_replace(After, "、", ""))%>% 
+  mutate(After = str_replace(After, "）", "")) %>% 
+  mutate(After = str_replace(After, "·", "")) %>% 
+  mutate(After = str_replace(After, "」", "")) %>% 
+  mutate(tok1 =  str_sub(Before, -1,-1)) %>% 
+  mutate(tok3 =  str_sub(After, 1,1)) %>% 
+  rename(tok2 = Match) %>%
+  mutate(bigram = paste0(tok1, tok2))%>%
+  mutate(bigram2 = paste0(tok2, tok3))%>% 
+  mutate(bigram = str_replace_all(bigram, "·", "")) %>% 
+  mutate(bigram = str_replace_all(bigram, "　", "")) %>% 
+  mutate(bigram2 = str_replace_all(bigram2, "。", ""))%>% 
+  mutate(bigram2 = str_replace_all(bigram2, "（", ""))%>% 
+  mutate(bigram2 = str_replace_all(bigram2, "「",""))
+
+# compile all terms 
+
+guo_bigram1 <- guo2 %>% select(-c(bigram2))
+guo_bigram2 <- guo2 %>% select(-c(bigram)) %>% rename(bigram = bigram2)
+guo_all <- bind_rows(guo_bigram1, guo_bigram2)
+
+# count frequencies 
+
+guo_count <- guo_all %>% group_by(bigram) %>% count() 
+
+```
+
+### TF-IDF by period 
+```{r eval = FALSE}
+
+# join with metadata 
+
+guo_period <- left_join(guo_all, meta)
+
+# compute tf-idf by period 
+
+guo_tf_idf_period <- guo_period %>%
+  count(period, bigram) %>%
+  bind_tf_idf(bigram, period, n) %>%
+  arrange(desc(tf_idf))
+
+# Visualize 
+
+guo_tf_idf_period %>%
+  group_by(period) %>%
+  top_n(10, tf_idf) %>%
+  ungroup() %>%
+  mutate(bigram = reorder(bigram, tf_idf)) %>%
+  ggplot(aes(tf_idf, bigram, fill = period)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ period, scales = "free", ncol=3) +
+  labs(x = "tf-idf", y = "term", 
+       title = "Highest tf-idf terms associated with \"國\" in the rotary corpus", 
+       subtitle = "tf-idf by period", 
+       caption = "Based on *Shenbao 申報*")
+```
+
+
+### Collocates
+
+Prepare text data
+```{r eval = FALSE}
+
+# extract and count tokens
+
+rotary_tidy_token <- revised_zh %>% 
+  unnest_tokens(output = token, input = tokenized) 
+
+# compute pairwise count 
+
+token_pairs <- rotary_tidy_token %>%
+  pairwise_count(token, DocId, sort = TRUE)
+
+# create list of stop words 
+
+rotary_tokens <- rotary_tidy_token %>% mutate(length = nchar(token)) %>% group_by(token) %>% add_tally()
+rotary_tokens_filtered <- rotary_tokens %>% filter(length >1) %>% filter(n >1)
+rotary_tokens_count <- rotary_tokens_filtered  %>% distinct(token, length, n)
+rotary_tokens_filtered_simple <- rotary_tokens_filtered %>% select(DocId, token)
+
+rotary_stopwords <- rotary_tokens %>% filter(length <2)
+rotary_stopwords <- rotary_stopwords %>% select(token)
+rotary_stopwords <- rotary_stopwords %>% unique()
+
+# remove stop words 
+
+token_pairs_filtered <- token_pairs %>% rename(token = item1) %>% 
+  anti_join(rotary_stopwords) %>% rename(item1 = token) %>% 
+  rename(token = item2) %>% 
+  anti_join(rotary_stopwords) %>% rename(item2 = token) %>% 
+  filter(!item1 == "扶輪社") %>% 
+  filter(!item2  == "扶輪社")
+
+```
+
+<br>
+Focus on 國-based terms
+```{r eval = FALSE}
+
+# create list of terms of interest 
+
+guolist <- guo_count %>% filter(bigram %in% c("國際", "各國", "我國", "全國", "萬國", "國家", "外國", "國民", "國人", "國貨", "國内", "國外", "回國", "進國", "民國"))
+
+# select these terms in the list of collocates
+
+guo1 <- token_pairs_filtered %>%
+  filter(item1 == guolist$bigram)
+guo2 <- token_pairs_filtered %>%
+  filter(item2 == guolist$bigram)
+guo_cooc <- bind_rows(guo1, guo2)
+
+```
+<br>
+Select most important pairs to include in the network of collocates
+```{r eval = FALSE}
+
+guo_cooc_filtered <- guo_cooc %>% filter(n > 2)
+guo_cooc_node1 <- guo_cooc_filtered %>% select(item1) %>% unique() %>% rename(token = item1)
+guo_cooc_node2 <- guo_cooc_filtered %>% select(item2) %>% unique() %>% rename(token = item2)
+guo_cooc_node_filtered <- bind_rows(guo_cooc_node1, guo_cooc_node2)
+guo_cooc_node_filtered <- guo_cooc_node_filtered %>% unique()
+guo_cooc_node_filtered <- inner_join(guo_cooc_node_filtered, rotary_tokens_count)
+
+```
+<br>
+Build a co-ocurrence network with [igraph](https://r.igraph.org/)
+```{r eval = FALSE} 
+
+library(igraph)
+
+e.list <- guo_cooc_filtered
+v.attr <- guo_cooc_node_filtered
+
+G <- graph.data.frame(e.list, vertices=v.attr, directed=FALSE)
+
+v.size <- V(G)$n
+v.label <- V(G)$name
+E(G)$weight <- E(G)$n
+eigenCent <- evcent(G)$vector
+
+head(eigenCent, 20)
+
+plot(sort(eigenCent, decreasing=TRUE), type="l")
+
+bins <- unique(quantile(eigenCent, seq(0,1,length.out=30)))
+vals <- cut(eigenCent, bins, labels=FALSE, include.lowest=TRUE)
+
+colorVals <- rev(heat.colors(length(bins)))[vals]
+V(G)$color <- colorVals
+
+l <- layout.fruchterman.reingold(G)
+
+
+plot(G, 
+     layout=l,
+     edge.width=E(G)$weight*0.01,
+     vertex.size=v.size*0.01, 
+     vertex.label=v.label,
+     vertex.label.cex=v.size*0.001,
+     vertex.label.color="black", 
+     vertex.label.dist=0.2,
+     vertex.label.family="Arial")
+
+```
+<br>
+Refine network visualization with [tidygraph](https://tidygraph.data-imaginist.com/) and [gggraph](https://github.com/thomasp85/ggraph)
+```{r eval = FALSE}
+
+library(tidygraph)
+library(ggraph)
+
+tg <- tidygraph::as_tbl_graph(G) %>% activate(nodes) %>% mutate(label=name)
+
+v.size <- V(tg)$n
+E(tg)$weight <- E(tg)$n
+eigenCent <- evcent(tg)$vector
+bins <- unique(quantile(eigenCent, seq(0,1,length.out=30)))
+vals <- cut(eigenCent, bins, labels=FALSE, include.lowest=TRUE)
+colorVals <- rev(heat.colors(length(bins)))[vals]
+
+
+tg %>%
+  ggraph(layout="kk") +
+  geom_edge_link(alpha = .25, colour='white', aes(width = weight)) +
+  geom_node_point(size=log(v.size)*2, color=colorVals) +
+  geom_node_text(aes(label = name), repel = TRUE, point.padding = unit(0.2, "lines"), size=log(v.size), colour="white") +
+  theme_graph(background = 'grey20')
+
+```
+
+
+## 公-based terms
+
+### Concordance 
+
+Retrieve 公-based terms using concordance: 
+```{r eval = FALSE}
+
+# load packages
+
+library(tidyverse)
+library(tidytext)
+library(widyr)
+library(tidytext)
+
+library(igraph)
+library(tidygraph)
+library(ggraph)
+
+# select relevant variables (Text and DocId) from the initial corpora 
+
+gong <- revised_zh %>% select(DocId, tokenized)
+
+# retrieve 公 in context
+
+gong_conc<- histtext::search_concordance_on_df(sample, "公", id_column = "DocId", 
+                                               context_size = 20, 
+                                               case_sensitive = FALSE)
+
+# select first characters in after and join match + after 
+
+gong2 <- gong_conc %>% select(DocId, Before, Match, After)%>% 
+  mutate(Before = str_replace(Before, "、", "")) %>% 
+  mutate(Before = str_replace(Before, "·", "")) %>% 
+  mutate(Before = str_replace(Before, "·", "")) %>% 
+  mutate(Before = str_replace(Before, "）", "")) %>%
+  mutate(Before = str_replace(Before, "，", "")) %>% 
+  mutate(Before = str_replace(Before, "、", ""))%>% 
+  mutate(Before = str_replace(Before, "：", ""))%>% 
+  mutate(Before = str_replace(Before, "「", ""))%>% 
+  mutate(Before = str_replace(Before, "〕", ""))%>% 
+  mutate(After = str_replace(After, "」", "")) %>% 
+  mutate(After = str_replace(After, "，", "")) %>% 
+  mutate(After = str_replace(After, "、", ""))%>% 
+  mutate(After = str_replace(After, "）", "")) %>% 
+  mutate(After = str_replace(After, "·", "")) %>% 
+  mutate(After = str_replace(After, "」", "")) %>% 
+  mutate(tok1 =  str_sub(Before, -1,-1)) %>% 
+  mutate(tok3 =  str_sub(After, 1,1)) %>% 
+  rename(tok2 = Match) %>%
+  mutate(bigram = paste0(tok1, tok2))%>%
+  mutate(bigram2 = paste0(tok2, tok3))%>% 
+  mutate(bigram = str_replace_all(bigram, "·", "")) %>% 
+  mutate(bigram = str_replace_all(bigram, "　", "")) %>% 
+  mutate(bigram2 = str_replace_all(bigram2, "。", ""))%>% 
+  mutate(bigram2 = str_replace_all(bigram2, "（", ""))%>% 
+  mutate(bigram2 = str_replace_all(bigram2, "「",""))
+
+# compile all terms 
+
+gong_bigram1 <- gong2 %>% select(-c(bigram2))
+gong_bigram2 <- gong2 %>% select(-c(bigram)) %>% rename(bigram = bigram2)
+gong_all <- bind_rows(gong_bigram1, gong_bigram2)
+
+# count frequencies 
+
+gong_count <- gong_all %>% group_by(bigram) %>% count() 
+
+```
+
+### TF-IDF by period 
+```{r eval = FALSE}
+
+# join with metadata 
+
+gong_period <- left_join(gong_all, meta)
+
+# compute tf-idf by period 
+
+gong_tf_idf_period <- gong_period %>%
+  count(period, bigram) %>%
+  bind_tf_idf(bigram, period, n) %>%
+  arrange(desc(tf_idf))
+
+# Visualize 
+
+gong_tf_idf_period %>%
+  group_by(period) %>%
+  top_n(10, tf_idf) %>%
+  ungroup() %>%
+  mutate(bigram = reorder(bigram, tf_idf)) %>%
+  ggplot(aes(tf_idf, bigram, fill = period)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ period, scales = "free", ncol=3) +
+  labs(x = "tf-idf", y = "term", 
+       title = "Highest tf-idf terms associated with \"公\" in the rotary corpus", 
+       subtitle = "tf-idf by period", 
+       caption = "Based on *Shenbao 申報*")
+```
+
+
+### Collocates
+
+Focus on 公-based terms
+```{r eval = FALSE}
+
+# create list of terms of interest (remove 公司)
+
+gonglist <- gong_count %>% filter(!bigram == "公司")
+
+# select these terms in the list of collocates
+
+gong1 <- token_pairs_filtered %>%
+  filter(item1 == gonglist$bigram)
+gong2 <- token_pairs_filtered %>%
+  filter(item2 == gonglist$bigram)
+gong_cooc <- bind_rows(gong1, gong2)
+
+gong1
+gong_cooc
+
+```
+<br>
+Select most important pairs to include in the network of collocates
+```{r eval = FALSE}
+
+gong_cooc_filtered <- gong_cooc %>% filter(n > 1)
+gong_cooc_node1 <- gong_cooc_filtered %>% select(item1) %>% unique() %>% rename(token = item1)
+gong_cooc_node2 <- gong_cooc_filtered %>% select(item2) %>% unique() %>% rename(token = item2)
+gong_cooc_node_filtered <- bind_rows(gong_cooc_node1, gong_cooc_node2)
+gong_cooc_node_filtered <- gong_cooc_node_filtered %>% unique()
+gong_cooc_node_filtered <- inner_join(gong_cooc_node_filtered, rotary_tokens_count)
+
+```
+<br>
+Build a co-ocurrence network with [igraph](https://r.igraph.org/)
+```{r eval = FALSE} 
+
+library(igraph)
+
+e.list <- gong_cooc_filtered
+v.attr <- gong_cooc_node_filtered
+
+G <- graph.data.frame(e.list, vertices=v.attr, directed=FALSE)
+
+v.size <- V(G)$n
+v.label <- V(G)$name
+E(G)$weight <- E(G)$n
+eigenCent <- evcent(G)$vector
+
+head(eigenCent, 20)
+
+plot(sort(eigenCent, decreasing=TRUE), type="l")
+
+bins <- unique(quantile(eigenCent, seq(0,1,length.out=30)))
+vals <- cut(eigenCent, bins, labels=FALSE, include.lowest=TRUE)
+
+colorVals <- rev(heat.colors(length(bins)))[vals]
+V(G)$color <- colorVals
+
+l <- layout.fruchterman.reingold(G)
+
+
+plot(G, 
+     layout=l,
+     edge.width=E(G)$weight*0.01,
+     vertex.size=v.size*0.01, 
+     vertex.label=v.label,
+     vertex.label.cex=v.size*0.001,
+     vertex.label.color="black", 
+     vertex.label.dist=0.2,
+     vertex.label.family="Arial")
+
+```
+<br>
+Refine network visualization with [tidygraph](https://tidygraph.data-imaginist.com/) and [gggraph](https://github.com/thomasp85/ggraph)
+
+
+```{r eval = FALSE}
+
+library(tidygraph)
+library(ggraph)
+
+tg <- tidygraph::as_tbl_graph(G) %>% activate(nodes) %>% mutate(label=name)
+
+v.size <- V(tg)$n
+E(tg)$weight <- E(tg)$n
+eigenCent <- evcent(tg)$vector
+bins <- unique(quantile(eigenCent, seq(0,1,length.out=30)))
+vals <- cut(eigenCent, bins, labels=FALSE, include.lowest=TRUE)
+colorVals <- rev(heat.colors(length(bins)))[vals]
+
+
+tg %>%
+  ggraph(layout="kk") +
+  geom_edge_link(alpha = .25, colour='white', aes(width = weight)) +
+  geom_node_point(size=5, color=colorVals) +
+  geom_node_text(aes(label = name), repel = TRUE, point.padding = unit(0.2, "lines"), size=5, colour="white") +
+  theme_graph(background = 'grey20')
+
+```
+
+ 
+

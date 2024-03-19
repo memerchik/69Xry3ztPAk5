@@ -1,0 +1,572 @@
+---
+title: "Mapping the Transnational Public Sphere in modern China (Appendix)"
+subtitle: "Tables" 
+author: "Cécile Armand"
+affiliation: Aix-Marseille University
+date: "`r lubridate::today()`"
+tags: [bilingual, press, structural topic modeling, transnational]  
+abstract: |
+  This document contains the tables that summarize the outputs of the structural topic modeling of the public sphere.   
+  
+  <style>
+    body {
+    text-align: justify}
+  </style>
+    
+output: 
+  html_document:
+    toc: true
+    toc_float: 
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    number_sections: false
+    code_folding: show # hide
+    fig_caption: true
+    df_print: paged
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Note on abbreviations*
+PQ = ProQuest, SB = Shenbao. 5T = 5-topic model, 10T = 10-topic model, 20T = 20-topic model. The number immediately following indicates the number of the topic in each topic model. 
+
+# Models Summary
+
+## 5-Topic
+
+### Chinese (Shenbao)
+
+| TopicCode  | **TopicLabel**         | **TopWords**                                                     | **Proportion** | **Proportion%** | **Local** | **Functions** | **Trend**           |
+|------------|------------------------|------------------------------------------------------------------|----------------|-----------------|-----------|---------------|---------------------|
+| **SB5T01** | Children               | 玩具, 兒童, 醫院, 修理, 苦兒, 耶誕, 發起, 貧苦, 放映, 大戲院     |          0.129 | 13%             | Local     | SPONSOR       | Increase (dramatic) |
+| **SB5T02** | International 國際     | 國際, 社員, 代表, 大會, 會員, 天津, 此次, 世界, 該社, 中外       |          0.226 | 23%             | Non-local | ORGANIZATION  | Stable              |
+| **SB5T03** | All Nations 萬國       | 美國, 定於, 本週, 公司, 組織, 今日, 扶輪, 社長, 昨日, 萬國       |          0.201 | 20%             | Non-local | MEETING       | Increase (moderate) |
+| **SB5T04** | Early meetings (1920s) | 舉行, 飯店, 演講, 下午, 十二時, 聚餐, 星期四, 聚餐會, 都城, 中午 |          0.239 | 24%             | Local     | MEETING       | Increase (moderate) |
+| **SB5T05** | Wartime meetings       | 常會, 下午, 總會, 聯華, 乞丐, 大學, 十五日, 二時, 馬路, 四川     |          0.205 | 21%             | Local     | MEETING       | Decline (dramatic)  |
+
+### English (ProQuest)
+
+| TopicCode  | **TopicLabel**                   | **TopWords**                                                                               | **Proportion** | **Proportion%** | **Local** | **Functions** | **Trend**           |
+|------------|----------------------------------|--------------------------------------------------------------------------------------------|----------------|-----------------|-----------|---------------|---------------------|
+| **PQ5T01** | Past tiffins (reports)           | shanghai, president, tiffin, members, meeting, held, yesterday, hotel,   weekly, rotarians |          0.209 | 21%             | Local     | MEETING       | Stable              |
+| **PQ5T02** | Children                         | shanghai, children, hospital, toys, made, school, christmas, work,   committee, russian    |          0.154 | 15%             | Local     | SPONSOR       | Increase (dramatic) |
+| **PQ5T03** | Lectures                         | nanking, address, foreign, said, subject, shanghai, delivered, speech,   told, government  |          0.213 | 21%             | Non-local | FORUM         | Increase (moderate) |
+| **PQ5T04** | Boy scouts                       | shanghai, first, said, international, world, shield, present, work,   local, great         |          0.168 | 17%             | Local     | SPONSOR       | Decrease (moderate) |
+| **PQ5T05** | Upcoming tiffins (announcements) | shanghai, meeting, american, held, hotel, thursday, members, weekly,   next, today         |          0.256 | 26%             | Local     | MEETING       | Decrease (dramatic) |
+
+## 10-Topic
+
+### Chinese (Shenbao)
+
+| TopicCode   | **TopicLabel**        | **TopWords**                                                     | **Proportion** | **Proportion%** | **Functions** | **Local** | **Trend**           |
+|-------------|-----------------------|------------------------------------------------------------------|----------------|-----------------|---------------|-----------|---------------------|
+| **SB10T01** | Tiffins (Metropole)   | 舉行, 飯店, 演講, 美國, 聚餐會, 聚餐, 星期四, 十二時, 昨日, 都城 |          0.157 |           15.7% | MEETING       | Local     | Stable              |
+| **SB10T02** | International 國際    | 國際, 世界, 大會, 演說, 代表, 會員, 組織, 親善, 精神, 日本       |          0.077 |            7.7% | FORUM         | Non-local | Increase (moderate) |
+| **SB10T03** | Speeches              | 社員, 主席, 該社, 組織, 該會, 昨日, 各國, 本埠, 此次, 報告       |          0.081 |            8.1% | FORUM         | Mixed     | Decrease (dramatic) |
+| **SB10T04** | Special events        | 舉行, 天津, 公司, 大會, 盛大, 招待, 本月, 對於, 此次, 出席       |          0.094 |            9.4% | MEETING       | Local     | Decrease (dramatic) |
+| **SB10T05** | Tennis Cup            | 扶輪, 國際, 萬國, 比賽, 社長, 代表, 錦標, 中華, 市長, 參加       |          0.115 |           11.5% | MEETING       | Local     | Decrease (moderate) |
+| **SB10T06** | Children              | 玩具, 兒童, 修理, 苦兒, 醫院, 耶誕, 貧苦, 放映, 徵求, 影片       |          0.067 |            6.7% | SPONSOR       | Local     | Increase (dramatic) |
+| **SB10T07** | District elections    | 討論, 下午, 舉行, 區域, 博士, 年會, 昨日, 團體, 國際, 增加       |          0.051 |            5.1% | ORGANIZATION  | Non-local | Increase (dramatic) |
+| **SB10T08** | Early meetings (1923) | 下午, 總會, 常會, 聯華, 大學, 二時, 馬路, 青年會, 協會, 四川     |          0.131 |           13.1% | MEETING       | Local     | Decrease (dramatic) |
+| **SB10T09** | Beggar camp           | 乞丐, 救世軍, 本報, 工部局, 會議, 本市, 收容所, 希望, 慈善, 問題 |          0.091 |            9.1% | SPONSOR       | Local     | Increase (dramatic) |
+| **SB10T10** | Wartime meetings      | 常會, 本週, 定於, 童子軍, 公司, 八日, 十八日, 十日, 十五日, 五月 |          0.138 |           13.8% | MEETING       | Local     | Increase (dramatic) |
+
+### English (ProQuest)
+
+| TopicCode   | **TopicLabel**          | **TopWords**                                                                                       | **Proportion** | **Proportion%** | **Functions** | **Local** | **Trend**           |
+|-------------|-------------------------|----------------------------------------------------------------------------------------------------|----------------|-----------------|---------------|-----------|---------------------|
+| **PQ10T01** | Elections               | shanghai, president, member, fong, international, secretary,   board, elected, past, harris        |          0.101 |           10.1% | Mixed         | ORGAN     | Decrease (moderate) |
+| **PQ10T02** | Children                | children, hospital, toys, shanghai, christmas, made, funds,   charity, year, building              |          0.087 |            8.7% | Local         | SPONSOR   | Increase (dramatic) |
+| **PQ10T03** | Non-Shanghai Clubs      | nanking, wang, international, foreign, hangchow, district,   affairs, president, special, minister |          0.067 |            6.7% | Non-Local     | ORGAN     | Increase (dramatic) |
+| **PQ10T04** | Social work and workers | work, shanghai, public, committee, community, interest,   relief, church, municipal, service       |          0.099 |            9.9% | Local         | FORUM     | Increase (moderate) |
+| **PQ10T05** | American community      | american, shanghai, states, united, university, america,   addressed, foreign, company, hongkong   |          0.107 |           10.7% | Mixed         | MEET      | Decrease (dramatic) |
+| **PQ10T06** | Boy scouts              | school, shanghai, miss, russian, shield, scouts, ball, troop,   presented, boys                    |          0.078 |            7.8% | Local         | SPONSOR   | Decrease (moderate) |
+| **PQ10T07** | Weekly meetings         | meeting, hotel, held, shanghai, weekly, thursday, tiffin,   metropole, speaker, yesterday          |          0.162 |           16.2% | Local         | MEET      | Increase (moderate) |
+| **PQ10T08** | Special events          | members, tiffin, guests, shanghai, house, astor, rotarians,   party, held, dinner                  |            0.1 |             10% | Local         | MEET      | Decrease (dramatic) |
+| **PQ10T09** | Sino-Japanese relations | address, japan, japanese, government, peking, delivered, last,   members, present, international   |          0.093 |            9.3% | Non-Local     | FORUM     | Stable              |
+| **PQ10T10** | Lectures                | said, shanghai, world, years, address, speech, gave, talk,   members, editor                       |          0.105 |           10.5% | Non-Local     | FORUM     | Stable              |
+
+## 20-Topic
+
+### Chinese (Shenbao)
+
+| TopicCode   | **TopicLabel**             | **TopWords**                                                         | **Proportion** | **Proportion%** | **Local** | **Functions** | **Trend**           |
+|-------------|----------------------------|----------------------------------------------------------------------|----------------|-----------------|-----------|---------------|---------------------|
+| **SB20T01** | 01 - Special events        | 昨日, 本埠, 舉行, 飯店, 報告, 該社, 代表, 中西, 主席, 來賓           |          0.045 |            4.5% | Mixed     | MEETING       | Decline (dramatic)  |
+| **SB20T02** | 02 - International 國際    | 代表, 國際, 出席, 會議, 宗旨, 大會, 親善, 精神, 歡迎, 太平洋         |          0.044 |            4.4% | Non-local | ORGANIZATION  | Stable              |
+| **SB20T03** | 03 - Meetings (brief)      | 演講, 下午, 都城, 飯店, 時間, 聚餐, 事項, 先生, 中午, 十二時         |          0.049 |            4.9% | Local     | MEETING       | Increase (dramatic) |
+| **SB20T04** | 04 - Meetings (program)    | 常會, 本週, 定於, 舉行, 中午, 假座, 五月, 屆時, 星期四, 飯店         |           0.13 |             13% | Local     | MEETING       | Increase (dramatic) |
+| **SB20T05** | 05 - Tennis Cup            | 扶輪, 比賽, 萬國, 錦標, 網球, 中華, 社長, 夫人, 體育, 網球賽         |          0.046 |            4.6% | Local     | MEETING       | Decline (moderate)  |
+| **SB20T06** | 06 - Children (Entertain)  | 玩具, 苦兒, 耶誕, 放映, 影片, 主辦, 電影, 運動, 照例, 公映           |          0.026 |            2.6% | Local     | SPONSOR       | Increase (dramatic) |
+| **SB20T07** | 07 - District elections    | 討論, 區域, 擴大, 一年, 進行, 下午, 博士, 一百, 增加, 成立           |          0.025 |            2.5% | Non-local | ORGANIZATION  | Increase (dramatic) |
+| **SB20T08** | 08 - Early meetings (1923) | 總會, 常會, 下午, 聯華, 八日, 廿八日, 四川, 二時, 廿七日, 十五日     |          0.084 |            8.4% | Local     | MEETING       | Decline (dramatic)  |
+| **SB20T09** | 09 - Boy Scouts            | 中外, 童子軍, 今日, 日本, 席間, 董事, 主席, 紀念, 昨在, 職員         |          0.052 |            5.2% | Local     | SPONSOR       | Increase (moderate) |
+| **SB20T10** | 10 - Poor Russians         | 舉行, 本月, 盛大, 市長, 會員, 大華, 事務, 國際, 飯店, 本埠           |           0.05 |              5% | Local     | SPONSOR       | Decline (moderate)  |
+| **SB20T11** | 11 - Not valid             | 美國, 都城, 飯店, 我國, 掉換, 光明, 各處, 國泰, 擁擠, 靜安寺         |          0.031 |            3.1% | Mixed     | OTHER         | Increase (dramatic) |
+| **SB20T12** | 12 - Children (Hospital)   | 玩具, 兒童, 貧苦, 醫院, 修理, 破舊, 大戲院, 徵求, 各界, 一件         |          0.043 |            4.3% | Local     | SPONSOR       | Increase (dramatic) |
+| **SB20T13** | 13 - Rotary abroad (國際)  | 大會, 國際, 該會, 法國, 成立, 會員, 公司, 主席, 精神, 舉行           |          0.027 |            2.7% | Non-local | ORGANIZATION  | Stable (unique)     |
+| **SB20T14** | 14 - Speeches              | 舉行, 本報, 主席, 美國, 委員會, 社友, 年會, 會員, 馬來, 視察         |          0.041 |            4.1% | Mixed     | FORUM         | Increase (dramatic) |
+| **SB20T15** | 15 - Tianjin Rotary        | 天津, 國際, 香港, 八十一, 學生, 十五日, 此次, 福州, 歡迎, 對於       |          0.044 |            4.4% | Non-local | ORGANIZATION  | Decline (moderate)  |
+| **SB20T16** | 16 - Tiffins (Carlton)     | 聚餐會, 舉行, 飯店, 十二時, 聚餐, 美國, 演講, 星期四, 三十分, 今午   |          0.083 |            8.3% | Local     | MEETING       | Decline (dramatic)  |
+| **SB20T17** | 17 - Beggar Camp           | 乞丐, 救世軍, 工部局, 問題, 委員會, 收容所, 俱樂部, 本市, 租界, 救濟 |           0.06 |              6% | Local     | SPONSOR       | Increase (dramatic) |
+| **SB20T18** | 18 - Hangzhou Rotary       | 下午, 大學, 四時, 八時, 杭州, 十三日, 協會, 華人, 租界, 二時         |           0.05 |              5% | Non-local | ORGANIZATION  | Decline (dramatic)  |
+| **SB20T19** | 19 - Peace resolution      | 社員, 演說, 及其, 各國, 組織, 此次, 發表, 該社, 國際, 團體           |          0.038 |            3.8% | Mixed     | FORUM         | Stable (unique)     |
+| **SB20T20** | 20 - Rotary abroad (世界)  | 世界, 組織, 目的, 各國, 演說, 從事, 英國, 努力, 社員, 親善           |          0.029 |            2.9% | Non-local | ORGANIZATION  | Stable (unique)     |
+
+### English (ProQuest)
+
+| TopicCode   | **TopicLabel**                    | **TopWords**                                                                                      | **Proportion** | **Proportion%** | **Local** | **Functions** | **Trend**            |
+|-------------|-----------------------------------|---------------------------------------------------------------------------------------------------|----------------|-----------------|-----------|---------------|----------------------|
+| **PQ20T01** | 01 - Organization                 | shanghai, president, international, past, fong, member, local,   harris, fitch, george            | 0,04           | 4%              | Non-local | ORGANIZATION  | Stable               |
+| **PQ20T02** | 02 - Children                     | hospital, toys, children, shanghai, christmas, charity, made,   year, funds, ward                 | 0,055          | 6%              | Local     | SPONSOR       | Increase (dramatic)  |
+| **PQ20T03** | 03 - US & East Asia               | foreign, trade, arnold, week, addresses, julean, various,   commercial, members, commissioner     | 0,035          | 4%              | Non-local | FORUM         | Increase (dramatic)  |
+| **PQ20T04** | 04 - Social work and workers      | work, committee, relief, public, shanghai, community,   international, done, interest, service    | 0,051          | 5%              | Local     | FORUM         | Increase (moderate)  |
+| **PQ20T05** | 05 - American community           | american, shanghai, states, united, company, member,   addressed, thursday, university, commerce  | 0,063          | 6%              | Mixed     | MEETING       | Decrease (dramatic)  |
+| **PQ20T06** | 06 - Boy scouts                   | school, shield, scouts, troop, russian, shanghai, president,   jamboree, camp, scout              | 0,031          | 3%              | Local     | SPONSOR       | Decrease (dramatic)  |
+| **PQ20T07** | 07 - Blind school                 | shanghai, road, chang, institution, issue, work, building,   charge, official, appeal             | 0,038          | 4%              | Local     | SPONSOR       | Decrease (dramatic)  |
+| **PQ20T08** | 08 - Weekly tiffins (Metropole)   | hotel, shanghai, meeting, held, weekly, metropole, thursday,   members, yesterday, speaker        | 0,095          | 10%             | Local     | MEETING       | Increase (dramatic)  |
+| **PQ20T09** | 09 - Meetings announcements       | meeting, today, program, speak, regular, held, next, closed,   tomorrow, shang                    | 0,048          | 5%              | Local     | MEETING       | Increase (moderate)  |
+| **PQ20T10** | 10 - Speeches (not valid)         | said, hongkong, recently, well, talk, pacific, institute,   great, read, speech                   | 0,05           | 5%              | Non-local | OTHER         | Increase (moderate)  |
+| **PQ20T11** | 11 - Special events               | members, shanghai, dinner, evening, given, party, clock,   ladies, night, afternoon               | 0,054          | 5%              | Local     | MEETING       | Decrease (dramatic)  |
+| **PQ20T12** | 12 - District conference          | wang, conference, district, hangchow, governor, members,   international, president, tsinan, held | 0,038          | 4%              | Non-local | ORGANIZATION  | Increase (dramatic)  |
+| **PQ20T13** | 13 - Nanking Rotary Club          | nanking, government, national, bureau, affairs, soochow,   special, central, capital, minister    | 0,047          | 5%              | Non-local | ORGANIZATION  | Increase (dramatic)  |
+| **PQ20T14** | 14 - Opinions (not valid)         | address, shanghai, delivered, present, last, speech, editor,   years, subject, history            | 0,076          | 8%              | Non-local | OTHER         | Increase (dramatic)  |
+| **PQ20T15** | 15 - Poor Russians                | miss, shanghai, french, school, russian, children, girls,   society, race, donation               | 0,044          | 4%              | Local     | SPONSOR       | Increase (dramatic)  |
+| **PQ20T16** | 16 - Games/Competitions           | shanghai, meet, international, first, radio, local, team,   tennis, american, presented           | 0,038          | 4%              | Local     | MEETING       | Decrease (moderate)  |
+| **PQ20T17** | 17 - Weekly tiffins (Astor House) | tiffin, meeting, guests, held, address, members, gave, weekly,   yesterday, interesting           | 0,067          | 7%              | Local     | MEETING       | Decrease (dramatic)  |
+| **PQ20T18** | 18 - Tientsin Rotary Club         | tientsin, left, peking, church, meeting, house, astor, union,   service, shanghai                 | 0,04           | 4%              | Non-local | OTHER         | Stable               |
+| **PQ20T19** | 19 - Addresses (not valid)        | japanese, life, rotarians, rotarian, business, members, years,   first, great, said               | 0,044          | 4%              | Non-local | OTHER         | Increase (moderate)  |
+| **PQ20T20** | 20 - Local elections              | president, general, elected, secretary, board, shanghai, year,   meeting, directors, chairman     | 0,046          | 5%              | Local     | ORGANIZATION  | Decrease (moderate)  |
+
+# Cross-model alignement
+
+## Chinese (Shenbao)
+
+| 5TopicCode | **5TopicLabel**        | 10TopicCode | **10TopicLabel**      | 20TopicCode | **20TopicLabel**           |
+|------------|------------------------|-------------|-----------------------|-------------|----------------------------|
+| **SB5T01** | Children               | **SB10T06** | Children              | **SB20T06** | 06 - Children (Entertain)  |
+| **SB5T01** | Children               | **SB10T06** | Children              | **SB20T12** | 12 - Children (Hospital)   |
+| **SB5T02** | International 國際     | **SB10T02** | International 國際    | **SB20T02** | 02 - International 國際    |
+| **SB5T03** | All Nations 萬國       | **SB10T05** | Tennis Cup            | **SB20T05** | 05 - Tennis Cup            |
+| **SB5T04** | Early meetings (1920s) | **SB10T08** | Early meetings (1923) | **SB20T08** | 08 - Early meetings (1923) |
+| **SB5T05** | Wartime meetings       | **SB10T10** | Wartime meetings      | **SB20T03** | 03 - Meetings (brief)      |
+|            |                        | **SB10T01** | Tiffins (Metropole)   | **SB20T04** | 04 - Meetings (program)    |
+|            |                        | **SB10T02** | International 國際    | **SB20T13** | 13 - Rotary abroad (國際)  |
+|            |                        | **SB10T02** | International 國際    | **SB20T20** | 20 - Rotary abroad (世界)  |
+|            |                        | **SB10T03** | Speeches              | **SB20T07** | 07 - District elections    |
+|            |                        | **SB10T03** | Speeches              | **SB20T14** | 14 - Speeches              |
+|            |                        | **SB10T04** | Special events        | **SB20T01** | 01 - Special events        |
+|            |                        | **SB10T09** | Beggar camp           | **SB20T17** | 17 - Beggar Camp           |
+|            |                        |             |                       | **SB20T09** | 09 - Boy Scouts            |
+|            |                        |             |                       | **SB20T10** | 10 - Poor Russians         |
+|            |                        |             |                       | **SB20T11** | 11 - Not valid             |
+|            |                        |             |                       | **SB20T15** | 15 - Tianjin Rotary        |
+|            |                        |             |                       | **SB20T16** | 16 - Tiffins (Carlton)     |
+|            |                        |             |                       | **SB20T18** | 18 - Hangzhou Rotary       |
+|            |                        |             |                       | **SB20T19** | 19 - Peace resolution      |
+
+## English (ProQuest)
+
+| 5TopicCode | **5TopicLabel**                  | 10TopicCode | **10TopicLabel**        | 20TopicCode | **20TopicLabel**                  |
+|------------|----------------------------------|-------------|-------------------------|-------------|-----------------------------------|
+| **PQ5T01** | Past tiffins (reports)           | **PQ10T07** | Weekly meetings         | **PQ20T08** | 08 - Weekly tiffins (Metropole)   |
+| **PQ5T01** | Past tiffins (reports)           | **PQ10T07** | Weekly meetings         | **PQ20T17** | 17 - Weekly tiffins (Astor House) |
+| **PQ5T02** | Children                         | **PQ10T02** | Children                | **PQ20T02** | 02 - Children                     |
+| **PQ5T03** | Lectures                         | **PQ10T09** | Sino-Japanese relations | **PQ20T19** | 19 - Addresses (not valid)        |
+| **PQ5T03** | Lectures                         | **PQ10T10** | Lectures                | **PQ20T10** | 10 - Speeches (not valid)         |
+| **PQ5T04** | Boy scouts                       | **PQ10T06** | Boy scouts              | **PQ20T06** | 06 - Boy scouts                   |
+| **PQ5T05** | Upcoming tiffins (announcements) | **PQ10T07** | Weekly meetings         | **PQ20T09** | 09 - Meetings announcements       |
+|            |                                  | **PQ10T01** | Elections               | **PQ20T01** | 01 - Organization                 |
+|            |                                  | **PQ10T01** | Elections               | **PQ20T12** | 12 - District conference          |
+|            |                                  | **PQ10T01** | Elections               | **PQ20T20** | 20 - Local elections              |
+|            |                                  | **PQ10T03** | Non-Shanghai Clubs      | **PQ20T13** | 13 - Nanking Rotary Club          |
+|            |                                  | **PQ10T03** | Non-Shanghai Clubs      | **PQ20T18** | 18 - Tientsin Rotary Club         |
+|            |                                  | **PQ10T04** | Social work and workers | **PQ20T04** | 04 - Social work and workers      |
+|            |                                  | **PQ10T05** | American community      | **PQ20T05** | 05 - American community           |
+|            |                                  | **PQ10T08** | Special events          | **PQ20T11** | 11 - Special events               |
+|            |                                  |             |                         | **PQ20T03** | 03 - US & East Asia               |
+|            |                                  |             |                         | **PQ20T07** | 07 - Blind school                 |
+|            |                                  |             |                         | **PQ20T14** | 14 - Opinions (not valid)         |
+|            |                                  |             |                         | **PQ20T15** | 15 - Poor Russians                |
+|            |                                  |             |                         | **PQ20T16** | 16 - Games/Competitions           |
+
+# Cross-lingual alignment
+
+## 5-Topic
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-7btt" colspan="2">CHINESE   PRESS (SHENBAO)</th>
+    <th class="tg-7btt" colspan="2">ENGLISH PRESS   (PROQUEST)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-fymr">SB5T01</td>
+    <td class="tg-0pky">Children</td>
+    <td class="tg-fymr">PQ5T02</td>
+    <td class="tg-0pky">Children</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">SB5T02</td>
+    <td class="tg-0pky">International 國際</td>
+    <td class="tg-fymr"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">SB5T03</td>
+    <td class="tg-0pky">All Nations 萬國</td>
+    <td class="tg-fymr"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">SB5T04</td>
+    <td class="tg-0pky">Early meetings (1920s)</td>
+    <td class="tg-fymr">PQ5T01</td>
+    <td class="tg-0pky">Past tiffins (reports)</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">SB5T04</td>
+    <td class="tg-0pky">Early meetings (1920s)</td>
+    <td class="tg-fymr">PQ5T05</td>
+    <td class="tg-0pky">Upcoming tiffins (announcements)</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">SB5T05</td>
+    <td class="tg-0pky">Wartime meetings</td>
+    <td class="tg-fymr">PQ5T01</td>
+    <td class="tg-0pky">Past tiffins (reports)</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">SB5T05</td>
+    <td class="tg-0pky">Wartime meetings</td>
+    <td class="tg-fymr">PQ5T05</td>
+    <td class="tg-0pky">Upcoming tiffins (announcements)</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-fymr">PQ5T03</td>
+    <td class="tg-0pky">Lectures</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-fymr">PQ5T04</td>
+    <td class="tg-0pky">Boy scouts</td>
+  </tr>
+</tbody>
+</table>
+
+## 10-Topic
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-bobw{font-weight:bold;text-align:center;vertical-align:bottom}
+.tg .tg-j6zm{font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-bobw" colspan="2">CHINESE PRESS (SHENBAO)</th>
+    <th class="tg-bobw" colspan="2">ENGLISH PRESS (PROQUEST)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-j6zm">SB10T06</td>
+    <td class="tg-7zrl">Children</td>
+    <td class="tg-j6zm">PQ10T02</td>
+    <td class="tg-7zrl">Children</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T07</td>
+    <td class="tg-7zrl">District elections</td>
+    <td class="tg-j6zm">PQ10T01</td>
+    <td class="tg-7zrl">Elections</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T04</td>
+    <td class="tg-7zrl">Special events</td>
+    <td class="tg-j6zm">PQ10T08</td>
+    <td class="tg-7zrl">Special events</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T010</td>
+    <td class="tg-7zrl">Tennis Cup</td>
+    <td class="tg-j6zm">PQ10T08</td>
+    <td class="tg-7zrl">Special events</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T08</td>
+    <td class="tg-7zrl">Early meetings (1923)</td>
+    <td class="tg-j6zm">PQ10T07</td>
+    <td class="tg-7zrl">Weekly meetings</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T01</td>
+    <td class="tg-7zrl">Tiffins (Metropole)</td>
+    <td class="tg-j6zm">PQ10T07</td>
+    <td class="tg-7zrl">Weekly meetings</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T10</td>
+    <td class="tg-7zrl">Wartime meetings</td>
+    <td class="tg-j6zm">PQ10T07</td>
+    <td class="tg-7zrl">Weekly meetings</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T03</td>
+    <td class="tg-7zrl">Speeches</td>
+    <td class="tg-j6zm">PQ5T10</td>
+    <td class="tg-7zrl">Lectures</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T03</td>
+    <td class="tg-7zrl">Speeches</td>
+    <td class="tg-j6zm">PQ10T09</td>
+    <td class="tg-7zrl">Sino-Japanese relations</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T02</td>
+    <td class="tg-7zrl">International 國際</td>
+    <td class="tg-j6zm">PQ10T09</td>
+    <td class="tg-7zrl">Sino-Japanese relations</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T09</td>
+    <td class="tg-7zrl">Beggar camp</td>
+    <td class="tg-j6zm">PQ10T04</td>
+    <td class="tg-7zrl">Social work and workers</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB10T02</td>
+    <td class="tg-7zrl">International 國際</td>
+    <td class="tg-j6zm">PQ10T05</td>
+    <td class="tg-7zrl">American community</td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ10T03</td>
+    <td class="tg-7zrl">Non-Shanghai Clubs</td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ10T06</td>
+    <td class="tg-7zrl">Boy scouts</td>
+  </tr>
+</tbody>
+</table>
+
+## 20-Topic
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-bobw{font-weight:bold;text-align:center;vertical-align:bottom}
+.tg .tg-j6zm{font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-bobw" colspan="2">CHINESE PRESS (SHENBAO)</th>
+    <th class="tg-bobw" colspan="2">ENGLISH PRESS (PROQUEST)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-j6zm">SB20T01</td>
+    <td class="tg-7zrl">01 - Special events</td>
+    <td class="tg-j6zm">PQ20T11</td>
+    <td class="tg-7zrl">11 - Special events</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T02</td>
+    <td class="tg-7zrl">02 - International 國際</td>
+    <td class="tg-j6zm">PQ20T01</td>
+    <td class="tg-7zrl">01 - Organization</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T03</td>
+    <td class="tg-7zrl">03 - Meetings (brief)</td>
+    <td class="tg-j6zm">PQ20T09</td>
+    <td class="tg-7zrl">09 - Meetings announcements</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T04</td>
+    <td class="tg-7zrl">04 - Meetings (program)</td>
+    <td class="tg-j6zm">PQ20T08</td>
+    <td class="tg-7zrl">08 - Weekly tiffins (Metropole)</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T05</td>
+    <td class="tg-7zrl">05 - Tennis Cup</td>
+    <td class="tg-j6zm">PQ20T16</td>
+    <td class="tg-7zrl">16 - Games/Competitions</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T06</td>
+    <td class="tg-7zrl">06 - Children (Entertain)</td>
+    <td class="tg-j6zm">PQ20T02</td>
+    <td class="tg-7zrl">02 - Children</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T07</td>
+    <td class="tg-7zrl">07 - District elections</td>
+    <td class="tg-j6zm">PQ20T12</td>
+    <td class="tg-7zrl">12 - District conference</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T07</td>
+    <td class="tg-7zrl">07 - District elections</td>
+    <td class="tg-j6zm">PQ20T20</td>
+    <td class="tg-7zrl">20 - Local elections</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T08</td>
+    <td class="tg-7zrl">08 - Early meetings (1923)</td>
+    <td class="tg-j6zm">PQ20T09</td>
+    <td class="tg-7zrl">09 - Meetings announcements</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T09</td>
+    <td class="tg-7zrl">09 - Boy Scouts</td>
+    <td class="tg-j6zm">PQ20T06</td>
+    <td class="tg-7zrl">06 - Boy scouts</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T10</td>
+    <td class="tg-7zrl">10 - Poor Russians</td>
+    <td class="tg-j6zm">PQ20T15</td>
+    <td class="tg-7zrl">15 - Poor Russians</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T11</td>
+    <td class="tg-7zrl">11 - Not valid</td>
+    <td class="tg-j6zm">PQ20T10</td>
+    <td class="tg-7zrl">10 - Speeches (not valid)</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T11</td>
+    <td class="tg-7zrl">11 - Not valid</td>
+    <td class="tg-j6zm">PQ20T14</td>
+    <td class="tg-7zrl">14 - Opinions (not valid)</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T11</td>
+    <td class="tg-7zrl">11 - Not valid</td>
+    <td class="tg-j6zm">PQ20T19</td>
+    <td class="tg-7zrl">19 - Addresses (not valid)</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T12</td>
+    <td class="tg-7zrl">12 - Children (Hospital)</td>
+    <td class="tg-j6zm">PQ20T02</td>
+    <td class="tg-7zrl">02 - Children</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T13</td>
+    <td class="tg-7zrl">13 - Rotary abroad (國際)</td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T14</td>
+    <td class="tg-7zrl">14 - Speeches</td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T15</td>
+    <td class="tg-7zrl">15 - Tianjin Rotary</td>
+    <td class="tg-j6zm">PQ20T18</td>
+    <td class="tg-7zrl">18 - Tientsin Rotary Club</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T16</td>
+    <td class="tg-7zrl">16 - Tiffins (Carlton)</td>
+    <td class="tg-j6zm">PQ20T17</td>
+    <td class="tg-7zrl">17 - Weekly tiffins (Astor House)</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T17</td>
+    <td class="tg-7zrl">17 - Beggar Camp</td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T18</td>
+    <td class="tg-7zrl">18 - Hangzhou Rotary</td>
+    <td class="tg-j6zm">PQ20T13</td>
+    <td class="tg-7zrl">13 - Nanking Rotary Club</td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T19</td>
+    <td class="tg-7zrl">19 - Peace resolution</td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-j6zm">SB20T20</td>
+    <td class="tg-7zrl">20 - Rotary abroad (世界)</td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ20T03</td>
+    <td class="tg-7zrl">03 - US &amp; East Asia</td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ20T04</td>
+    <td class="tg-7zrl">04 - Social work and workers</td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ20T05</td>
+    <td class="tg-7zrl">05 - American community</td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ20T07</td>
+    <td class="tg-7zrl">07 - Blind school</td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-j6zm">PQ20T13</td>
+    <td class="tg-7zrl">13 - Nanking Rotary Club</td>
+  </tr>
+</tbody>
+</table>
