@@ -1,6 +1,6 @@
 ---
 title: "Shaping the Transnational Public Sphere in the Chinese press (revisions)"
-author: "Cécile Armand"
+author: 
 date: "`r lubridate::today()`"
 tags: [bilingual, press, structural topic modeling, transnational]  
 abstract: |
@@ -24,7 +24,7 @@ output:
     df_print: paged
 ---
 
-```{r setup, include=FALSE, eval = FALSE}
+```{r setup, include=FALSE, eval=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
@@ -42,7 +42,7 @@ library(sf)
 
 Select the documents that contain at least 0.02% of topic 2, 0.01% of topic 3, and 0.02% of topic 10 in the 10-topic model (368 documents). 
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 library(tidyverse)
 
@@ -59,7 +59,7 @@ docall <- unique(docall) # 368 articles
 ## Refining text units (Step 2) 
 
 Retrieve the full text of documents from the *Shenbao* corpus (pre-tokenized version) using [histtext](https://bookdown.enpchina.eu/HistText_Book/query-functions.html#full-text-retrieval) and compute the length of articles (number of tokens) to filter articles of sufficient length (those that contain at least 10 tokens). 345 articles remain. 
-```{r eval = FALSE}
+```{r eval=FALSE}
 library(histtext)
 library(quanteda)
 
@@ -73,12 +73,12 @@ docall_ft <- docall_ft %>% filter(length >10) # 345 articles
 ```
 <br>
 The revised Chinese corpus contains a total of 345 articles. Next, we export the dataset to extract the relevant news items from mixed-content articles: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 write.csv(docall_ft, "docall_ft.csv")
 ```
 <br>
 We re-import the dataset of properly segmented articles, which will be used for topic modeling: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 library(readr)
 revised_zh <- read_delim("revised_zh.csv", 
                          delim = ";", escape_double = FALSE, trim_ws = TRUE)
@@ -87,7 +87,7 @@ revised_zh <- read_delim("revised_zh.csv",
 Next, we create a customized list of stopwords to remove to improve the results of topic modeling. 
 
 First, we retrieve the individual tokens using [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html). Additionally, we compute their length and their frequency to select the tokens that contains at least 2 characters and appear more than 10 times in the corpus. In the final line, we export this preliminary list for manual refinement in Excel: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 library(tidytext)
 
 token <- revised_zh %>% select(DocId, tokenized)
@@ -104,7 +104,7 @@ write.csv(stop_word, "stop_word.csv")
 ```
 <br>
 Finally, we re-import the manually refined list and we transform it into a vector to be used when building topic model:
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # import selected stop words
 library(readr)
@@ -119,7 +119,7 @@ stopvec<-unlist(stopvec)
 ## Time-based topic modelling (Step 3)
 
 Define time windows
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 revised_eng %>% group_by(period) %>% count()
 
@@ -134,7 +134,7 @@ p3 <- revised_zh %>% filter(period == "1938-1949") # 142 articles
 In the following, we focus on period 1. The same method was applied to the two later periods. To avoid repetition, we do not replicate the code. </div>
 
 Build a 5-topic model using [stm](https://www.structuraltopicmodel.com/):  
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # select metadata
 
@@ -168,12 +168,12 @@ mod.5 <- stm::stm(out$documents,
 ```
 <br>
 Estimate the effect of time (year) on topic prevalence: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 year5 <- stm::estimateEffect(1:5 ~ year, mod.5, meta=out$meta)
 ```
 <br>
 Explore the topics
-```{r eval = FALSE}
+```{r eval=FALSE}
 plot.STM(mod.5,"summary", n=5)
 ```
 <br>
@@ -183,18 +183,18 @@ plot.STM(mod.5,"summary", n=5)
 This section explains how to cluster documents based on their topic proportions using Principal Component Analysis (PCA) and Hierarchical Clustering (HCPC).
 
 Extract topic proportions: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 topicprop5<-make.dt(mod.5, meta)
 ```
 <br>
 Prepare the data for PCA: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 pca5 <- topicprop5 %>% select(DocId, Topic1, Topic2, Topic3, Topic4, Topic5)
 pca5 <- pca5 %>% column_to_rownames("DocId")
 ```
 <br>
 Load the [FactoMineR](http://factominer.free.fr/) package and run PCA and HCPC functions: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 library(FactoMineR)
 
 res.PCA<-PCA(pca5,graph=FALSE)
@@ -203,13 +203,13 @@ res.HCPC<-HCPC(res.PCA,nb.clust=5,consol=FALSE,graph=FALSE)
 
 <br> 
 Optionally, plot the results of PCA and HCPC: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 plot.PCA(res.PCA,choix='var',title="PCA graph of variables (topic proportions)")
 plot.PCA(res.PCA,title="PCA graph of individuals (documents)")
 ```
 <br> 
 Extract and relabel topical clusters
-```{r eval = FALSE}
+```{r eval=FALSE}
 # extract clusters 
 pca_clusters <- as.data.frame(res.HCPC$data.clust)
 pca_clusters <- rownames_to_column(pca_clusters, "DocId") %>% select(DocId, clust) %>% rename(clust5 = clust)
@@ -222,7 +222,7 @@ pca_clusters <- pca_clusters %>% mutate (label5 = fct_recode(clust5, "Internatio
 ```
 <br> 
 Join clusters with other metadata: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 pca_clusters_meta <- left_join(pca_clusters, meta)
 ```
 
@@ -234,7 +234,7 @@ In the following, we focus on period 1. The same method was applied to the two l
 Extract named entities using histtext [ner_on_df](https://bookdown.enpchina.eu/HistText_Book/named-entity-recognition-ner.html#ner-on-external-documents) function. We applied different models depending on the category of entities. For persons, we applied the model specifically designed for retrieving persons' names, taking into account inserted titles, incomplete names, and co-references. For organizations and locations, we applied the generic spaCy model finely tuned for historical texts in Chinese. More information on these models are available in the [HistText Manual](https://bookdown.enpchina.eu/HistText_Book/named-entity-recognition-ner.html). For more technical details, please refer to Baptiste Blouin's research papers ([Blouin and Magistry, 2020](https://aclanthology.org/2020.paclic-1.1/); [Blouin et al., 2021](https://aclanthology.org/2021.nlp4dh-1.18.pdf)). 
 
 Extract names of persons: 
-```{r eval=FALSE }
+```{r eval=FALSE}
 
 library(histtext)
 p1_pers <- ner_on_df(p1, "Text", id_column="DocId", model = "trftc_person_4class:zh:ner") # 314 names
@@ -242,7 +242,7 @@ p1_pers <- ner_on_df(p1, "Text", id_column="DocId", model = "trftc_person_4class
 ```
 <br>
 Extract other entities and select the entities of interest (organizations and locations): 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 p1_ner <- ner_on_df(p1, "Text", id_column="DocId", model = "spacy:zh:ner")
 p1_org <- p1_ner %>% filter(Type == "ORG") # 352 ORGANIZATIONS
@@ -253,7 +253,7 @@ p1_loc <- p1_ner %>% filter(Type %in% c("LOC", "GPE")) # 229 LOC/GPE
 ### Persons 
 
 The returns a list of names organized into four categories: full names (full), co-references (ref), incomplete names (incomplete), and names with titles (title). For this research, we chose to focus on full names and we compute their frequency to have a preliminary list of the most prominent persons. 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 p1_pers_full <- p1_pers %>% filter(Type == "Full") %>% distinct(DocId, Text) 
 
@@ -264,7 +264,7 @@ p1_top_pers <- p1_pers_full %>% distinct(Text, n)
 ```
 <br>
 Build a two-mode network linking persons and the documents in which they are mentioned: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # create edge list from list of documents and persons
 
@@ -319,7 +319,7 @@ plot(G,
 ### Organizations 
 
 Data cleaning of organizations. 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # atomize list of names 
 
@@ -382,7 +382,7 @@ write.csv(p1_node_org, "p1zh_org_node.csv")
 ### Locations 
 
 Atomize list, count length and frequency, and export for further processing: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 p1_loc <- p1_loc %>% separate_rows(Text, sep = "·", convert = FALSE) %>% 
   mutate(length = nchar(Text)) %>% 
@@ -396,7 +396,7 @@ write.csv(p1_p1_locloc_zh, "p1_loc.csv")
 # Mapping the Public Sphere (Part 3)
 
 ## Countries
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # load locations data 
 
@@ -463,7 +463,7 @@ leaflet(loc_map_country_zh_sf) %>%
 
 ## Cities
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # create city data
 
@@ -561,7 +561,7 @@ loc_map_city_zh_mean %>%
 ### Concordance 
 
 Retrieve 國-based terms using concordance: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # load packages
 
@@ -626,7 +626,7 @@ guo_count <- guo_all %>% group_by(bigram) %>% count()
 ```
 
 ### TF-IDF by period 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # join with metadata 
 
@@ -659,7 +659,7 @@ guo_tf_idf_period %>%
 ### Collocates
 
 Prepare text data
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # extract and count tokens
 
@@ -695,7 +695,7 @@ token_pairs_filtered <- token_pairs %>% rename(token = item1) %>%
 
 <br>
 Focus on 國-based terms
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # create list of terms of interest 
 
@@ -712,7 +712,7 @@ guo_cooc <- bind_rows(guo1, guo2)
 ```
 <br>
 Select most important pairs to include in the network of collocates
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 guo_cooc_filtered <- guo_cooc %>% filter(n > 2)
 guo_cooc_node1 <- guo_cooc_filtered %>% select(item1) %>% unique() %>% rename(token = item1)
@@ -724,7 +724,7 @@ guo_cooc_node_filtered <- inner_join(guo_cooc_node_filtered, rotary_tokens_count
 ```
 <br>
 Build a co-ocurrence network with [igraph](https://r.igraph.org/)
-```{r eval = FALSE} 
+```{r eval=FALSE}
 
 library(igraph)
 
@@ -764,7 +764,7 @@ plot(G,
 ```
 <br>
 Refine network visualization with [tidygraph](https://tidygraph.data-imaginist.com/) and [gggraph](https://github.com/thomasp85/ggraph)
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 library(tidygraph)
 library(ggraph)
@@ -794,7 +794,7 @@ tg %>%
 ### Concordance 
 
 Retrieve 公-based terms using concordance: 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # load packages
 
@@ -859,7 +859,7 @@ gong_count <- gong_all %>% group_by(bigram) %>% count()
 ```
 
 ### TF-IDF by period 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # join with metadata 
 
@@ -892,7 +892,7 @@ gong_tf_idf_period %>%
 ### Collocates
 
 Focus on 公-based terms
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 # create list of terms of interest (remove 公司)
 
@@ -912,7 +912,7 @@ gong_cooc
 ```
 <br>
 Select most important pairs to include in the network of collocates
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 gong_cooc_filtered <- gong_cooc %>% filter(n > 1)
 gong_cooc_node1 <- gong_cooc_filtered %>% select(item1) %>% unique() %>% rename(token = item1)
@@ -924,7 +924,7 @@ gong_cooc_node_filtered <- inner_join(gong_cooc_node_filtered, rotary_tokens_cou
 ```
 <br>
 Build a co-ocurrence network with [igraph](https://r.igraph.org/)
-```{r eval = FALSE} 
+```{r eval=FALSE}
 
 library(igraph)
 
@@ -966,7 +966,7 @@ plot(G,
 Refine network visualization with [tidygraph](https://tidygraph.data-imaginist.com/) and [gggraph](https://github.com/thomasp85/ggraph)
 
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 
 library(tidygraph)
 library(ggraph)

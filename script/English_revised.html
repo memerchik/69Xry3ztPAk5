@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Cécile Armand" />
+<meta name="author" content="Anonym" />
 
 <meta name="date" content="2024-01-27" />
 
@@ -2866,7 +2866,7 @@ font-size: 0.95em;
 
 <h1 class="title toc-ignore">Shaping the Transnational Public Sphere in
 the English press (revisions)</h1>
-<h4 class="author">Cécile Armand</h4>
+<h4 class="author">Anonym</h4>
 <h4 class="date">2024-01-27</h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
@@ -2914,15 +2914,15 @@ doc3 &lt;- topicprop5 %&gt;% filter(Topic3 &gt; 0.11)  # 1256</code></pre>
 <h2>Refining text units (Step 2)</h2>
 <p>Focus on “feature” articles and remove non-relevant genres of
 articles (984 documents remain)</p>
-<pre class="r"><code>doc3_filtered &lt;- doc3 %&gt;% filter(!category %in% c(&quot;Image/Photograph&quot;, &quot;Obituary&quot;, &quot;Stock Quote&quot;)) %&gt;% filter(!DocId == &quot;1420033734&quot;) 
+<pre class="r"><code>doc3_filtered &lt;- doc3 %&gt;% filter(!category %in% c(&quot;Image/Photograph&quot;, &quot;Obituary&quot;, &quot;Stock Quote&quot;)) %&gt;% filter(!DocId == &quot;1420033734&quot;)
 
 doc_to_remove &lt;- doc3_filtered %&gt;%
   filter(
     str_detect(Title, &quot;No Title|Brevities|BREVITIES|Men and Events|Notes|NOTES&quot;)
-  ) %&gt;% 
-  filter(!category == (&quot;Editorial, Commentary&quot;)) %&gt;% 
-  filter(!category == (&quot;Letter to the Editor, Correspondence&quot;)) %&gt;% 
-  filter(!DocId == &quot;1371424827&quot;) # 257 brevities to remove 
+  ) %&gt;%
+  filter(!category == (&quot;Editorial, Commentary&quot;)) %&gt;%
+  filter(!category == (&quot;Letter to the Editor, Correspondence&quot;)) %&gt;%
+  filter(!DocId == &quot;1371424827&quot;) # 257 brevities to remove
 
 doc3_filtered &lt;- doc3_filtered %&gt;% filter(!DocId %in% doc_to_remove$DocId)
 
@@ -2944,10 +2944,10 @@ articles</p>
 list, and compile the two datasets to reconstitute the complete corpus
 with properly segmented news items:</p>
 <pre class="r"><code>library(readr)
-doc3_short &lt;- read_delim(&quot;doc3_short.csv&quot;, 
+doc3_short &lt;- read_delim(&quot;doc3_short.csv&quot;,
                          delim = &quot;;&quot;, escape_double = FALSE, trim_ws = TRUE)
 
-# remove these articles from the main list 
+# remove these articles from the main list
 
 doc3_filtered &lt;- doc3_ft %&gt;% filter(!DocId %in% doc3_short$DocId)
 
@@ -2965,14 +2965,14 @@ the results of topic modeling.</p>
 
 token &lt;- revised_eng %&gt;% select(DocId, Text)
 
-token &lt;- token %&gt;% 
-  unnest_tokens(output = token, input = Text) 
+token &lt;- token %&gt;%
+  unnest_tokens(output = token, input = Text)
 
 token_count &lt;- token %&gt;% group_by(token) %&gt;% count() %&gt;% mutate(length = nchar(token))</code></pre>
 <p><br> Next, we create a preliminary list of stopwords by filtering
 tokens which appeared at least twice and contains at least 5 characters,
 and by removing non alphabetical characters (digits).</p>
-<pre class="r"><code>stopwords &lt;- token_count %&gt;% filter(length&gt;4) %&gt;% filter(n &gt;1) %&gt;% 
+<pre class="r"><code>stopwords &lt;- token_count %&gt;% filter(length&gt;4) %&gt;% filter(n &gt;1) %&gt;%
   filter(!grepl(&quot;[[:digit:]]&quot;, token)) # remove digits</code></pre>
 <p><br> We export the raw list for manual refinement in Excel, we
 re-import the manually refined list and we transform it into a vector
@@ -2988,16 +2988,16 @@ stopvec&lt;-unlist(stopvec)</code></pre>
 <pre class="r"><code># create variable for years
 
 revised_eng &lt;- revised_eng %&gt;%
-  mutate(Year = stringr::str_sub(Date,0,4)) %&gt;% 
+  mutate(Year = stringr::str_sub(Date,0,4)) %&gt;%
   mutate(Year = as.numeric(Year))
 
 # create variable for periods
 
-revised_eng$period &lt;- cut(revised_eng$Year, breaks = c(1919, 1929, 1937, 1948), 
-                                label = c(&quot;1919-1929&quot;, &quot;1930-1937&quot;, &quot;1938-1948&quot;), 
-                                include.lowest = TRUE) 
+revised_eng$period &lt;- cut(revised_eng$Year, breaks = c(1919, 1929, 1937, 1948),
+                                label = c(&quot;1919-1929&quot;, &quot;1930-1937&quot;, &quot;1938-1948&quot;),
+                                include.lowest = TRUE)
 
-# filter by period 
+# filter by period
 
 revised_eng %&gt;% group_by(period) %&gt;% count()
 
@@ -3016,32 +3016,32 @@ code.
 meta &lt;- p1 %&gt;%  transmute(DocId, Title, Source, category, Date, Year, length)
 meta &lt;- as.data.frame(meta)
 
-# create stm corpus object 
+# create stm corpus object
 
 corpus &lt;- stm::textProcessor(p1$Text,
-                             metadata = meta, 
-                             stem = FALSE, 
-                             wordLengths = c(5, Inf), 
-                             verbose = FALSE, 
+                             metadata = meta,
+                             stem = FALSE,
+                             wordLengths = c(5, Inf),
+                             verbose = FALSE,
                              customstopwords = stopvec)
 
 stm::plotRemoved(corpus$documents, lower.thresh = c(0,10, by=5))
 
-# chose 5 as the threshold for minimum frequency 
+# chose 5 as the threshold for minimum frequency
 
-out &lt;- stm::prepDocuments(corpus$documents, 
-                          corpus$vocab, 
-                          corpus$meta, 
+out &lt;- stm::prepDocuments(corpus$documents,
+                          corpus$vocab,
+                          corpus$meta,
                           lower.thresh = 5)
-# 10562 of 11702 terms (17079 of 30220 tokens) are removed due to frequency. 
+# 10562 of 11702 terms (17079 of 30220 tokens) are removed due to frequency.
 # The corpus now has 184 documents, 1140 terms and 13141 tokens.
 
-# build the 5-topic model 
+# build the 5-topic model
 
-mod.5 &lt;- stm::stm(out$documents, 
-                  out$vocab, K=5, 
-                  data=out$meta, 
-                  prevalence =~ Year + Source + category, 
+mod.5 &lt;- stm::stm(out$documents,
+                  out$vocab, K=5,
+                  data=out$meta,
+                  prevalence =~ Year + Source + category,
                   verbose = FALSE)</code></pre>
 <p><br> Estimate the effects of time (year) and source (periodical) on
 topic prevalence:</p>
@@ -3073,10 +3073,10 @@ plot.PCA(res.PCA,title=&quot;PCA graph of individuals (documents)&quot;)</code><
 <p><br> Extract and relabel topical clusters</p>
 <pre class="r"><code>pca_clusters &lt;- as.data.frame(res.HCPC$data.clust)
 pca_clusters &lt;- rownames_to_column(pca_clusters, &quot;DocId&quot;) %&gt;% select(DocId, clust) %&gt;% rename(clust5 = clust)
-pca_clusters &lt;- pca_clusters %&gt;% mutate (label5 = fct_recode(clust5, &quot;American education&quot; = &quot;1&quot;, 
-                                                             &quot;Pacific relations&quot; = &quot;2&quot;, 
-                                                             &quot;Water conservancy and public health&quot; = &quot;3&quot;, 
-                                                             &quot;Labor, industry, and Soviet Russia&quot; = &quot;4&quot;, 
+pca_clusters &lt;- pca_clusters %&gt;% mutate (label5 = fct_recode(clust5, &quot;American education&quot; = &quot;1&quot;,
+                                                             &quot;Pacific relations&quot; = &quot;2&quot;,
+                                                             &quot;Water conservancy and public health&quot; = &quot;3&quot;,
+                                                             &quot;Labor, industry, and Soviet Russia&quot; = &quot;4&quot;,
                                                              &quot;International peace&quot; = &quot;5&quot;))</code></pre>
 <p><br> Join clusters with other metadata:</p>
 <pre class="r"><code>pca_clusters_meta &lt;- left_join(pca_clusters, meta)</code></pre>
@@ -3106,25 +3106,25 @@ title case:</p>
   mutate(Text_clean = str_replace(Text_clean,&quot;- &quot;,&quot;&quot;)) %&gt;%
   mutate(Text_clean = str_replace(Text_clean,&quot; -&quot;,&quot;&quot;)) %&gt;%
   mutate(Text_clean = str_squish(Text_clean))  %&gt;%
-  mutate(Text_clean = str_remove_all(Text_clean, &quot;&#39;s&quot;))%&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean, &quot;^\\.&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot;^\\--&quot;, &quot;&quot;))%&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot;^\\-&quot;, &quot;&quot;))%&gt;% 
+  mutate(Text_clean = str_remove_all(Text_clean, &quot;&#39;s&quot;))%&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean, &quot;^\\.&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot;^\\--&quot;, &quot;&quot;))%&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot;^\\-&quot;, &quot;&quot;))%&gt;%
   mutate(Text_clean2 = str_replace(Text_clean2, &quot;^\\&#39;&quot;, &quot;&quot;))%&gt;%
-  mutate(Text_clean2 = str_squish(Text_clean2)) %&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\&#39;&#39;$&quot;, &quot;&quot;))%&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\&#39;$&quot;, &quot;&quot;))%&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\--$&quot;, &quot;&quot;)) %&gt;% 
+  mutate(Text_clean2 = str_squish(Text_clean2)) %&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\&#39;&#39;$&quot;, &quot;&quot;))%&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\&#39;$&quot;, &quot;&quot;))%&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\--$&quot;, &quot;&quot;)) %&gt;%
   mutate(Text_clean2 = str_replace(Text_clean2, &quot;\\-$&quot;, &quot;&quot;))%&gt;%
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot; &#39;R&quot;, &quot; R&quot;))%&gt;% 
-  mutate(Text_clean2 = str_remove_all(Text_clean2, &quot;&#39;&#39;&quot;)) %&gt;% 
-  mutate(Text_clean2 = str_replace_all(Text_clean2, &quot; &#39;&quot;, &quot; &quot;)) %&gt;% 
-  mutate(Text_clean2 = str_replace_all(Text_clean2, &quot;&#39; &quot;, &quot; &quot;))%&gt;% 
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot; &#39;R&quot;, &quot; R&quot;))%&gt;%
+  mutate(Text_clean2 = str_remove_all(Text_clean2, &quot;&#39;&#39;&quot;)) %&gt;%
+  mutate(Text_clean2 = str_replace_all(Text_clean2, &quot; &#39;&quot;, &quot; &quot;)) %&gt;%
+  mutate(Text_clean2 = str_replace_all(Text_clean2, &quot;&#39; &quot;, &quot; &quot;))%&gt;%
   mutate(Text_clean2 = str_replace_all(Text_clean2, &quot; . &quot;, &quot; &quot;))%&gt;%
   mutate(Text_clean2 = str_to_title(Text_clean2)) </code></pre>
 <p><br> Remove titles (Dr, Mr)</p>
-<pre class="r"><code>p1_pers_eng &lt;- p1_pers_eng %&gt;% 
-  mutate(Text_clean2 = str_replace(Text_clean2, &quot;Dr &quot;, &quot;&quot;))%&gt;% 
+<pre class="r"><code>p1_pers_eng &lt;- p1_pers_eng %&gt;%
+  mutate(Text_clean2 = str_replace(Text_clean2, &quot;Dr &quot;, &quot;&quot;))%&gt;%
   filter(!Text_clean2 %in% c(&quot;Mr&quot;, &quot;Dr&quot;))</code></pre>
 <p><br> Replace empty strings with NA and remove NA values:</p>
 <pre class="r"><code># replace empty strings by NA
@@ -3137,16 +3137,16 @@ p1_pers_eng &lt;- p1_pers_eng %&gt;% drop_na(Text_clean2)</code></pre>
 <p><br> Compute basic statistics to assist further data cleaning:</p>
 <pre class="r"><code># measure text length to identify anomalies and eliminate persons names that contain less than 2 characters
 
-p1_pers_eng &lt;- p1_pers_eng %&gt;%  
+p1_pers_eng &lt;- p1_pers_eng %&gt;%
   mutate(length = nchar(Text_clean2)) %&gt;%
   filter(length &gt;1)
 
-# count names frequency 
+# count names frequency
 
 p1_pers_eng &lt;- p1_pers_eng %&gt;%
   group_by(Text_clean2) %&gt;% add_tally()
 
-# count number of tokens to identify compound names or incomplete names   
+# count number of tokens to identify compound names or incomplete names
 
 p1_pers_eng &lt;- p1_pers_eng %&gt;% mutate(token = ntoken(Text_clean2))</code></pre>
 <p><br> Export dataset to finish manually</p>
@@ -3156,37 +3156,37 @@ p1_pers_eng &lt;- p1_pers_eng %&gt;% mutate(token = ntoken(Text_clean2))</code><
 <h3>Organizations</h3>
 <p>Data cleaning of organizations.</p>
 <p>First, remove OCR noise and standardize names variants:</p>
-<pre class="r"><code>p1_org_eng &lt;- p1_org_eng %&gt;% 
-  mutate(Text_clean = str_replace(Text, &quot;&#39;s$&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot; s$&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_to_title(Text_clean)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Mctyeire&quot;, &quot;McTyeire&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;^The &quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;^He &quot;, &quot;&quot;))%&gt;% 
-  mutate(Text_clean = str_squish(Text_clean)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;^-&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;-$&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;^&#39;&#39;&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;^&#39;&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;&#39;$&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;. &#39;&#39;$&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;. &#39;$&quot;, &quot;&quot;)) %&gt;% 
-  mutate(Text_clean = str_squish(Text_clean)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;1 Curtis&quot;, &quot;Curtis&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Co$&quot;, &quot;Company&quot;))  %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Co Ltd$&quot;, &quot;Company&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Co Inc$&quot;, &quot;Company&quot;)) %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Com Pany&quot;, &quot;Company&quot;))  %&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Corpora$&quot;, &quot;Corporation&quot;))%&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Corp$&quot;, &quot;Corporation&quot;))%&gt;% 
-  mutate(Text_clean = str_replace(Text_clean, &quot;Mfg 5 Mrg&quot;, &quot;Manufacturing&quot;)) %&gt;% 
+<pre class="r"><code>p1_org_eng &lt;- p1_org_eng %&gt;%
+  mutate(Text_clean = str_replace(Text, &quot;&#39;s$&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot; s$&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_to_title(Text_clean)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Mctyeire&quot;, &quot;McTyeire&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;^The &quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;^He &quot;, &quot;&quot;))%&gt;%
+  mutate(Text_clean = str_squish(Text_clean)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;^-&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;-$&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;^&#39;&#39;&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;^&#39;&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;&#39;$&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;. &#39;&#39;$&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;. &#39;$&quot;, &quot;&quot;)) %&gt;%
+  mutate(Text_clean = str_squish(Text_clean)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;1 Curtis&quot;, &quot;Curtis&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Co$&quot;, &quot;Company&quot;))  %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Co Ltd$&quot;, &quot;Company&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Co Inc$&quot;, &quot;Company&quot;)) %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Com Pany&quot;, &quot;Company&quot;))  %&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Corpora$&quot;, &quot;Corporation&quot;))%&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Corp$&quot;, &quot;Corporation&quot;))%&gt;%
+  mutate(Text_clean = str_replace(Text_clean, &quot;Mfg 5 Mrg&quot;, &quot;Manufacturing&quot;)) %&gt;%
   mutate(Text_clean = str_replace(Text_clean, &quot;Mfg&quot;, &quot;Manufacturing&quot;))  </code></pre>
 <p><br> Count length and export for manual refinement:</p>
-<pre class="r"><code>p1_org_eng &lt;- p1_org_eng %&gt;% mutate(length = nchar(Text_clean)) 
+<pre class="r"><code>p1_org_eng &lt;- p1_org_eng %&gt;% mutate(length = nchar(Text_clean))
 write.csv(p1_org_eng, &quot;p1_org_eng.csv&quot;)</code></pre>
 <p><br> Reload cleaned data</p>
 <pre class="r"><code>library(readr)
-p1_org_eng_clean &lt;- read_delim(&quot;p1_org_eng_clean.csv&quot;, 
+p1_org_eng_clean &lt;- read_delim(&quot;p1_org_eng_clean.csv&quot;,
                                delim = &quot;;&quot;, escape_double = FALSE, trim_ws = TRUE)
 
 write.csv(p1_org_eng_clean, &quot;p1_org_eng_clean.csv&quot;)</code></pre>
@@ -3195,19 +3195,19 @@ write.csv(p1_org_eng_clean, &quot;p1_org_eng_clean.csv&quot;)</code></pre>
 <p><br> Extract the class of organizations:</p>
 <pre class="r"><code># create vectors of classifiers
 
-class &lt;- as.vector(c(&quot;Association&quot;, &quot;Club&quot;, &quot;College&quot;, &quot;School&quot;, &quot;University&quot;, 
-                     &quot;Company&quot;, &quot;Corporation&quot;, 
-                     &quot;Army&quot;, &quot;Corps&quot;, &quot;Navy&quot;, 
-                     &quot;Hospital&quot;, &quot;Clinic&quot;, 
+class &lt;- as.vector(c(&quot;Association&quot;, &quot;Club&quot;, &quot;College&quot;, &quot;School&quot;, &quot;University&quot;,
+                     &quot;Company&quot;, &quot;Corporation&quot;,
+                     &quot;Army&quot;, &quot;Corps&quot;, &quot;Navy&quot;,
+                     &quot;Hospital&quot;, &quot;Clinic&quot;,
                      &quot;Government&quot;, &quot;Council&quot;, &quot;Commission&quot;, &quot;Administration&quot;,
                      &quot;Congress&quot;, &quot;Parliament&quot;, &quot;House&quot;,
                      &quot;Press&quot;, &quot;News&quot;, &quot;Times&quot;, &quot;Tribune&quot;,&quot;Journal&quot;, &quot;Magazine&quot;, &quot;Pao&quot;, &quot;Herald&quot;))
 classvec&lt;-unlist(class)
 classvec2 &lt;- paste(classvec, sep = &quot;&quot;, collapse = &quot;|&quot;)
 
-# extract the terms listed 
+# extract the terms listed
 
-p1_org_eng_clean &lt;- p1_org_eng_clean %&gt;% mutate(class2 = str_extract(Text_clean, classvec2)) 
+p1_org_eng_clean &lt;- p1_org_eng_clean %&gt;% mutate(class2 = str_extract(Text_clean, classvec2))
 
 # count number of organizations in each category
 
@@ -3217,14 +3217,14 @@ class_count &lt;- p1_org_eng_clean %&gt;% distinct(Text_clean, class2) %&gt;% gr
 
 # select unique pairs
 
-p1_org_unique &lt;- p1_org_eng_clean %&gt;% distinct(DocId, Text_clean, class2) 
+p1_org_unique &lt;- p1_org_eng_clean %&gt;% distinct(DocId, Text_clean, class2)
 
 # rank organizations based on their frequency
 
-p1_org_count&lt;- p1_org_unique %&gt;% distinct(DocId, Text_clean) %&gt;% group_by(Text_clean) 
+p1_org_count&lt;- p1_org_unique %&gt;% distinct(DocId, Text_clean) %&gt;% group_by(Text_clean)
 
 
-# export edge list and node list 
+# export edge list and node list
 
 p1_edge_org &lt;- p1_org_unique %&gt;% select(DocId, Text_clean)
 p1_node_org  &lt;- p1_org_unique %&gt;% distinct(Text_clean, class2)
@@ -3238,15 +3238,15 @@ write.csv(p1_node_org, &quot;p1zh_org_node.csv&quot;)</code></pre>
 <h1>Mapping the Public Sphere (Part 3)</h1>
 <div id="countries" class="section level2">
 <h2>Countries</h2>
-<pre class="r"><code># load locations data 
+<pre class="r"><code># load locations data
 
-loc_map &lt;- read_delim(&quot;maps/loc_map.csv&quot;, 
+loc_map &lt;- read_delim(&quot;maps/loc_map.csv&quot;,
                       delim = &quot;;&quot;, escape_double = FALSE, trim_ws = TRUE)
 
-# select countries 
+# select countries
 
-loc_map_country  &lt;-  loc_map %&gt;% mutate(Country = Place) %&gt;% mutate(Prov_Py = Province) %&gt;% 
-  filter(Type == &quot;Country&quot;) %&gt;% mutate(Prov_Py = Province) %&gt;% 
+loc_map_country  &lt;-  loc_map %&gt;% mutate(Country = Place) %&gt;% mutate(Prov_Py = Province) %&gt;%
+  filter(Type == &quot;Country&quot;) %&gt;% mutate(Prov_Py = Province) %&gt;%
   select(Language, Period, Type, Country, Count)
 
 # load packages
@@ -3270,11 +3270,11 @@ loc_map_country_eng &lt;- loc_map_country %&gt;% filter(Language == &quot;Englis
 
 # compute mean frequencies across period
 
-loc_map_country_eng_mean &lt;- loc_map_country_eng %&gt;% 
-  group_by(Country, iso_a2, geom) %&gt;% 
+loc_map_country_eng_mean &lt;- loc_map_country_eng %&gt;%
+  group_by(Country, iso_a2, geom) %&gt;%
   summarise(mean = round(mean(Count), 0)) %&gt;% ungroup()
 
-# convert dataframe into shapefile 
+# convert dataframe into shapefile
 
 loc_map_country_eng_sf &lt;- st_as_sf(loc_map_country_eng_mean, sf_column_name = &quot;geom&quot;, crs = &quot;WGS84&quot;)
 
@@ -3284,8 +3284,8 @@ mypalette_eng &lt;- colorBin( palette=&quot;Blues&quot;, domain=loc_map_country_
 
 # create choropleth map
 
-leaflet(loc_map_country_eng_sf) %&gt;% 
-  addTiles()  %&gt;% 
+leaflet(loc_map_country_eng_sf) %&gt;%
+  addTiles()  %&gt;%
   setView( lat=10, lng=0 , zoom=2) %&gt;%
   addPolygons( stroke = FALSE, fillOpacity = 0.9, smoothFactor = 0.5, color = ~colorBin(&quot;Blues&quot;, mean)(mean) ) %&gt;%
   addLegend( pal=mypalette_eng, values=~mean, opacity=0.9, title = &quot;Mean frequency&quot;, position = &quot;bottomleft&quot; )</code></pre>
@@ -3301,7 +3301,7 @@ loc_map_zh_to_join &lt;-  loc_map %&gt;% mutate(Name = Place) %&gt;% mutate(Prov
 MCGD_Data2023.06.21 &lt;- read.csv(&quot;~/publicsphere/maps/MCGD_Data2023-06-21.csv&quot;)
 mcgd &lt;- MCGD_Data2023.06.21
 
-# join with Chinese coordinates 
+# join with Chinese coordinates
 
 zh_city &lt;- inner_join(loc_map_zh_to_join, mcgd)
 
@@ -3312,7 +3312,7 @@ write.csv(zh_city, &quot;zh_city.csv&quot;)
 
 # reload clean data
 
-zh_city2 &lt;- read_delim(&quot;maps/zh_city2.csv&quot;, 
+zh_city2 &lt;- read_delim(&quot;maps/zh_city2.csv&quot;,
                        delim = &quot;;&quot;, escape_double = FALSE, trim_ws = TRUE)
 
 # filter non Chinese cities
@@ -3331,31 +3331,31 @@ world_cities2 &lt;- world_cities2 %&gt;% select(Name, country.etc, lat, long)
 loc_map_cities_latlong &lt;- inner_join(loc_map_cities, world_cities2)
 loc_map_cities_latlong &lt;- left_join(loc_map_cities, world_cities2)
 
-# find duplicates 
+# find duplicates
 
 pb &lt;- loc_map_cities_latlong %&gt;% group_by(Name, country.etc) %&gt;% count() %&gt;% filter(n&gt;1)
 
-# reload cleaned cities 
+# reload cleaned cities
 
-cities_clean &lt;- read_delim(&quot;cities_clean.csv&quot;, 
+cities_clean &lt;- read_delim(&quot;cities_clean.csv&quot;,
                            delim = &quot;;&quot;, escape_double = FALSE, trim_ws = TRUE)
 
 cities_to_join &lt;- cities_clean %&gt;% select(Language, Period, Country, Name, Count, lat, long)
 
-zh_city2_to_join &lt;- zh_city2 %&gt;% select(Language, Period, Country, Name, Count, LAT, LONG) %&gt;% rename(lat = LAT, long = LONG)  
+zh_city2_to_join &lt;- zh_city2 %&gt;% select(Language, Period, Country, Name, Count, LAT, LONG) %&gt;% rename(lat = LAT, long = LONG)
 
 all_cities &lt;- bind_rows(cities_to_join, zh_city2_to_join)
 
 all_cities &lt;- all_cities %&gt;% mutate(City = str_replace(Name, &quot;Jiangsu&quot;, &quot;Shanghai&quot;))
 
-# filter by language 
+# filter by language
 
 all_cities_eng &lt;- all_cities %&gt;% filter(Language == &quot;English&quot;)
 
-# compute mean 
+# compute mean
 
-loc_map_city_eng_mean &lt;- all_cities_eng %&gt;% 
-  group_by(Name, lat, long) %&gt;% 
+loc_map_city_eng_mean &lt;- all_cities_eng %&gt;%
+  group_by(Name, lat, long) %&gt;%
   summarise(mean = round(mean(Count), 0)) %&gt;% ungroup()
 
 # map with leaflet
@@ -3387,57 +3387,57 @@ loc_map_city_eng_mean %&gt;%
 library(tidyverse)
 library(tidytext)
 
-eng_bigram &lt;- doc3_ft %&gt;% 
-  unnest_tokens(output = bigram, 
-                input = Text, 
-                token = &quot;ngrams&quot;, 
+eng_bigram &lt;- doc3_ft %&gt;%
+  unnest_tokens(output = bigram,
+                input = Text,
+                token = &quot;ngrams&quot;,
                 n = 2)
 
-# preliminary cleaning 
+# preliminary cleaning
 
-eng_bigram &lt;- eng_bigram %&gt;% mutate(bigram = str_remove_all(bigram, &quot;[:digit:]&quot;))  %&gt;% 
-  mutate(bigram = str_replace_all(bigram, &quot;[[:punct:]]&quot;, &quot;&quot;))%&gt;% 
-  filter(!str_detect(bigram, &#39;[0-9]{1,}&#39;)) %&gt;% 
+eng_bigram &lt;- eng_bigram %&gt;% mutate(bigram = str_remove_all(bigram, &quot;[:digit:]&quot;))  %&gt;%
+  mutate(bigram = str_replace_all(bigram, &quot;[[:punct:]]&quot;, &quot;&quot;))%&gt;%
+  filter(!str_detect(bigram, &#39;[0-9]{1,}&#39;)) %&gt;%
   mutate(bigram = str_remove_all(bigram, &quot;&#39;s&quot;)) %&gt;%
   mutate(bigram = str_remove_all(bigram, &quot;&#39;&quot;)) %&gt;%
-  mutate(bigram = str_remove_all(bigram, &quot;&#39;&quot;)) %&gt;% ) 
-  mutate(bigram = str_squish(bigram)) %&gt;% 
-  mutate(bigram = str_replace_all(bigram, &quot;na tions&quot;, &quot;nations&quot;))%&gt;% 
-  mutate(bigram = str_replace_all(bigram, &quot;na tion&quot;, &quot;nation&quot;)) %&gt;% 
-  mutate(bigram = str_replace_all(bigram, &quot;na tional&quot;, &quot;national&quot;))%&gt;% 
-  mutate(bigram = str_replace_all(bigram, &quot;inter national&quot;, &quot;international&quot;))%&gt;% 
-  mutate(bigram = str_replace_all(bigram, &quot;inter nationally&quot;, &quot;internationally&quot;))%&gt;% 
+  mutate(bigram = str_remove_all(bigram, &quot;&#39;&quot;)) %&gt;% )
+  mutate(bigram = str_squish(bigram)) %&gt;%
+  mutate(bigram = str_replace_all(bigram, &quot;na tions&quot;, &quot;nations&quot;))%&gt;%
+  mutate(bigram = str_replace_all(bigram, &quot;na tion&quot;, &quot;nation&quot;)) %&gt;%
+  mutate(bigram = str_replace_all(bigram, &quot;na tional&quot;, &quot;national&quot;))%&gt;%
+  mutate(bigram = str_replace_all(bigram, &quot;inter national&quot;, &quot;international&quot;))%&gt;%
+  mutate(bigram = str_replace_all(bigram, &quot;inter nationally&quot;, &quot;internationally&quot;))%&gt;%
   mutate(bigram = str_replace(bigram, &quot;^ternational&quot;, &quot;international&quot;))
 
 # separate bigrams into words for further cleaning
-  
+
 eng_bigram_separated &lt;- eng_bigram %&gt;%
   separate(bigram, c(&quot;word1&quot;, &quot;word2&quot;), sep = &quot; &quot;)
 
 # remove stop words and other non words
 
-eng_bigram_filtered &lt;- eng_bigram_separated %&gt;% 
+eng_bigram_filtered &lt;- eng_bigram_separated %&gt;%
   rename(word = word1) %&gt;%
-  anti_join(stop_words) %&gt;% 
-  filter(!str_detect(word, &#39;[0-9]{1,}&#39;)) %&gt;% 
-  filter(nchar(word) &gt; 3) %&gt;% 
+  anti_join(stop_words) %&gt;%
+  filter(!str_detect(word, &#39;[0-9]{1,}&#39;)) %&gt;%
+  filter(nchar(word) &gt; 3) %&gt;%
   filter(!word %in% c(&quot;tion&quot;, &quot;tions&quot;, &quot;chin&quot;, &quot;ment&quot;)) %&gt;%
   mutate(word = str_remove_all(word, &quot;&#39;s&quot;)) %&gt;%
   mutate(word = str_remove_all(word, &quot;&#39;&quot;)) %&gt;%
-  rename(word1 = word) %&gt;% 
+  rename(word1 = word) %&gt;%
   rename(word = word2) %&gt;%
-  anti_join(stop_words) %&gt;% 
-  filter(!str_detect(word, &#39;[0-9]{1,}&#39;)) %&gt;% 
-  filter(nchar(word) &gt; 3) %&gt;% 
+  anti_join(stop_words) %&gt;%
+  filter(!str_detect(word, &#39;[0-9]{1,}&#39;)) %&gt;%
+  filter(nchar(word) &gt; 3) %&gt;%
   filter(!word %in% c(&quot;tion&quot;, &quot;tions&quot;, &quot;chin&quot;, &quot;ment&quot;)) %&gt;%
-  rename(word2 = word)   
+  rename(word2 = word)
 
 # reunite bigrams
 
 eng_bigram_united &lt;- eng_bigram_filtered %&gt;%
   unite(bigram, word1, word2, sep = &quot; &quot;)
 
-# count bigrams 
+# count bigrams
 
 eng_bigram_count &lt;- eng_bigram_united %&gt;%
   count(bigram, sort = TRUE)
@@ -3449,11 +3449,11 @@ eng_bigram_united_meta &lt;- left_join(eng_bigram_united, meta)</code></pre>
 <h3>Transnational</h3>
 <p>Focus on bigrams centered on “international” and filter irrelevant
 terms:</p>
-<pre class="r"><code>internat_bigram &lt;- eng_bigram_filtered %&gt;% filter(word1 == &quot;international&quot;) %&gt;% 
-  filter(!word2 == &quot;international&quot;) %&gt;% 
+<pre class="r"><code>internat_bigram &lt;- eng_bigram_filtered %&gt;% filter(word1 == &quot;international&quot;) %&gt;%
+  filter(!word2 == &quot;international&quot;) %&gt;%
   filter(!word2 %in% c(&quot;addressed&quot;, &quot;arrived&quot;, &quot;approximately&quot;))</code></pre>
 <p><br> Count frequencies and tf-idf by period</p>
-<pre class="r"><code># count bigrams 
+<pre class="r"><code># count bigrams
 
 internat_bigram_count &lt;- internat_bigram %&gt;%
   count(bigram, sort = TRUE)
@@ -3464,7 +3464,7 @@ internat_bigram_tf_idf_period &lt;- internat_bigram_united_clean %&gt;%
   bind_tf_idf(bigram_clean, period, n) %&gt;%
   arrange(desc(tf_idf))
 
-# visualize 
+# visualize
 
 internat_bigram_tf_idf_period %&gt;%
   group_by(period) %&gt;%
@@ -3474,9 +3474,9 @@ internat_bigram_tf_idf_period %&gt;%
   ggplot(aes(tf_idf, bigram_clean, fill = period)) +
   geom_col(show.legend = FALSE) +
   facet_wrap(~ period, scales = &quot;free&quot;, ncol=3) +
-  labs(x = &quot;tf-idf&quot;, y = &quot;bigram&quot;, 
-       title = &quot;Highest tf-idf bigrams associated with \&quot;international\&quot; in the Rotary Club corpus&quot;, 
-       subtitle = &quot;tf-idf by period&quot;, 
+  labs(x = &quot;tf-idf&quot;, y = &quot;bigram&quot;,
+       title = &quot;Highest tf-idf bigrams associated with \&quot;international\&quot; in the Rotary Club corpus&quot;,
+       subtitle = &quot;tf-idf by period&quot;,
        caption = &quot;Based on ProQuest \&quot;Chinese Newspapers Collection (CNC)\&quot;&quot;)</code></pre>
 </div>
 <div id="public" class="section level3">
@@ -3484,7 +3484,7 @@ internat_bigram_tf_idf_period %&gt;%
 <p>Focus on bigrams centered on “public”</p>
 <pre class="r"><code>public_bigram &lt;- eng_bigram_filtered %&gt;% filter(word1 == &quot;public&quot;)</code></pre>
 <p><br> Count frequencies and tf-idf by period</p>
-<pre class="r"><code># count bigrams 
+<pre class="r"><code># count bigrams
 
 public_bigram_count &lt;- public_bigram %&gt;%
   count(bigram, sort = TRUE)
@@ -3495,7 +3495,7 @@ public_bigram_tf_idf_period &lt;- public_bigram_united_clean %&gt;%
   bind_tf_idf(bigram_clean, period, n) %&gt;%
   arrange(desc(tf_idf))
 
-# visualize 
+# visualize
 
 public_bigram_tf_idf_period %&gt;%
   group_by(period) %&gt;%
@@ -3505,9 +3505,9 @@ public_bigram_tf_idf_period %&gt;%
   ggplot(aes(tf_idf, bigram_clean, fill = period)) +
   geom_col(show.legend = FALSE) +
   facet_wrap(~ period, scales = &quot;free&quot;, ncol=3) +
-  labs(x = &quot;tf-idf&quot;, y = &quot;bigram&quot;, 
-       title = &quot;Highest tf-idf bigrams associated with \&quot;public\&quot; in the Rotary Club corpus&quot;, 
-       subtitle = &quot;tf-idf by period&quot;, 
+  labs(x = &quot;tf-idf&quot;, y = &quot;bigram&quot;,
+       title = &quot;Highest tf-idf bigrams associated with \&quot;public\&quot; in the Rotary Club corpus&quot;,
+       subtitle = &quot;tf-idf by period&quot;,
        caption = &quot;Based on ProQuest \&quot;Chinese Newspapers Collection (CNC)\&quot;&quot;)</code></pre>
 </div>
 </div>
@@ -3518,38 +3518,38 @@ public_bigram_tf_idf_period %&gt;%
 library(quanteda.textstats)
 
 eng_tokens &lt;- tokens(docs3_ft$Text) %&gt;%
-  tokens_remove(stopwords(&quot;english&quot;)) 
-eng_colloc &lt;- textstat_collocations(eng_tokens, size = 2, min_count = 2) 
+  tokens_remove(stopwords(&quot;english&quot;))
+eng_colloc &lt;- textstat_collocations(eng_tokens, size = 2, min_count = 2)
 
 
-eng_colloc_clean &lt;- eng_colloc %&gt;% 
-  filter(!str_detect(collocation, &#39;[0-9]{1,}&#39;)) %&gt;% 
+eng_colloc_clean &lt;- eng_colloc %&gt;%
+  filter(!str_detect(collocation, &#39;[0-9]{1,}&#39;)) %&gt;%
   mutate(collocation = str_remove_all(collocation, &quot;&#39;s&quot;)) %&gt;%
   mutate(collocation = str_remove_all(collocation, &quot;&#39;&quot;)) %&gt;%
-  mutate(collocation = str_remove_all(collocation, &quot;&#39;&quot;)) 
+  mutate(collocation = str_remove_all(collocation, &quot;&#39;&quot;))
 
-eng_colloc_clean &lt;- eng_colloc %&gt;% mutate(collocation = str_remove_all(collocation, &quot;[:digit:]&quot;))  %&gt;% 
-  mutate(collocation = str_replace_all(collocation, &quot;[[:punct:]]&quot;, &quot;&quot;)) %&gt;% 
-  mutate(collocation = str_squish(collocation)) %&gt;% 
-  mutate(collocation = str_replace_all(collocation, &quot;na tions&quot;, &quot;nations&quot;))%&gt;% 
-  mutate(collocation = str_replace_all(collocation, &quot;na tion&quot;, &quot;nation&quot;)) %&gt;% 
-  mutate(collocation = str_replace_all(collocation, &quot;na tional&quot;, &quot;national&quot;))%&gt;% 
-  mutate(collocation = str_replace_all(collocation, &quot;inter national&quot;, &quot;international&quot;))%&gt;% 
-  mutate(collocation = str_replace_all(collocation, &quot;inter nationally&quot;, &quot;internationally&quot;))%&gt;% 
+eng_colloc_clean &lt;- eng_colloc %&gt;% mutate(collocation = str_remove_all(collocation, &quot;[:digit:]&quot;))  %&gt;%
+  mutate(collocation = str_replace_all(collocation, &quot;[[:punct:]]&quot;, &quot;&quot;)) %&gt;%
+  mutate(collocation = str_squish(collocation)) %&gt;%
+  mutate(collocation = str_replace_all(collocation, &quot;na tions&quot;, &quot;nations&quot;))%&gt;%
+  mutate(collocation = str_replace_all(collocation, &quot;na tion&quot;, &quot;nation&quot;)) %&gt;%
+  mutate(collocation = str_replace_all(collocation, &quot;na tional&quot;, &quot;national&quot;))%&gt;%
+  mutate(collocation = str_replace_all(collocation, &quot;inter national&quot;, &quot;international&quot;))%&gt;%
+  mutate(collocation = str_replace_all(collocation, &quot;inter nationally&quot;, &quot;internationally&quot;))%&gt;%
   mutate(collocation = str_replace(collocation, &quot;^ternational&quot;, &quot;international&quot;))
 
 # replace empty strings by NA
 
 eng_colloc_clean$collocation[eng_colloc_clean$collocation==&quot;&quot;] &lt;- NA
 
-# remove NA 
+# remove NA
 eng_colloc_clean &lt;- eng_colloc_clean %&gt;% drop_na(collocation)
 
 eng_colloc_clean &lt;- eng_colloc_clean %&gt;% mutate(length = nchar(collocation)) %&gt;% mutate(ntoken = ntoken(collocation))
 
 # remove tokens with less than 4 characters
 
-eng_colloc_clean &lt;- eng_colloc_clean %&gt;% filter(length &gt; 3) 
+eng_colloc_clean &lt;- eng_colloc_clean %&gt;% filter(length &gt; 3)
 
 # merge tokens and collocations
 
@@ -3558,21 +3558,21 @@ corpus_tokens &lt;- tokens_compound(eng_tokens, eng_colloc_clean)
 minimumFrequency &lt;- 2
 
 # Create DTM, prune vocabulary and set binary values for presence/absence of types
-binDTM &lt;- corpus_tokens %&gt;% 
+binDTM &lt;- corpus_tokens %&gt;%
   tokens_remove(&quot;&quot;) %&gt;%
-  dfm() %&gt;% 
-  dfm_trim(min_docfreq = minimumFrequency, max_docfreq = 1000000) %&gt;% 
+  dfm() %&gt;%
+  dfm_trim(min_docfreq = minimumFrequency, max_docfreq = 1000000) %&gt;%
   dfm_weight(&quot;boolean&quot;)</code></pre>
 <p><br> Convert document-term matrix into tidydaframe to compute
 pairwise count, clean the data and remove stopwords:</p>
-<pre class="r"><code># convert DTM into tidy dataframe 
+<pre class="r"><code># convert DTM into tidy dataframe
 
 library(dplyr)
 library(tidytext)
 
 eng_td &lt;- tidy(binDTM)
 
-# count pairwise 
+# count pairwise
 
 library(widyr)
 
@@ -3584,24 +3584,24 @@ word_pairs &lt;- eng_td %&gt;%
 word_pairs &lt;- word_pairs %&gt;% mutate(l1 = nchar(item1)) %&gt;% mutate(l2 = nchar(item2))
 word_pairs_filtered &lt;- word_pairs %&gt;% filter(l1&gt;3) %&gt;% filter(l2&gt;3)
 
-# create list of stopwords to remove 
+# create list of stopwords to remove
 
-stop_words &lt;- c(&quot;one&quot;, &quot;even&quot;, &quot;now&quot;, &quot;much&quot;, &quot;can&quot;, &quot;made&quot;, &quot;still&quot;, &quot;may&quot;, &quot;well&quot;, &quot;yet&quot;, &quot;make&quot;, &quot;first&quot;, &quot;since&quot;, 
-                &quot;re&quot;, &quot;also&quot;, &quot;said&quot;,&quot;ing&quot;, &quot;take&quot;, &quot;two&quot;, &quot;every&quot;, &quot;whole&quot;, &quot;among&quot;,&quot;tion&quot;, &quot;just&quot;, &quot;however&quot;, &quot;ed&quot;, 
-                &quot;last&quot;,&quot;taken&quot;,&quot;lo&quot;, &quot;enough&quot;, &quot;come&quot;, &quot;upon&quot;, &quot;another&quot;, &quot;without&quot;, &quot;found&quot;, &quot;s&quot;, &quot;done&quot;, &quot;put&quot;, &quot;told&quot;, 
-                &quot;given&quot;,&quot;might&quot;,&quot;met&quot;, &quot;brought&quot;, &quot;although&quot;,&quot;gave&quot;, &quot;less&quot;, &quot;perhaps&quot;, &quot;th&quot;,&quot;ol&quot;,&quot;pro&quot;, &quot;led&quot;, &quot;find&quot;, &quot;de&quot;, 
-                &quot;us&quot;, &quot;ex&quot;, &quot;ion&quot;, &quot;tho&quot;, &quot;nil&quot;, &quot;certainly&quot;, &quot;held&quot;, &quot;arc&quot;, &quot;toward&quot;, &quot;rather&quot;, &quot;bring&quot;, &quot;china&#39;s&quot;, &quot;con&quot;, &quot;seen&quot;, 
-                &quot;see&quot;, &quot;indeed&quot;, &quot;get&quot;, &quot;shown&quot;, &quot;go&quot;, &quot;later&quot;, &quot;stated&quot;, &quot;really&quot;, &quot;often&quot;, &quot;oi&quot;, &quot;ihe&quot;,&quot;taking&quot;, &quot;felt&quot;, &quot;hi&quot;, &quot;ho&quot;, 
-                &quot;strongly&quot;, &quot;always&quot;, &quot;used&quot;, &quot;per&quot;, &quot;im&quot;, &quot;lias&quot;, &quot;showed&quot;, &quot;look&quot;, &quot;spoke&quot;, &quot;says&quot;, &quot;three&quot;, &quot;already&quot;, &quot;able&quot;, &quot;therefore&quot;, 
-                &quot;etc&quot;, &quot;comes&quot;, &quot;though&quot;, &quot;especially&quot;, &quot;ii&quot;, &quot;due&quot;, &quot;en&quot;, &quot;al&quot;, &quot;cf&quot;, &quot;pointed&quot;,&quot;lor&quot;, &quot;extremely&quot;, &quot;left&quot;, &quot;says&quot;, &quot;tlie&quot;, &quot;let&quot;, 
-                &quot;shall&quot;, &quot;thus&quot;, &quot;ly&quot;, &quot;whose&quot;, &quot;ot&quot;, &quot;ha&quot;, &quot;se&quot;, &quot;dis&quot;, &quot;ten&quot;, &quot;latter&quot;, &quot;third&quot;, &quot;hold&quot;, &quot;con_ditions&quot;, &quot;spite&quot;, &quot;govern_ment&quot;, 
+stop_words &lt;- c(&quot;one&quot;, &quot;even&quot;, &quot;now&quot;, &quot;much&quot;, &quot;can&quot;, &quot;made&quot;, &quot;still&quot;, &quot;may&quot;, &quot;well&quot;, &quot;yet&quot;, &quot;make&quot;, &quot;first&quot;, &quot;since&quot;,
+                &quot;re&quot;, &quot;also&quot;, &quot;said&quot;,&quot;ing&quot;, &quot;take&quot;, &quot;two&quot;, &quot;every&quot;, &quot;whole&quot;, &quot;among&quot;,&quot;tion&quot;, &quot;just&quot;, &quot;however&quot;, &quot;ed&quot;,
+                &quot;last&quot;,&quot;taken&quot;,&quot;lo&quot;, &quot;enough&quot;, &quot;come&quot;, &quot;upon&quot;, &quot;another&quot;, &quot;without&quot;, &quot;found&quot;, &quot;s&quot;, &quot;done&quot;, &quot;put&quot;, &quot;told&quot;,
+                &quot;given&quot;,&quot;might&quot;,&quot;met&quot;, &quot;brought&quot;, &quot;although&quot;,&quot;gave&quot;, &quot;less&quot;, &quot;perhaps&quot;, &quot;th&quot;,&quot;ol&quot;,&quot;pro&quot;, &quot;led&quot;, &quot;find&quot;, &quot;de&quot;,
+                &quot;us&quot;, &quot;ex&quot;, &quot;ion&quot;, &quot;tho&quot;, &quot;nil&quot;, &quot;certainly&quot;, &quot;held&quot;, &quot;arc&quot;, &quot;toward&quot;, &quot;rather&quot;, &quot;bring&quot;, &quot;china&#39;s&quot;, &quot;con&quot;, &quot;seen&quot;,
+                &quot;see&quot;, &quot;indeed&quot;, &quot;get&quot;, &quot;shown&quot;, &quot;go&quot;, &quot;later&quot;, &quot;stated&quot;, &quot;really&quot;, &quot;often&quot;, &quot;oi&quot;, &quot;ihe&quot;,&quot;taking&quot;, &quot;felt&quot;, &quot;hi&quot;, &quot;ho&quot;,
+                &quot;strongly&quot;, &quot;always&quot;, &quot;used&quot;, &quot;per&quot;, &quot;im&quot;, &quot;lias&quot;, &quot;showed&quot;, &quot;look&quot;, &quot;spoke&quot;, &quot;says&quot;, &quot;three&quot;, &quot;already&quot;, &quot;able&quot;, &quot;therefore&quot;,
+                &quot;etc&quot;, &quot;comes&quot;, &quot;though&quot;, &quot;especially&quot;, &quot;ii&quot;, &quot;due&quot;, &quot;en&quot;, &quot;al&quot;, &quot;cf&quot;, &quot;pointed&quot;,&quot;lor&quot;, &quot;extremely&quot;, &quot;left&quot;, &quot;says&quot;, &quot;tlie&quot;, &quot;let&quot;,
+                &quot;shall&quot;, &quot;thus&quot;, &quot;ly&quot;, &quot;whose&quot;, &quot;ot&quot;, &quot;ha&quot;, &quot;se&quot;, &quot;dis&quot;, &quot;ten&quot;, &quot;latter&quot;, &quot;third&quot;, &quot;hold&quot;, &quot;con_ditions&quot;, &quot;spite&quot;, &quot;govern_ment&quot;,
                 &quot;owing&quot;, &quot;hie&quot;, &quot;ad&quot;, &quot;un&quot;, &quot;must&quot;, &quot;within&quot;,&quot;went&quot;, &quot;many&quot;, &quot;ment&quot;, &quot;give&quot;)
 
 stop_words &lt;- as.data.frame(stop_words)
 
-# remove stop words 
+# remove stop words
 
-word_pairs_filtered &lt;- word_pairs_filtered %&gt;% filter(!item1 %in% stop_words$stop_words) %&gt;% 
+word_pairs_filtered &lt;- word_pairs_filtered %&gt;% filter(!item1 %in% stop_words$stop_words) %&gt;%
   filter(!item2 %in% stop_words$stop_words)</code></pre>
 <div id="transnational-1" class="section level3">
 <h3>Transnational</h3>
@@ -3615,7 +3615,7 @@ word_count &lt;- word_count %&gt;% rename(count = n)
 nation_inter_node &lt;- inner_join(nation_inter_node, word_count)</code></pre>
 <p><br> Compute word frequencies and join frequencies with the list of
 words</p>
-<pre class="r"><code>eng_tidy_token_filtered %&gt;% group_by(word) %&gt;% add_tally() 
+<pre class="r"><code>eng_tidy_token_filtered %&gt;% group_by(word) %&gt;% add_tally()
 word_count &lt;- eng_tidy_token_filtered %&gt;% select(word, n) %&gt;% unique()
 word_count &lt;- word_count %&gt;% rename(count = n)
 nation_inter_node &lt;- inner_join(nation_inter_node, word_count)</code></pre>
@@ -3632,7 +3632,7 @@ G &lt;- graph.data.frame(e.list, vertices=v.attr, directed=FALSE)
 v.size &lt;- V(G)$count # index node size to words frequencies
 v.label &lt;- V(G)$name
 E(G)$weight &lt;- E(G)$cooc # index edge weight to pairs frequencies
-eigenCent &lt;- evcent(G)$vector # index node color to their eigenvector centrality 
+eigenCent &lt;- evcent(G)$vector # index node color to their eigenvector centrality
 
 head(eigenCent, 20)
 
@@ -3647,13 +3647,13 @@ V(G)$color &lt;- colorVals
 l &lt;- layout.fruchterman.reingold(G)
 
 
-plot(G, 
+plot(G,
      layout=l,
      edge.width=E(G)$weight*0.01,
-     vertex.size=v.size*0.01, 
+     vertex.size=v.size*0.01,
      vertex.label=v.label,
      vertex.label.cex=v.size*0.001,
-     vertex.label.color=&quot;black&quot;, 
+     vertex.label.color=&quot;black&quot;,
      vertex.label.dist=0.2,
      vertex.label.family=&quot;Arial&quot;)</code></pre>
 <p><br> Refine network visualization with <a href="https://tidygraph.data-imaginist.com/">tidygraph</a> and <a href="https://github.com/thomasp85/ggraph">gggraph</a></p>
@@ -3679,7 +3679,7 @@ tg %&gt;%
 <p><br> Create biplot of collocates</p>
 <pre class="r"><code># select term of interest (international)
 
-international &lt;- &quot;international&quot; 
+international &lt;- &quot;international&quot;
 
 # calculate co-occurrence statistics using log-likelihood (LOGLIK)
 
@@ -3687,9 +3687,9 @@ source(&quot;https://tm4ss.github.io/calculateCoocStatistics.R&quot;) # load fun
 
 coocs &lt;- calculateCoocStatistics(international, DTM, measure=&quot;LOGLIK&quot;)
 
-# reduce document-term matrix 
+# reduce document-term matrix
 
-redux_dfm &lt;- dfm_select(DTM, 
+redux_dfm &lt;- dfm_select(DTM,
                         pattern = c(names(coocs)[1:100], &quot;international&quot;))
 
 tag_fcm &lt;- fcm(redux_dfm)
@@ -3697,10 +3697,10 @@ tag_fcm &lt;- fcm(redux_dfm)
 coocdf &lt;- coocs %&gt;%
   as.data.frame() %&gt;%
   dplyr::mutate(CollStrength = coocs,
-                Term = names(coocs)) 
+                Term = names(coocs))
 
 coocdf_filtered &lt;- coocdf %&gt;%
-  dplyr::filter(CollStrength &gt; 13) 
+  dplyr::filter(CollStrength &gt; 13)
 
 
 # create matrix of collocates
@@ -3716,7 +3716,7 @@ coolocs &lt;- c(coocdf_filtered$Term, &quot;international&quot;)
 collocates_redux &lt;- collocates[rownames(collocates) %in% coolocs, ]
 collocates_redux &lt;- collocates_redux[, colnames(collocates_redux) %in% coolocs]
 
-# create biplot of collocates 
+# create biplot of collocates
 
 library(FactoMineR)
 library(factoextra)
@@ -3728,21 +3728,21 @@ fviz_ca_row(res.ca, repel = TRUE, col.row = &quot;gray20&quot;, title = &quot;Co
 <div id="public-1" class="section level3">
 <h3>Public</h3>
 <p>Select collocates of “public” based bigrams</p>
-<pre class="r"><code># create list of bigrams 
+<pre class="r"><code># create list of bigrams
 
 list &lt;- c(&quot;public_opinion&quot;, &quot;public_spirited&quot;, &quot;public_spirit&quot;,
-          &quot;public_service&quot;, &quot;public_services&quot;, &quot;public_affairs&quot;, 
+          &quot;public_service&quot;, &quot;public_services&quot;, &quot;public_affairs&quot;,
           &quot;public_welfare&quot;, &quot;public_utility&quot;, &quot;public_utilities&quot;)
 list &lt;- as.data.frame(list)
 list &lt;- list %&gt;% rename(item1 = list)
 
-# select bigrams in list of collocates 
+# select bigrams in list of collocates
 
 public_cooc &lt;- word_pairs_filtered %&gt;% filter(item1 %in% list$item1)
 
-# filter pairs with a weight &gt; 5 
+# filter pairs with a weight &gt; 5
 
-public_cooc &lt;- public_cooc %&gt;% rename(cooc = n) 
+public_cooc &lt;- public_cooc %&gt;% rename(cooc = n)
 public_filtered &lt;- public_cooc %&gt;% filter(cooc &gt; 5)</code></pre>
 <p><br> Create node list of words</p>
 <pre class="r"><code>public_node_filtered1 &lt;- public_filtered %&gt;% select(item1) %&gt;% unique() %&gt;% rename(word = item1)
@@ -3776,13 +3776,13 @@ V(G)$color &lt;- colorVals
 l &lt;- layout.fruchterman.reingold(G)
 
 
-plot(G, 
+plot(G,
      layout=l,
      edge.width=E(G)$weight*0.01,
-     vertex.size=v.size*0.015, 
+     vertex.size=v.size*0.015,
      vertex.label=v.label,
      vertex.label.cex=v.size*0.002,
-     vertex.label.color=&quot;black&quot;, 
+     vertex.label.color=&quot;black&quot;,
      vertex.label.dist=0.2,
      vertex.label.family=&quot;Arial&quot;)</code></pre>
 <p><br> Refine network visualization with <a href="https://tidygraph.data-imaginist.com/">tidygraph</a> and <a href="https://github.com/thomasp85/ggraph">gggraph</a></p>
