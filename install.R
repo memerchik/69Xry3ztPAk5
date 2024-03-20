@@ -1,1 +1,8 @@
 install.packages("ggplot2")
+install.packages("tidyverse")
+install.packages("tidytext")
+install.packages("devtools")
+devtools::install_gitlab("enpchina/histtext-r-client")
+install.packages("quanteda")
+install.packages("widyr")
+install.packages("sf")
