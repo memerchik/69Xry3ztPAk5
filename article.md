@@ -6,7 +6,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.14.4
+      jupytext_version: 1.16.4
   kernelspec:
     display_name: R
     language: R
@@ -41,36 +41,41 @@ This article focuses on the Rotary Club as a case study and employs the periodic
 
 ## Introduction
 
-
-*The Chinese people had developed, the speaker quoted Dr. Wang as stating, the solidarity of family life. Its welfare was the summum bonum of one’s life -- it was what the individual was to live for. The word “family” in China not merely mean, as in the West, the father and mother and their children: it was all inclusive and extended often to the whole clan. But, just as the family life was developed, so the community life was starved. The individual Chinese until recently and only in limited sense, always thought and acted in terms of the family. Therefore, the best things one formed in any city were family property: a family library; a family park; a family hall; a family art treasury, etc. It accounted in very substantial degree, for the lack of public spirit, and public service in Chinese community life. “I cannot think of any other agency as potential as our Rotary clubs to generate this spirit of public service,” he said.* (<cite data-cite="626961/N5ILEHTS"></cite>)
-
+<!-- #region citation-manager={"citations": {"": []}} -->
+> *The Chinese people had developed, the speaker quoted Dr. Wang as stating, the solidarity of family life. Its welfare was the summum bonum of one’s life -- it was what the individual was to live for. The word “family” in China not merely mean, as in the West, the father and mother and their children: it was all inclusive and extended often to the whole clan. But, just as the family life was developed, so the community life was starved. The individual Chinese until recently and only in limited sense, always thought and acted in terms of the family. Therefore, the best things one formed in any city were family property: a family library; a family park; a family hall; a family art treasury, etc. It accounted in very substantial degree, for the lack of public spirit, and public service in Chinese community life. “I cannot think of any other agency as potential as our Rotary clubs to generate this spirit of public service,” he said.* (<cite data-cite="626961/N5ILEHTS"></cite>)
+<!-- #endregion -->
 
 In his address delivered at the Rotary Inter-City meeting held in Qingdao in 1935, the diplomat and political leader Wang Zhengting 王正廷 (1882-1961) advocated for the establishment of a modern public sphere, contrasting it with the traditional, family-centric vision of Chinese society. This excerpt, disseminated in both English and Chinese newspapers, prompts three overarching inquiries. Firstly, to what extent did Wang's idealistic vision align with prevailing perceptions and practices of social organization and public discourse? Secondly, how did the 1935 Rotary Club conference fit into the broader landscape of events and organizations that contributed to shaping the public sphere in modern China? Lastly, how did historical actors utilize the press to propagate their ideas and promote their actions to a wider audience?
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 The question surrounding the emergence of a public sphere in China has been a longstanding subject of debate. Early studies in the 1990s primarily focused on theoretical considerations, particularly the applicability of Western concepts to the Chinese context  (<cite data-cite="626961/6M7LWV62"></cite>,<cite data-cite="626961/I283MNWA"></cite>, <cite data-cite="626961/4AQX8HJK"></cite>, <cite data-cite="626961/RRWSXTCT"></cite>, <cite data-cite="626961/KX6J2KTE"></cite>, reprinted in <cite data-cite="626961/U2J8FG4X"></cite>). Concurrently, social historians have examined manifestations of civil society, such as local elites in Zhejiang or civil protests in Beijing, to elucidate how the public sphere materialized through social practices (<cite data-cite="626961/96H7I4VF"></cite>, <cite data-cite="626961/J8VVKEE7"></cite>). Nevertheless, these investigations have been confined to specific local settings. While the twin concepts of the public sphere and civil society have diminished in prominence in Western scholarship, they continue to attract attention among Chinese scholars. A search for the term "公共领域" (*gonggong lingyu*), the most common equivalent of the English concept "public sphere," in the [Chinese National Knowledge Infrastructure (CNKI)](https://oversea.cnki.net/index/), a major bibliographic academic database, yields 505 journal articles published between 2004 and 2023. Among these, 108 articles pertain to the late Qing-Republican era, with 16 doctoral dissertations focusing on the same historical period. This extensive literature can be categorized into several key themes, including the development of the modern press during the late Qing-early Republican era; elite activism, and organizational innovation during the late Qing dynasty; the 1911 revolution, the founding of the Republic, and the emergence of citizenship; intellectual movements such as the New Culture and May Fourth movements in the 1910-1920s, and women's evolving social roles in the public realm. However, in most of these works, the term "public sphere" is employed metaphorically.
+<!-- #endregion -->
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Since the 2000s, the increased accessibility of newspaper collections has paved the way for novel avenues in studying the historical evolution of public opinion, prompting a renewed focus on the transnational dimension of the Chinese public sphere (<cite data-cite="626961/FY6ZQ7SB"></cite>, <cite data-cite="626961/2689WDL7"></cite>, <cite data-cite="626961/DLHJEUJA"></cite>). The transnational perspective gained prominence in the scholarship on modern China during the late 1990s and early 2000s, coinciding with the era of opening up and reform (1978-) and the post-revolutionary shift in Chinese historiography. According to China historian Arlif Dirlik, the term "transnational" encompasses two primary senses: (1) the traversing of national borders and (2) the convergence of different nationalities in specific "contact zones," with treaty ports and foreign settlements in post-opium-war China serving as exemplary instances (<cite data-cite="undefined"></cite>). The ascent of the transnational perspective gave rise to an abundance of studies focused on Chinese "semi-colonial" modernity in treaty ports, notably Shanghai. While initially presented as an appealing alternative to both the Marxist concept of imperialism and Fairbank's "response to West" paradigm (Fairbank, 1954), the transnational paradigm has witnessed a decline in popularity over the past decade. Criticisms have emerged, characterizing it as a vague concept lacking robust conceptualization and  essentially “putting old wines into new bottles”. Furthermore, it has faced scrutiny for carrying an implicit ideological dimension that inadvertently downplayed or overlooked the unequal power relations engendered by global capitalism (<cite data-cite="626961/CDLF6DBW"></cite>). 
+<!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 Methodologically, scholars investigating both the public sphere and the transnational dimension through the analysis of the press have commonly concentrated on individual publications. Their focus often narrows down to specific genres of articles, such as editorials or "free talk" (*Ziyou tan* 自由談) columns (See for instance:  (<cite data-cite="626961/GICNI827"></cite>), <cite data-cite="626961/ZV9JTLAI"></cite>, <cite data-cite="626961/HYY7TCKK"></cite>). Constrained by the limitations of human reading capacity, these scholars have typically relied on small samples of manually selected articles. However, this approach lacks the ability to contextualize findings and assess whether and to what extent the chosen texts or passages accurately represent broader trends. To alleviate the potential risk of reinforcing pre-existing assumptions or exaggerating individual perspectives, such as Wang Zhengting's binary conceptualization of Chinese society, a different methodological approach is warranted.
 <!-- #endregion -->
 
+<!-- #region citation-manager={"citations": {"": []}} -->
 This paper advances the ongoing debate by undertaking a joint empirical study of two institutions within the public sphere – a transnational organization, the Rotary Club, and the periodical press. The public sphere is conventionally defined as "the space in which state and society, as well as different segments of society, articulate their interests and opinions within culturally and historically defined rules of rationality and propriety" (<cite data-cite="626961/FY6ZQ7SB"></cite>, p.3). Building upon this definition, the public sphere is conceptualized as an alternative to armed conflicts, constituting "a key constituent of a social order whose members do not resort to violence in each instance when conflict occurs." Moreover, reconsiderations of Benedict Anderson’s theory regarding the modern press as a primary instrument for constructing national consciousness (<cite data-cite="626961/Z8NV2SVZ"></cite>) have led to the recognition that "the modern public sphere is not coterminous with the nation but is essentially transnational and international" (<cite data-cite="626961/FY6ZQ7SB"></cite>, p.3).
+<!-- #endregion -->
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 The Rotary Club aligns seamlessly with these criteria. On one hand, it functions as a non-state organization with the purpose of socializing and legitimizing business and professional elites. On the other hand, it stands as a genuinely transnational organization, embodying the two senses defined by Dirlik. Established in Chicago in 1905, the Rotary Club expanded globally following World War I. By the eve of the Communist revolution in 1949, there were no fewer than thirty-three clubs in China, each hosting up to twenty different nationalities. Due to its foreign origins and multinational membership, the Rotary Club placed significant emphasis on international peace. Despite its professed apolitical stance, the organization was committed to fostering international goodwill among nations, particularly during the tumultuous interwar years (<cite data-cite="626961/4YPDTCZE"></cite>, p.233)
+<!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 The second institution within the public sphere scrutinized in this research is the periodical press. Recognized as an invaluable source for historians of modern China, newspapers serve as a comprehensive record capturing the minutiae of everyday life while bridging the local and the global. Functioning as the earliest mass medium, the press played a crucial role as a platform through which various historical actors, including the Rotary Club, shaped their public image and sought to influence public opinion. Following the First Opium War (1839-1842), Shanghai emerged as the uncontested center of the burgeoning modern press and publishing industry in China. The foreign settlements established by the Treaty of Nanjing (1842) acted as enclaves, fostering the development of a free press beyond the control of Chinese authorities <cite data-cite="626961/FY6ZQ7SB"></cite>, p.4). The so-called "commercial" newspapers, primarily represented by commercially successful publications like *Shenbao* and *North China Herald & Daily News*, experienced a significant boom during the Republican period (<cite data-cite="626961/RZEKCMV6"></cite>). Unlike intellectual pamphlets and political periodicals that thrived in the late Qing dynasty and during the New Culture and May Fourth (1919) movements of the 1910s-1920s, these commercial publications presented a broader spectrum of opinions.
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 Fortunately, a considerable portion of the Shanghai press has been exceptionally well preserved to this day. Entire collections have been digitized, greatly facilitating scholars' access to these rich materials. This research focuses on the [ProQuest Chinese Historical Newspapers Collection](https://about.proquest.com/en/products-services/hnp_cnc/), recognized as the most extensive compilation of English-language periodicals produced in China before 1949, and the Chinese-language newspaper *Shenbao* (1872-1949). Although *Shenbao* does not encompass the entirety of the Chinese press, it stood as one of the two largest daily newspapers during the Republican era, boasting a circulation of 150,000 in the 1930s and maintaining the longest duration of publication (1872-1949). Significantly for this research, it is the sole full-text newspaper accessible for data mining, distinct from mere consultation through commercial platforms like [Airusheng](http://server.wenzibase.com) or [Green Apple (Qingpingguo shuju zhongxin)](https://www.egreenapple.com/english/channels/139.html) or academic databases like [CrossAsia](https://crossasia.org/). Both *Shenbao* and the ProQuest collection are accessible in the Modern China Textbase (MCTB), the reference textbase for modern China established by the [ENP-China](https://www.enpchina.eu/) (Elites, Networks, and Power in modern China) project. For this investigation, I relied on [HistText](https://bookdown.enpchina.eu/HistText_Book/), an application developed by ENP-China to harness large-scale historical digitized corpora in multiple languages, such as the MCTB (<cite data-cite="626961/25WN7ZZR"></cite>). Specifically, HistText enables the researcher to (1) construct a corpus tailored to a specific research question, (2) retrieve historical information such as named entities (names of persons, organizations, locations), and (3) transform the data to facilitate further analysis using various methods (statistical, textual, spatial, network, etc.). All these operations can be conducted autonomously within a single, integrated environment (R Studio).
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 Within this framework, this paper pursues three primary objectives. Firstly, it seeks to complement prior research on the Rotary Club of Shanghai, primarily based on archival materials (<cite data-cite="626961/4YPDTCZE"></cite>). The previous study employed a prosopography approach to analyze Chinese membership and reveal internal tensions arising from the adoption of English as the primary language of communication among members. Building on this groundwork, this second paper delves into the club's public image, examining how the Rotary strategically utilized the periodical press to position itself as a public sphere institution dedicated to the "rational handling of conflicts." The key questions guiding this investigation are: (1) How did this non-state organization operate in practice on the local, national, and global scales? (2) Who were the key actors shaping its public image(s) and sphere(s) of action? (3) How did transnationalism manifest geographically in China during the Republican era? (4) What concepts were employed in the contemporary press, both Chinese and English, to characterize the transnational public?
 <!-- #endregion -->
 
@@ -87,7 +92,7 @@ This article is structured into four sections. The first section employs a bilin
 <!-- #endregion -->
 
 <!-- #region tags=["hermeneutics"] -->
-*Note: Due to the computational complexity of the various methods employed in this research, it was not feasible to integrate the code directly in the body of the paper. For the sake of legibility, the complete code is accessible on the dedicated [GitHub repository](https://github.com/jdh-observer/69Xry3ztPAk5) within the “script” folder. The paper only describes the most important steps and methodological choices that underpin the various methods in the corresponding hermeneutics layer. Interested readers can freely consult the detailed scripts either independently or in the course of their reading.*
+*Note: Due to the computational complexity of the various methods employed in this research, it was not feasible to integrate the code directly in the body of the paper. For the sake of legibility, the complete code is accessible on the dedicated [GitHub repository](https://github.com/carmand03/china-public-sphere) within the “script” folder. The paper only describes the most important steps and methodological choices that underpin the various methods in the corresponding hermeneutics layer. Interested readers can freely consult the detailed scripts either independently or in the course of their reading.*
 <!-- #endregion -->
 
 <!-- #region tags=["hermeneutics"] -->
@@ -98,16 +103,18 @@ This article is structured into four sections. The first section employs a bilin
 Topic modeling is a statistical method used to uncover hidden themes (topics) within large collections of unstructured texts. This approach relies on identifying co-occurrences of words in documents to reveal patterns and themes. Topic modeling proves especially fitting for this research endeavor focused on modeling the public sphere in the periodical press. Grounded in natural language, it is scalable and applicable to corpora of nearly any size. This methodology can be envisioned as a mixed-method approach that leverages the capabilities of unsupervised techniques to mitigate biases associated with manual reading and subjective selection. Simultaneously, it relies on close reading and contextual knowledge to interpret the topics automatically inferred. Through this hybrid approach, scholars can gradually narrow the divide between close and distant readings, quantitative and qualitative analyses, as well as theoretical and empirical studies.
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 Historians have increasingly adopted topic modeling for various purposes, including refining corpus building, classifying documents, and mapping discourse dynamics and ideational changes (<cite data-cite="626961/JPQDI8X3"></cite>, <cite data-cite="626961/FUBAMMM3"></cite>, <cite data-cite="626961/VLTXFZ9R"></cite>, <cite data-cite="626961/IZHGPD6V"></cite>, <cite data-cite="626961/GT2TR8Y6"></cite>, <cite data-cite="626961/SW2G3JLE"></cite>, <cite data-cite="626961/TYNA7Q8G"></cite>). While initially applied predominantly in monolingual contexts, recent efforts have explored multilingual topic modeling (<cite data-cite="626961/4RLTTJBN"></cite>, <cite data-cite="626961/MJ4JJVIV"></cite>, <cite data-cite="626961/QHLTKGQB"></cite>, <cite data-cite="626961/ICISENGW"></cite>). In the realm of Chinese studies, topic modeling has found applications in both contemporary and classical Chinese texts, particularly in classical literature and historical records written in classical Chinese (<cite data-cite="626961/ZHQ5UL8D"></cite>, <cite data-cite="626961/DNUIWSYJ"></cite>). However, its application to modern Chinese newspapers has been limited due to the scarcity of digitized texts from that period. 
 <!-- #endregion -->
 
+<!-- #region citation-manager={"citations": {"": []}} -->
 While historians have increasingly relied on topic modeling to navigate the expanding sea of digitized newspapers, few studies have explicitly tackled the challenge of article separation, although it is a crucial task for defining the appropriate unit of analysis. In most instances, the processing of digitized newspapers occurs at the page level, which lacks semantic coherence. Fortunately, in the ProQuest collection, layout analysis was conducted at a more granular level—individual articles. Nonetheless, specific sections like "Men and Events" or "Brevities" often encompass a variety of unrelated information ([figure 1](#anchor-figure-1)). The topics inferred from these heterogeneous articles may merely mirror their disordered contents, lacking immediate relevance to our specific research question. To our knowledge, only (<cite data-cite="undefined"></cite>) and (<cite data-cite="626961/GWQTUMXN"></cite>) have addressed the critical issue of article separation in historical newspapers, though without presenting scalable solutions. (<cite data-cite="626961/IBT42XJB"></cite>) have also touched on the matter of determining text section sizes more generally.
+<!-- #endregion -->
 
 ```R jdh={"object": {"source": ["figure 1: Examples of problematic text units from Shenbao (top) and China Weekly Review (bottom). Segments of interest are highlighted. For the sake of saving space, only parts of the articles are reproduced here."], "type": "image"}} tags=["figure-1", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.1a.png")
-display_png(file="./media/Fig.1b.png")
+display_jpg(file="./media/Fig1a.JPG")
+display_jpg(file="./media/Fig1b.JPG")
 ```
 
 <!-- #region tags=["hermeneutics"] -->
@@ -122,11 +129,11 @@ Focusing on the Rotary Club as a case study, this initial section addresses thre
 The workflow follows three main steps: First, I created the text corpora. Second, I prepared the text data and built the topic models. Finally, I analyzed and interpreted the topics. While this is a standard workflow in any topic modeling approach, this research introduces specific adaptations for building the bilingual corpora and for pre-processing the text data to overcome the problem of article separation described earlier.
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutic-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 1: Corpus building
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 In the first step, I created two separate corpora, one for each language. The Chinese-language corpus is based on the *Shenbao*, a leading newspaper published in Shanghai between 1872 and 1949. Despite low literacy rates among the Chinese population, the *Shenbao* reached 150,000 copies in the 1930s, making it one of the two most widely circulated newspapers in China (On the *Shenbao*, see (<cite data-cite="626961/IE4K5VAI"></cite>, <cite data-cite="626961/IQFS98C6"></cite>, <cite data-cite="626961/5X6264E9"></cite>). See also Christian Henriot's piece in this issue). Although it catered primarily to Shanghai intellectual, political, and business elites, its readership widened in the 1930s. The English-language corpus is based on the [ProQuest Chinese Newspapers Collection](https://about.proquest.com/en/products-services/hnp_cnc/), which includes a dozen of periodicals running from 1832 to 1953, with varying circulation, periodicity, and duration.  Despite the risk of overlap, I nonetheless chose to include all the periodicals included in the ProQuest collection to ensure the maximum coverage and to reduce the gap with the daily granularity of the *Shenbao*. Since the largest English periodicals were weekly publications, they were necessarily more selective than *Shenbao*, with the risk of missing some events that were reported in the *Shenbao*, but not in one or the other English periodicals. The most widely distributed foreign periodical was the *North China Daily News*, peaking at 10,000 copies in the early 1930s, while its weekly edition, the *North China Herald*, distributed almost 2,000 copies per week. They were read not only by foreign expatriates but also increasingly by foreign-educated Chinese elites. Although they were printed in Shanghai, both the *Shenbao* and the *North China Herald* had a national, even international coverage, being circulated among overseas Chinese and foreign readers interested in Chinese affairs.
 <!-- #endregion -->
 
@@ -142,16 +149,16 @@ The two sets of plots below show the uneven distribution of documents over time 
 
 ```R jdh={"object": {"source": ["figure 2: Distribution of documents mentioning the Rotary Club in Shenbao (top) and the ProQuest collection (bottom). The additional graphs serve to contextualize the results of the query. The second graphs (blue lines) show the percentage of the entire corpora that the query results represent. The third graphs show the distribution of the entire collections over time. In the case of Shenbao, the graph plots the character count by day. For ProQuest, it shows the word count by year. General statistics relating to the different collections, including the number of documents and tokens by year, are available on [GitLab, ENP-China group](https://gitlab.com/enpchina/ENP-Datasets-Stats)"], "type": "image"}} tags=["figure-2", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.2a.png")
-display_png(file="./media/Fig.2c.png")
-display_png(file="./media/Fig.2e.png")
+display_jpg(file="./media/Fig2a.JPG")
+display_jpg(file="./media/Fig2c.JPG")
+display_jpg(file="./media/Fig2e.JPG")
 
-display_png(file="./media/Fig.2b.png")
-display_png(file="./media/Fig.2d.png")
-display_png(file="./media/Fig.2f.png")
+display_jpg(file="./media/Fig2b.JPG")
+display_jpg(file="./media/Fig2d.JPG")
+display_jpg(file="./media/Fig2f.JPG")
 ```
 
-<!-- #region tags=["hermeneutic-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 2: Text pre-processing
 <!-- #endregion -->
 
@@ -161,22 +168,22 @@ To tackle the issue of article separation, in the sense of extracting only the r
 
 ```R jdh={"object": {"source": ["figure 3: A simple three-step method for creating short text units centered on the queried terms using concordance or Key Word In Context (KWIC): (1) Retrieve KWIC (2) Reconstruct the sequence (3) Re-unite the document. The above example is taken from an article published in Shenbao on 14 April 1947, which contains three instances of the key terms."], "type": "image"}} tags=["figure-3", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.3.png")
+display_jpg(file="./media/Fig3.JPG")
 ```
 
 <!-- #region tags=["hermeneutics"] -->
 Next, I prepared the text data to make it processable by topic model algorithms. Standard pre-processing steps include tokenization, stemming, and lemmatization (optional), as well as various filtering options (stop words, punctuation, rare words). Tokenization involves segmenting the text into meaningful units, which, in this context, are essentially words. For the Chinese text, I used [jiebaR](https://github.com/qinwf/jiebaR/), one of the most popular tokenizers today. While primarily designed for tokenizing contemporary Chinese texts, it provided satisfactory results for texts published during the period under study (1919-1949). For the English text, I relied on the standard tokenizer included in the pre-processing function of the [stm R package](https://warin.ca/shiny/stm/#section-the-structural-topic-model), as described below. In the subsequent steps, I chose not to stem (i.e., reduce words to their root) or lemmatize words (reduce words to their common form) because, at this stage, I preferred to preserve all nuances conveyed in the original articles. Additionally, I provided a customized list of stop words, including the terms used for querying the corpus (“扶輪社”, “Rotary”, “club”) and common terms in this context, such as “中國”, “上海”, “China”, and “Chinese”. Furthermore, I removed words containing fewer than two characters and occurring in fewer than two documents in Chinese, and those containing fewer than four characters and occurring in fewer than five documents in English. With these parameters, five documents were removed from the Chinese corpus. The resulting corpora eventually contain 2378 terms in English and 921 in Chinese, representing their respective vocabularies
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 3: Model building
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 Various topic modeling algorithms have been implemented so far. For this research, I opted for a Latent Dirichlet Allocation (LDA) algorithm, which is one of the most popular methods today. LDA is a probabilistic model that treats topics as mixtures of words and documents as mixtures of topics. This implies that words can belong to different topics, while topics can be represented in multiple documents with varying proportions. More specifically, I relied on structural topic modeling (STM) to incorporate metadata such as the date of publication in order to investigate the effect of time on topical prevalence. From a technical perspective, I chose to use the [stm R package](https://warin.ca/shiny/stm/#section-the-structural-topic-model) which includes several built-in functions designed to facilitate the exploration of topics, including various visualizations and statistical outputs (<cite data-cite="626961/WA2GBZDB"></cite>). The full code for building the topic models in [Chinese](https://bookdown.enpchina.eu/PublicSphere_stm/PublicSphere_Chinese.html#Model_building) and [English](https://bookdown.enpchina.eu/PublicSphere_stm/PublicSphere_English.html#Model_building) is available in the GitHub repository. 
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 Choosing the right number of topics *k* remains a highly debated question. There is no definite answer. Most topic modeling tools, including the *stm* package, generally provide a set of metrics such as held-out likelihood, residual analysis, average exclusivity and semantic coherence, to help the researcher to determine the optimal number of topics for a given corpus. According to the creators of the *stm* package, the optimal number of topics for corpora that comprise between a few hundred to a few thousand documents, should range from 5 to 50 topics (<cite data-cite="626961/CTH9XCRS"></cite>).  Ultimately, however, only the researcher’s interpretational needs can determine the most appropriate number of topics for a given specific research. Rather than concentrating on a singular, definitive model, I decided to build three models with 5, 10, and 20 topics for each corpus. Multi-model approaches have been effectively employed in prior studies (<cite data-cite="626961/AG6AGH4A"></cite>, <cite data-cite="626961/7ANYDUV2"></cite>). This approach allows scholars to navigate between various levels of granularity and choose, in each model, the topics most pertinent to their research question. It is particularly well-suited for this case involving corpora of varying sizes and structures. 
 <!-- #endregion -->
 
@@ -186,41 +193,43 @@ The results of topic modeling are usually presented in the forms of lists of wor
 
 ```R jdh={"object": {"source": ["figure 4: Summary of topics for each model in the Chinese corpus. Each plot shows the most frequent words for each topic and the relative proportion of the topics for each model."], "type": "image"}} tags=["figure-4", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.4a.png")
-display_png(file="./media/Fig.4b.png")
-display_png(file="./media/Fig.4c.png")
+display_jpg(file="./media/Fig4a.JPG")
+display_jpg(file="./media/Fig4b.JPG")
+display_jpg(file="./media/Fig4c.JPG")
 ```
 
 ```R jdh={"object": {"source": ["figure 5: Summary of topics for each model in the English corpus. Each plot shows the most frequent words for each topic and the relative proportion of the topics for each model."], "type": "image"}} tags=["figure-5", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.5a.png")
-display_png(file="./media/Fig.5b.png")
-display_png(file="./media/Fig.5c.png")
+display_jpg(file="./media/Fig5a.JPG")
+display_jpg(file="./media/Fig5b.JPG")
+display_jpg(file="./media/Fig5c.JPG")
 ```
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 Based on the list of words, I labeled the topics in the most meaningful way as possible ([figure 6](#anchor-figure-6), [figure 7](#anchor-figure-7)). In cases where topics seemed unclear, I did not solely rely on the list of words; instead, I closely examined a sample of highly representative texts for each topic to better understand how the topics translated into concrete words and sentences. Additionally, I drew on my previous knowledge of the club and the broader historical context to enhance my final interpretation of the topics. 
 <!-- #endregion -->
 
 ```R jdh={"object": {"source": ["figure 6: Topic labels for each model in the Chinese corpus."], "type": "image"}} tags=["figure-6", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.6a.png")
-display_png(file="./media/Fig.6b.png")
-display_png(file="./media/Fig.6c.png")
+display_jpg(file="./media/Fig6a.JPG")
+display_jpg(file="./media/Fig6b.JPG")
+display_jpg(file="./media/Fig6c.JPG")
 ```
 
 ```R jdh={"object": {"source": ["figure 7: Topic labels for each model in the English corpus."], "type": "image"}} tags=["figure-7", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.7a.png")
-display_png(file="./media/Fig.7b.png")
-display_png(file="./media/Fig.7c.png")
+display_jpg(file="./media/Fig7a.JPG")
+display_jpg(file="./media/Fig7b.JPG")
+display_jpg(file="./media/Fig7c.JPG")
 ```
 
 <!-- #region tags=["hermeneutics"] -->
 Tables 1 to 6 in the ([Appendix](#anchor-appendix)) provide a summary of the topics for each model, including their label, the 10 most frequent words defining each topic, and their various attributes (topical group, dimension, proportion, and trend over time). Tables 7 and 8 show the topics aligned across models. Tables 9, 10, and 11 present the topics aligned across languages. 
 <!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 ### The *modus operandi* of the public sphere
+<!-- #endregion -->
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
 In the next step, I grouped the labeled topics into four broad categories ([figure 8](#anchor-figure-8)). These four meta-topics reflect the four main domains of activity of the Rotary Club, and by extension, to the four *modus operandi* of the public sphere.
@@ -228,7 +237,7 @@ In the next step, I grouped the labeled topics into four broad categories ([figu
 
 ```R jdh={"object": {"source": ["figure 8: Distribution of topical categories. PQ = ProQuest, SB = Shenbao. 5T = 5-topic model, 10T = 10-topic model, 20T = 20-topic model."], "type": "image"}} tags=["figure-8", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.8.png")
+display_jpg(file="./media/Fig8.JPG")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -257,8 +266,8 @@ As these examples suggest, invalid topics tend to become more frequent as we inc
 
 ```R jdh={"object": {"source": ["figure 9: Plotting semantic coherence against exclusivity for the three models built from Shenbao (top) and ProQuest (bottom). The higher the number of topics, the lower the coherence, and the higher the exclusivity."], "type": "image"}} tags=["figure-9", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.9a.png")
-display_png(file="./media/Fig.9b.png")
+display_jpg(file="./media/Fig9a.JPG")
+display_jpg(file="./media/Fig9b.JPG")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -269,11 +278,11 @@ Meeting-related topics prevail in both corpora (40 to 60%), meaning that sociali
 Community service was the second most important activity of the club (10 to 30%). The two corpora shared a similar concern for children, reflected in the toy collection campaigns that the Rotary organized every year for Christmas (SB20T06), and the fundraising campaigns aimed at building a children hospital in Zhabei (north of the International Settlement) (SB20T12). In fact, children-oriented philanthropy represented the most prevalent and resilient topic in this category. The 20-topic models also shared a growing concern for helping poor Russian emigres in Shanghai (SB20T10, PQ20T15). Boy scouts featured more prominently in the English-language press (PQ5T04, PQ10T06, PQ20T06), whereas the *Shenbao* was more concerned with the construction of a “beggar camp” for refugees during the Sino-Japanese war (SB10T09, SB20T17). These divergences reflect both the national profiles of the individuals who were involved in the various charity projects, as well as the uneven impact of the Sino-Japanese war (1937-1945) on the Chinese and the English press. On the one hand, the Boy Scout movement in Shanghai was essentially supported by the British Rotarian Francis Charles Millington. On the other hand, the English-language press was more seriously affected by the war than the *Shenbao*.
 <!-- #endregion -->
 
-<!-- #region tags=["narrative", "hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["narrative", "hermeneutics"] -->
 The greater prevalence of organizational topics in the *Shenbao* (25% compared to 5% in the ProQuest corpus) reflects the general growth of Chinese members and the increasing autonomy of Chinese clubs in the global organization (<cite data-cite="626961/4YPDTCZE"></cite>).  While the English press focused on local elections prior to the Sino-Japanese war (PQ10T01, PQ20T20), the Chinese press seemed more concerned with district elections and postwar reorganization (SB10T07, SB20T07). Both corpora reported on other Rotary clubs in China (PQ10T03), including Tianjin (PQ20T18, SB20T15), Nanjing (PQ20T13), after the Nationalists had established their capital in the city in 1927, and Hangzhou, where the first Chinese-speaking club was established in 1931 (SB20T18) (<cite data-cite="626961/4YPDTCZE"></cite>, p.254).  While international conventions were systematically documented in the two corpora (SB5T02 , SB10T02, SB20T02, PQ20T01), *Shenbao* was more likely to report on other Rotary clubs outside Shanghai (SB20T13, SB20T20). 
 <!-- #endregion -->
 
-<!-- #region tags=["narrative", "hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["narrative", "hermeneutics"] -->
 Finally, the presence of forum-related topics (5 to 20%) in the two corpora illustrates a core characteristic of the public sphere as an alternative to armed conflicts (<cite data-cite="626961/FY6ZQ7SB"></cite>, p.5). It is remarkable that in both languages, every topic is deprived of any words denoting conflict or violence. Instead, the words that dominate the six topic models all emphasize dialogue and discussion as the primary means of communication among Rotarians. These words also express the self-image that the Rotary aimed to present to the world. For instance, if we focus on the 10-topic model, topic 2 is defined by the words *yanshuo* 演說 (speech), *daibiao* 代表 (delegate or representative), *qinshan* 親善 (goodwill), and *jingshen* 精神 (spirit) in Chinese. These words serve to define other topics as well, and in fact they occur frequently across the entire corpus. In the English-language press, the words “said”, “address”, “speech”, and “talk” are highly frequent in topic 10 as well as in other topics. These topics epitomize the self-claimed apolitical nature of the Rotary Club and its commitment to international peace and goodwill. Potentially conflictual issues were always discussed on a rational basis during meetings and special events, which offered a platform for guest speakers, including government officials, to defend their opinions and political programs in their keynote speeches. The Rotarians’ mode of communication and ways of managing conflicts contrasted sharply with the "war of resistance" advocated by other Chinese organizations during the same period. 
 <!-- #endregion -->
 
@@ -281,11 +290,11 @@ Finally, the presence of forum-related topics (5 to 20%) in the two corpora illu
 The “forum” category nonetheless presents significant differences between the two corpora in terms of topic prevalence and topical contents. Forum-related topics were more prevalent in English periodicals than they were in the *Shenbao*. This again essentially reflects the weekly periodicity of English-language press, which allowed for lengthy and more detailed accounts of lectures and discussions, whereas the Chinese daily was more likely to publish brief accounts and announcements of lectures. Furthermore, the English press tended to focus on social/economic issues (PQ10T04 and PQ20T04) and international relations, especially the American presence in East Asia (PQ20T03). The two corpora shared a growing concern for Sino-Japanese relations after the Japanese invasion of Manchuria in September 1931. This critical topic, however, was not as prominent as expected and made only brief appearances in both corpora (PQ10T09, SB20T19). 
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics", "narrative"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["narrative"] -->
 ### Negotiating between the local and the global
 <!-- #endregion -->
 
-<!-- #region tags=["narrative", "hermeneutics"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["narrative", "hermeneutics"] -->
 To investigate the transnational nature of the public sphere, I further classified the topics into local/non-local categories. In this research, the term 'local' reflects the Shanghai point of view. Since the periodicals under study were published in Shanghai and catered primarily to a Shanghai-based audience, "local" refers to the perspective of Shanghai newspaper readers. In both languages, the local perspective can be empirically identified through terms referring to local places (street names, buildings, or hotels where the Rotary Club held its meetings), local time (day, date, exact time of meetings), local institutions (local companies or branches of external companies, municipal administration, civic associations, or local business organizations), and local positions (president, manager, director, board member). The local perspective, however, is not defined by individuals such as Rotary members or guests, who were mobile both geographically and professionally, and whose mindset and influence extended far beyond their daily routines and local spheres of action. 
 <!-- #endregion -->
 
@@ -299,8 +308,8 @@ The distinction between local and non-local topics, however, is not always strai
 
 ```R jdh={"object": {"source": ["figure 10: The most frequent words defining the 10-topic models in Shenbao (top) and ProQuest (bottom)."], "type": "image"}} tags=["figure-10", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.10a.png")
-display_png(file="./media/Fig.10b.png")
+display_jpg(file="./media/Fig10a.JPG")
+display_jpg(file="./media/Fig10b.JPG")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -309,7 +318,7 @@ Topics 1 and 3 in the Chinese corpus provide examples of mixed topics including 
 
 ```R jdh={"object": {"source": ["figure 11: The most representative documents for topics 1 and 3 in the Chinese-language corpus (10-topic model)."], "type": "image"}} tags=["figure-11", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.11.png")
+display_jpg(file="./media/Fig11.JPG")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -318,10 +327,10 @@ In the English corpus, mixed topics include topics 1, 5, and 10 ([see figure 12]
 
 ```R jdh={"object": {"source": ["figure 12: The most representative documents for topics 1, 5, and 10 in the English-language corpus (10-topic model)."], "type": "image"}} tags=["figure-12", "hermeneutics"]
 library("IRdisplay")
-display_png(file="./media/Fig.12.png")
+display_jpg(file="./media/Fig12.JPG")
 ```
 
-<!-- #region tags=["narrative", "hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["narrative", "hermeneutics"] -->
 The fact that topics are often mixtures of local/non-local words complicates the categorizations designed in the beginning of this section. Furthermore, when taken out of their context, some words appear ambiguous. Deciding on their local/non-local dimensions usually requires additional, contextual knowledge. For example, as shown on [figure 10](#anchor-figure-10), the words “都城” (*ducheng*) in topic 1 and “Metropole” in topic 7 did not refer to some global metropolis but to the name of a local hotel in Shanghai (都城 飯店 *Ducheng fandian*), which the Rotary Club used for its weekly meetings in the 1930s. Alternative text analysis tools such as bigrams and collocations can be used in combination with topic modeling to help disambiguate such words. Ultimately, disambiguation requires a close reading of sample texts, usually the top first documents with the highest topic prevalence, to better understand how topics translate into concrete words and sentences, and to eventually validate the actual content of topics (<cite data-cite="626961/ADRQ6K6S"></cite>).
 <!-- #endregion -->
 
@@ -338,8 +347,8 @@ In the two corpora, local meetings tended to decline over time, whereas discussi
 
 ```R jdh={"object": {"source": ["figure 13: Topic proportions over time (1919-1949) for the 10-topic model in Shenbao (top) and ProQuest (bottom). Topic proportions are aggregated by year."], "type": "image"}} tags=["figure-13"]
 library("IRdisplay")
-display_png(file="./media/Fig.13a.png")
-display_png(file="./media/Fig.13b.png")
+display_jpg(file="./media/Fig13a.JPG")
+display_jpg(file="./media/Fig13b.JPG")
 ```
 
 The remaining topics seem less stable. Topics 1, 6, 8, 9, and 10 in the Chinese corpus are examples of such unstable topics. Most refer to tiffin meetings (announcements or reports), which constitute a regular feature of the Rotary Club and can be defined as a “background topic” for the Rotary Club. Topics dealing with children peaked during the war and vanished afterwards. Topics dealing with the beggar camp and the refugee problem also peaked during the war. Their early appearances are misleading, however, resulting from polysemous terms used to define different topics (such as *xiwang* 希望 “hope”).
@@ -356,25 +365,25 @@ This section builds upon the outcomes of the preceding topic modeling to delve d
 
 The following hermeneutics layers outline the five-step methodology employed for refining corpora and reconstructing the networks of topics and actors over time. Subsequent narrative layers present key findings for each time period. The complete code is accessible in the "script" folder on the GitHub repository.
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 ### Methodology
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 1: Filtering topics
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 To conduct a more in-depth exploration of the contents and actors within the public sphere, I opted to concentrate on topics related to lectures and speeches, as these provide substantial content for debates and diverse perspectives. Specifically, I focused on topic 3 in the 5-topic model within the English corpus and topics 2, 3, and 10 in the 10-topic model within *Shenbao* (refer to Tables in the Appendix for details). Within each topic, I retained articles that exhibited a minimum proportion of the selected topics. The determination of this minimal threshold requires clarification. While previous studies recommended a minimum of 25% (<cite data-cite="626961/IBT42XJB"></cite>), this research adopts a more flexible approach based on the document topic distribution in each corpus and model, as illustrated in the histograms ([figure 14](#anchor-figure-14)). Given the relatively small size of the corpora (hundreds of articles), this method aims to avoid excluding too many documents. Following this method, I selected all documents containing at least 0.11% of topic 3 in the English corpus 10-topic model. In the Chinese corpus, I retained 0.02% of topic 2, 0.01% of topic 3, and 0.02% of topic 10.
 <!-- #endregion -->
 
 ```R jdh={"object": {"source": ["figure 14: Histograms illustrating the document-topic distribution in the 5-topic model applied to the Shenbao corpus (above) and the 10-topic model of the English corpus (below)."], "type": "image"}} tags=["figure-14"]
 library("IRdisplay")
-display_png(file="./media/Fig.14a.png")
-display_png(file="./media/Fig.14b.png")
+display_jpg(file="./media/Fig14a.JPG")
+display_jpg(file="./media/Fig14b.JPG")
 ```
 
-<!-- #region tags=["hermeneutics-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 2: Refining text units
 <!-- #endregion -->
 
@@ -382,11 +391,11 @@ display_png(file="./media/Fig.14b.png")
 To comprehensively analyze the debates and actors present in the press, it is essential to consider entire news items as units of analysis, unlike the selected text segments used in the previous section to model the operating modes of the Rotary Club. This necessitates several additional pre-processing steps, which vary depending on the language. In the English corpus, I filtered the texts by category to retain only "feature articles" and remove brevities and other categories containing brief announcements with little substantial content. After filtering, the new English corpus contained 954 documents. In *Shenbao*, it was not possible to apply this method since no classification was available. Therefore, I reviewed the documents one by one to extract the relevant passages from each document and then computed the length of each passage to retain only substantial news items. Based on the set of manually re-segmented articles, I filtered out the shortest documents that did not contain any substantial information, such as brief announcements of meetings. After a close examination of the shortest texts, I set the threshold to 45 characters and removed all documents (166) containing less than 45 characters. After filtering, the final Chinese corpus contained 345 documents.
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 3: Time-based topic modeling
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics", "narrative"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics", "narrative"] -->
 To explore the evolution of topics over time, I divided the two datasets (English and Chinese) into three time slices, corresponding to three key periods in the history of the Rotary Club (<cite data-cite="626961/4YPDTCZE"></cite>): 
 **(1) The first phase (1919-1929)** corresponds to the first decade in the club's history, marked by post-WWI debates regarding peace, international relations, and social reforms. 
 **(2) The second period (1930-1937)** is characterized by the growth of Chinese membership and leadership, with new concerns for social reform and the global economic depression. 
@@ -405,7 +414,7 @@ This division resulted in six sub-corpora, three for each language ([table 12](#
 | **Total**     | 345         | 954         |
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 4: Retrieving actors
 <!-- #endregion -->
 
@@ -413,11 +422,11 @@ This division resulted in six sub-corpora, three for each language ([table 12](#
 To reconstruct the configurations of actors that shaped the public sphere and its ideological contents (debates and key issues), I employed **Named Entity Recognition (NER)**, a well-established method in natural language processing that enables the identification of names of persons, organizations, locations, and other entities in text corpora. In this specific research, NER was utilized to extract the names of persons, organizations, locations, and geopolitical entities (GPE) in the two language-based corpora under study.
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} tags=["hermeneutics"] -->
 I specifically utilized models developed by Baptiste Blouin, a computer scientist in the ENP-China project, for extracting historical entities in digitized texts in Chinese and English. These refined models, trained on appropriate historical data, offer several crucial advantages: (1) they are robust to noisy Optical Character Recognition (OCR) and missing punctuation, notably in the ProQuest collection of English-language newspapers; (2) they can identify the names of persons in Chinese, taking into account variants, co-references, and embedded titles (such as 君jun). More information on these models can be found in the [HistText manual](https://bookdown.enpchina.eu/HistText_Book/named-entity-recognition-ner.html) and Blouin’s related papers (<cite data-cite="626961/THBIYZ7E"></cite>, <cite data-cite="626961/U433KHD5"></cite>, <cite data-cite="626961/XN9I57AE"></cite>). The workflow used for extracting and cleaning the entities in this research is described in detail in the "script" folder in the GitHub repository.
 <!-- #endregion -->
 
-<!-- #region tags=["hermeneutics-step"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 5: Building Networks
 <!-- #endregion -->
 
@@ -433,11 +442,13 @@ Furthermore, network metrics were utilized to identify the most central persons 
 The results are described and interpreted in the following narrative layers. *Note: The numbers indicated within parentheses below refer to the unique document identifier (DocId) used in the Modern China Textbase (MCTB) accessible through [HistText](https://bookdown.enpchina.eu/HistText_Book/set-up.html#available-corpora).*
 <!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 ### Building International Peace through Youth and Education (1919-1929)
+<!-- #endregion -->
 
-
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 #### Topics
-
+<!-- #endregion -->
 
 The Chinese and English press shared a number of similar concerns (refer to [table 13](#anchor-table-13)). Both demonstrated a strong interest in youth and education, though this focus was statistically more significant in the Chinese press (41%, compared to 31% in the foreign press), and their perspectives differed. While *Shenbao* emphasized educational activities in China, such as the Boy Scout meetings sponsored by the Rotary Club (SPSP192810141212, SPSP192810021501) and American students in China, such as the students from the US Maritime Academy (Meiguo Haishang daxue 美國海上大學) who visited Shanghai in January 1929 (SPSP192901121101), the English-language press emphasized reversed flows from China to the United States. They reported on the students of Shanghai American schools who received Rotary bursaries to study in America (1324671546) and featured biographies of Chinese individuals educated in the United States. The post-WWI period coincided with the first large batches of students returning from the United States since the recall of the aborted Chinese Educational Mission (1872-1881), and some of these students were beginning to take positions of influence in China. Examples include Kuang Fuzhuo 鄺富灼 (1869-1938), a graduate of Columbia University who became president of the Shanghai Rotary Club in 1929 (1321529215, 1420023531), Niu Huisheng 牛惠生 (1892-1937), a Harvard graduate and orthopedic specialist (1319868907), or the Chinese members of the Shanghai Municipal Council elected in 1928 (1371312334). While both presses portrayed the returned students as agents of international friendship, the English press viewed them as a factor of progress and political stability in China (1324748781, 1321417206), whereas *Shenbao* adopted a more pragmatic stance, viewing their foreign education primarily as a tool for building business relations between China and the United States (SPSP192901121101).
 
@@ -453,8 +464,9 @@ Another difference lies in the forms that transnationalism took in the two corpo
 
 The English press was particularly concerned with labor issues during this period, focusing on three key debates: the widespread labor strikes in China and Hong Kong in the early 1920s, the issue of child labor in the mid-1920s, and labor conditions in the Soviet Union in the late 1920s. The labor strikes in the early 1920s raised significant concerns among industrial elites in China, leading to extensive studies by sociologists and economic experts. American-educated Chinese journalist Dong Xianguang 董显光 (1887-1971) and American economist Charles Remer, invited to share their insights on the Chinese labor movement, advocated for the adoption of labor standards in China. They portrayed Rotary members and cotton magnates Nie Qijie 聶其傑 (1880-1953) and Mu Xiangyue 穆湘玥 (1876-1942) as exemplary capitalists who had anticipated workers' demands and taken preventive measures to enhance their social welfare, such as introducing sanitary facilities and providing education and entertainment for factory workers and their families (1319935662, 1319882138). Debates surrounding child labor in China gained prominence after the visit of Agatha Mary Harrison (1885–1954), an English industrial welfare reformer, to China in 1920 to investigate local industrial conditions. Her visit not only highlighted the issue of child labor but also criticized industrial exploitation by foreign powers as the main catalyst for turmoil in China. This perspective faced strong opposition from the British newspaper *North-China Herald* (1369965739, 1426577431). The aftermath of the Bolshevik revolution in October 1917 led Western observers to closely monitor the situation in the Soviet Union, apprehensive about the potential spread of communism in Europe and beyond. There was growing concern among foreigners residing in China that the extensive labor strikes in both China and Hong Kong might escalate into a broader social movement, potentially leading to a political revolution similar to the Bolshevik revolution. These anxieties intensified with the establishment of the first Chinese Communist Party (CCP) in Shanghai in 1921 and the formation of the United Front in 1924 between the CCP and the Guomindang (GMD) or Nationalist Party, which began receiving material aid and support from Soviet Russia to overthrow the warlords and imperialist powers in China. Foreign journalists closely followed the developments in Soviet Russia, considering it a testing ground or a potential scenario for the young and politically unstable Chinese Republic, and were invited to share their perspectives with Rotarians in China.
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Similarly, topics related to water conservancy and public health, with a particular focus on Tianjin and Shanghai, were predominantly covered in the foreign press (topic 3). English periodicals reported on the interest of business elites in the restoration of the deteriorated Grand Canal, seen as a means to stimulate trade in northern China and revitalize Tianjin's economy, a major port in the region. Although the project eventually failed due to financial troubles and factional struggles (<cite data-cite="626961/4ZWEG62G"></cite>, p. 53-79), the Rotary Club played a key role as a platform for garnering support and funding from northern elites. Figures like Yang Baoling 楊豹靈 (1886-1966), chief engineer in the Zhili River Commission, and former premier Yan Huiqing 顏惠慶 (1877-1950), a staunch supporter of the project, were invited to Rotary clubs in Tianjin and Beijing to promote the initiative before local elites, aiming to gain independence from global finance (1321449568, 1321539593, 1420021095). Finally, both corpora reflected Rotarians' concern with public health, but this focus was more pronounced in the foreign press (topic 3). While the *China Weekly Review* highlighted the efforts of the Shanghai Municipal Council (SMC) Public Health Department (1319876038), the *Shenbao* chose to cover the large-scale smallpox vaccination campaign sponsored in 1926 by the Rotary Club, along with other medical and voluntary associations. This choice might be attributed to the fact that smallpox primarily affected the Chinese population (SPSP192610311801).
+<!-- #endregion -->
 
 <!-- #region jdh={"object": {"source": ["table 13: Five most prominent topics in the Shenbao and ProQuest corpora during the first period (1919-1929). The table indicates the language of the corpus, the topic number, a short label with a brief description of the topic, topic proportion, and the list of terms defining the topic. Frequency measures are based on simple frequency and FREX (Fully, Rank-Weighted Expected), two common measures calculated with the stm package. The frequency measure simply counts the number of times a term appears in the corpus, whereas FREX combines both the frequency and uniqueness of terms. The former provides a basic representation of the term's occurrence without considering its uniqueness or importance relative to other terms, while the latter penalizes terms that are too common or too rare and gives higher scores to terms that are moderately frequent and distinctive."], "type": "table"}} tags=["hermeneutics", "table-13"] -->
 | **Language** | **Topic** | **Label**                           | **Description**                                                            | **Proportion** | **Prob**                                                                                            | **Frex**                                                                                              |
@@ -478,17 +490,18 @@ From the list of individuals identified through named entity recognition (NER), 
 
 ```R jdh={"object": {"source": ["figure 15: Two-mode networks of persons and documents in Shenbao during the first period (1919-1929). Red squares represent documents, orange circles represent persons. The graph was constructed using the igraph R package (layout: Fruchterman-Reingold)."], "type": "image"}} tags=["figure-15"]
 library("IRdisplay")
-display_png(file="./media/Fig.15_labels.png")
+display_jpg(file="./media/Fig15_labels.JPG")
 ```
 
 In terms of degree centrality, the most central actors were Rotary leaders, particularly the club’s presidents ([table 14](#anchor-table-14), [table 15](#anchor-table-15)). This should not come as a surprise, as they presided over every Rotary meeting, introduced guests and programs, and were invited to represent the club at external events such as Boy Scout and business gatherings. The most central person in the two corpora, in terms of both degree and betweenness centrality, was Kuang Fuzhuo, mentioned earlier. Kuang appeared throughout the entire decade and was associated with a wide range of topics, serving as a bridge between different communities of topics and actors. Specifically, he was mentioned for his participation as a delegate at the Rotary Convention in Manila in 1922 (1369499644), for inviting US Senator Hiram Bingham during his visit to China in August 1927 (1420021041), for his election to the position of vice-president and eventually president of the Shanghai Rotary Club in 1929, and his retirement from the Commercial Press in 1929 (1420023531).
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Other prominent Rotarians who appeared in the two corpora include Li Yuanxin 李元信 (William Yinson Lee), chairman of the program committee, who made notable efforts to “sinicize” the club by organizing special "Chinese programs" (<cite data-cite="626961/4YPDTCZE"></cite>). During this period, he was particularly interested in public health issues, organizing lectures on lepers (1321998956) and bubonic plague (1322040076). In contrast to their prominence in the English press, the first presidents of the club, American doctor Julian Petit and Chinese industrialist Zhu Shen'en 朱神恩 (Luther Jee), were not mentioned in *Shenbao*. This reflects the limited coverage the Rotary Club received in the Chinese press until Wang Yingbing 汪英賓 joined the club in the mid-1920s as the first representative of *Shenbao* and the official Rotary reporter.
+<!-- #endregion -->
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Conversely, *Shenbao* featured Chinese members of the local business community who remained hidden in the foreign press. These Chinese personalities appeared as guests during Rotary meetings and sponsored various events related to education, business, and public health. For example, the leading industrialist Liu Hongsheng 刘鸿生 (1888-1956), known as the “King of Matches” and the “King of Wool” (<cite data-cite="626961/9LMCR9XI"></cite>), appeared several times in 1928, although he joined the club only in 1930. Although they were not members of the club, Xu Zicheng 徐子成 and Yu Kuiyuan 余魁元, two educators involved in the Chinese Boy Scout movement, were connected to Rotary through their participation in joint events, such as fundraising campaigns and inter-school competitions.
-
+<!-- #endregion -->
 
 More generally, the Chinese press granted greater agency to Chinese actors, whereas foreign elites (local officials, diplomats, missionaries) were more central in the English press. Only two foreigners, US Consul Edwin Cunningham (Ke Yinhan 克銀漢, 1858-1953) and British entrepreneur G.E. Marden (Ma Dengjun 馬登君), manager of the eponymous company, were quite prominent in the two corpora. Marden served as the club president in 1928-1929, and Cunningham was invited to participate in several special events organized by the Rotary Club, such as the welcome reception in honor of US Senator Hiram Bingham in 1927 (SPSP192708051409).
 
@@ -534,21 +547,21 @@ More generally, the Chinese press granted greater agency to Chinese actors, wher
 
 #### Organizations
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Reflecting the topical emphasis on youth and education during this period, education-oriented institutions held a prominent position in both presses, particularly in *Shenbao*. In the Chinese newspaper, the most central organization in terms of betweenness centrality was the Young Men’s Christian Association (YMCA), a Protestant organization that aimed to spread the social gospel and promote education throughout the world. Introduced in China in 1885, it comprised 176 local branches spread across 16 provinces, representing about 50,000 members in the 1920s (<cite data-cite="626961/S6H6G6WJ"></cite>, p.20). Urban business and professional elites, regardless of their religious beliefs, actively participated in the movement, as previous research has shown (<cite data-cite="626961/K3ED2GLE"></cite>, chapter 3). Many Rotarians, both Chinese and foreign, were concurrently members of the YMCA. The two organizations frequently organized joint events dedicated to youth and education, such as inter-school competitions, Boy Scout meetings, or educational exhibitions.
-
+<!-- #endregion -->
 
 Universities, particularly American-run or American-inspired universities, also featured prominently in *Shenbao*. They notably included St. John’s University, a missionary institution established in 1879 by American Protestants in Shanghai, and Yanjing University in Beijing, which was formed between 1915-1920 from the merger of several Christian schools and established a partnership with Harvard University. Both St. John’s and Yanjing were among the first institutions to teach foreign languages and sciences in China and attracted many students from Chinese elite families, especially those who aimed to pursue further studies abroad. As shown in previous research, many Rotarians had studied or were teaching in these universities and maintained contact with professors in these institutions whom they invited to give lectures before Rotary members, such as Xing Weilian 興煒蓮, the director of academic affairs at Yanjing University (SPSP192807131501).
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 While alumni associations appeared in both presses, *Shenbao* more often featured Chinese-born organizations, such as the Western Students’ Association (OuMei liuxuesheng 歐美留學生會), whereas English periodicals highlighted members of the American University Club, which was established by Americans in Shanghai around 1902 and became the largest alumni association for graduates of American universities in China (<cite data-cite="626961/V8XIYBR6"></cite>). Many Rotarians who had studied abroad were concurrently members of these associations. As shown earlier, students’ associations and Rotary clubs frequently co-organized events, such as welcome receptions for prominent foreign guests and students’ or business delegations from abroad.
-
+<!-- #endregion -->
 
 The Shanghai Municipal Council (SMC) played a central role in both corpora. Established in 1854 to govern the daily operations and infrastructure of the Shanghai International Settlement, it became an indispensable institution for both foreign and Chinese elites residing and working in the International Settlement. These elites were concerned with maintaining favorable economic and social conditions in the settlement. The missions of the SMC aligned with Rotary’s interests in public health and social welfare in the city. Several representatives of the SMC were concurrently members of the Rotary Club or maintained personal contacts with the Rotary Club, frequently participating in Rotary meetings.
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Reflecting its emphasis on internationalism and international relations, as noted earlier, the foreign press gave prominence to international organizations, specifically the League of Nations, foreign government agencies (such as the US Congress and Senate, British Foreign Office), and Sino-foreign institutions like the British Boxer Indemnity Commission. The latter was a bilateral Sino-British committee established in 1926 to devise a proposal for allocating funds derived from the remission of the British Boxer Indemnity (<cite data-cite="626961/BL6BQ7ZJ"></cite>, forthcoming). Similarly, the Zhili River Commission, largely funded with American and other foreign funds, was mentioned in connection with topic 3 (<cite data-cite="626961/4ZWEG62G"></cite>, p. 53-79).
-
+<!-- #endregion -->
 
 In contrast to *Shenbao*, which focused on local, non-state organizations, the foreign press placed a stronger emphasis on central government institutions in China, reflecting foreign concerns for China’s political stability during the so-called warlord era (1916-1927). The Chinese government during this period alternated between the Beiyang government in Beijing (1912-1928) and, from 1927 onwards, the Nationalist government established in Nanjing. The Chinese government primarily appeared as a "background" institution often mentioned in lectures given before Rotary members. It was also mentioned in connection with government personalities who were occasionally invited as guests to participate in Rotary meetings, despite the self-claimed "apolitical" nature of the Rotary Club. Despite its low degree centrality, the Bureau of Economic Information (BEI) held an important brokering position in the foreign press, particularly due to its concern with labor strikes in 1922. Established in 1921 by the Ministry of Industry, the BEI produced a series of extensive surveys on the labor movement, serving as a primary source of information for Rotary members and lecturers on this topic.
 
@@ -601,19 +614,23 @@ In contrast to *Shenbao*, which focused on local, non-state organizations, the f
 | Pan-Pacific Association                 | 4          | 0.0041689955    |
 <!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 ### Handling Economic Crises, Social Unrest, and Mounting International Tensions (1930-1937)
+<!-- #endregion -->
 
-
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 #### Topics
+<!-- #endregion -->
 
-
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 The second period is characterized by a greater convergence between the two corpora in terms of both topics and actors. In the 1930s, international relations remained a prominent topic in both presses. In *Shenbao*, this topic centred on Chinese diplomat Wang Zhengting 王正廷 (1882-1961) who became a key player in both Rotary International and Sino-US diplomatic relations during this decade. Wang was minister of foreign affairs until 1936, when he was simultaneously appointed governor of the 81st district of the Rotary Club (which covered China, Hong Kong, and the Philippines) and Chinese ambassador to the United States. In the English press, concerns with international relations focused on the Japanese imperialist expansion in Asia and growing tensions between competing powers (Japan, United States, and Russia) for controlling the Pacific area.
-
+<!-- #endregion -->
 
 Following the 1929 crisis and the global depression which reached China around 1933, the decade was shaped by a new attention towards economic issues. The English press adopted an external, global perspective focused on three key debates: tariff reform in 1931 (1418906192, 1419818815), silver crisis and currency reform in 1933-1934 (1371489381), Chinese foreign trade in 1935-1936 (1371415865, 1371887425). By contrast, *Shenbao* was more concerned with the local effects of global crisis, as reflected in Wu Tiecheng 吳鐵城’s talk on Shanghai’s “strange prosperity” (*Qiguai de fanrong* 奇怪的的繁榮) in 1934 (SPSP193406231519), and internal economic development propelled by railway construction, such as in Northwest China, the new frontier envisioned by Qingdao Mayor Shen Honglie 沈鴻烈 to counteract the Japanese occupation of Manchuria (SPSP193602120601) or highway construction aimed at developing tourism in Hangzhou (SPSP193511040916). The emphasis on the business and human networks underlying economic flows and pragmatic actions was another distinct feature of the Chinese daily, whereas the English press featured extensive reports of scholarly lectures by eminent economists or experts in foreign trade, such as Austrian financial expert Eduard Kann (1880–1962) (1371489381), Chinese economist He Lian 何廉 (Franklin Ho, 1895-1975) (1371776996), and American commercial attaché Julean Arnold (1875-1946) (1371415865, 1371887425).  
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Education and youth were losing ground, whereas social affairs, particularly labour issues, were gaining momentum as side effects of the economic crisis. In the English press, these issues revolved around the rickshaw reforms following the 1934 survey aimed at improving pullers’ living conditions (1416479521, 1371489587, 1371428577, 1425424004). In *Shenbao*, the attention was focused on various social affairs. Public health was a growing concern in the two presses. This concern resulted from the combination of three main trends: the epidemic threats revived by the influx of refugees from North-eastern China after the Japanese invasion of Manchuria in September 1931, the professionalization of Chinese medicine, and the dominance of medical professionals among Rotarians (<cite data-cite="626961/4YPDTCZE"></cite>). However, the focus and perspective differed across languages. Similar to economic affairs, English periodicals accommodated extensive reports of scholarly lectures given by foreign or foreign-educated Chinese experts in medicine and public health, such as Edward H. Hume (1876-1965), founder of the Yale hospital and former director of Yale-in-China in Changsha, Hunan (1416488362). By contrast, the daily *Shenbao* privileged a pragmatic stance emphasizing the private initiatives of local elites and voluntary organizations for promoting public health, notably through the establishment of the anti-tuberculosis association in 1931 (SPSP193303290901) or the petition for the protection of lepers from military exactions in 1937 (SPSP193704261001).      
+<!-- #endregion -->
 
 <!-- #region jdh={"object": {"source": ["table 18: Five most prominent topics in the Shenbao and ProQuest corpora during the second period (1930-1937)."], "type": "table"}} tags=["hermeneutics", "table-18"] -->
 | **Language** | **Topic** | **Label**                                       | **Description**                                                                                                                                                                               | **Proportion** | **Prob**                                                                                         | **Frex**                                                                                       |
@@ -690,14 +707,15 @@ The 1930 decade was marked by the growing visibility of central government insti
 
 While the English press focused on government institutions, the *Shenbao* devoted more attention to non-state institutions, such as the China Business Management Association (Zhongguo gongshang guanli xiehui 中國工商管理協會), an informal group of business and industrial leaders founded in Shanghai in July 1930 (SPSP193007071401). Although it was established at the initiative of the Minister of Industry and Finance Kong Xiangxi 孔祥熙 (1880-1967), the association was explicitly modelled after the Rotary Club and sought to mimic its practices in the form of luncheons and dinners. These entertaining venues, Kong believed, offered a favourable meeting ground for discussing crucial issues of the time, such as the currency crisis and the implementation of the new factory laws enacted in 1931 under the auspices of the League of Nations. The Bank of China 中國銀行 also featured prominently in the two corpora. It was a key interlocutor for international lenders and a crucial instrument for financing economic development and infrastructural projects planned by the NEC. It was mentioned in several lectures focused on analysing the economic situation and currency crisis in China in the 1930s.  The Bank of China was also the employer of several Rotary members, particularly those based in Nanjing.
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 The League of Nations remained central in the foreign press and began to appear in the Chinese press as well. Besides being mentioned in lectures on international peace and economic or cultural development, the League became more active in China by sending several experts who were attached to the NEC, such as S. Okecki, a Polish expert who represented the League Transit Organization (1418985832), the French administrator Jean Monnet, who was sent to assist the Chinese Government in financing the economic reconstruction (1371468514), or William Kenneth Hunter Campbell, an expert on rural cooperatives (1371429509) (<cite data-cite="626961/UXTGDTKL"></cite>). Other international organisations, such as the Pan-Pacific Association (PPA), were more specific to the English press. Several Rotarians, such as Xu Jianping 許建屏 (Jabin Hsu, 1889-1968), were concurrently member of the PPA. The foreign press was eager to document PPA members’ decision to establish the National Good Roads Association (Zhonghua quanguo daolu jianshe xiehui 中華全國道路建設協會) to support road construction, perceived as a crucial vector of economic development (1371590314, 1371468514). 
-
+<!-- #endregion -->
 
 At the local level, the Shanghai Municipal Council (SMC) was more central in the English press than in *Shenbao*. It refers to SMC officials who were invited by the Rotary Club of Shanghai to deliver lectures on their fields of expertise. More generally, the SMC was mentioned in speeches addressing social problems and issues of urban management in the International Settlement, such as rickshaw reforms in 1934, the housing crisis in 1935, road and traffic problems in 1934 and 1936, and other issues regarding public utilities. Interestingly, the SMC was increasingly referred to in comparison with the newly established Chinese municipality (1927), which aimed to stimulate a sort of competition or emulation between the two administrations. In his 1935 lecture, for instance, Pan Gongzhan 潘公展 (1895-1975), then Chinese commissioner of Social Affairs, overtly criticised the educational policy of the SMC and the system of selection in municipal schools based on social-economic background and political connections (1369972777). 
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Like during the previous period, non-state institutions were more prominent in *Shenbao* than in the foreign press. The high betweenness centrality of Zhejiang University, notably, is intriguing and deserves closer examination. Zhejiang University is mentioned in connection with an American business delegation who visited China in 1935 (SPSP193506030901). As other similar delegations, the visitors were welcomed by local business elites and students’ associations, who organized various activities to entertain their guests. The schedule generally included a tour in Hangzhou, which was emerging as a key touristic destination during the Republican period (<cite data-cite="626961/6CKVX3QG"></cite>). Like the US Maritime students’ delegation during the previous period, this event highlighted the degree to which Sino-US business and academic networks were closely intertwined during this decade. Also remarkable is the high betweenness centrality of nation-based sports teams, particularly tennis and boxing teams. Against the backdrop of mounting international tensions, the Rotary Club promoted sports games as a pacific venue for fostering international friendship through friendly competition instead of wars and political tensions (SPSP193609161601). Business actors were also central to Rotary fundraising campaigns. Motorcar companies like Mark Moody (Madi qiche gongsi 馬迪汽車公司) contributed to charity events by offering attractive lots to motivate donations, such as free rides in brand new cars around Shanghai and even trips to Hollywood (SPSP193303081109). 
+<!-- #endregion -->
 
 <!-- #region jdh={"object": {"source": ["table 21: Most central organizations in the two-mode networks of persons and documents in the Shenbao corpus during the second period (1930-1937), using degree centrality and betweenness centrality as metrics."], "type": "table"}} tags=["hermeneutics", "table-21"] -->
 | **Name**         | **Pinyin**                       | **Transliteration**                   | **Degree** | **Betweenness** |
@@ -751,11 +769,13 @@ Like during the previous period, non-state institutions were more prominent in *
 
 The two presses diverged again during the war and the post-war period. While international relations remained a central topic in both corpora, the English press adopted a high-level perspective, focusing on political economy and geopolitical tensions, such as Japan’s estrangement from the international system, disturbances to foreign trade, and currency issues in the post-war world. On the opposite, *Shenbao* focused on grassroots operations led by transnational or translocal forces to support the war effort and post-war reconstruction. These operations ranged from Rotary expansion in non-occupied China during the war and its division into subdistricts (SPSP194704130420), the reorganization of clubs after the war (SPSP194704130401, SPSP194704120401), the vital reliance on remittances from overseas Chinese in Malaya (SPSP194106070701), and China-Burma cross-border exchanges (SPSP193912150301, SPSP194109060601, SPSP194109050601). Maintaining good relationships with Burma through Chinese emigres in this country was crucial to ensure the chain of supply on the Burma Road linking Burma (now Myanmar) with southwest China. The Burma Road was built in 1937-1938 while Burma was a British colony to convey supplies to China during the Sino-Japanese War. In this context, the Rotary Clubs of Chongqing and Kunming served as key intermediaries, welcoming two delegations of Chinese business elites from Burma in 1939 and 1941.  
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 In the English-language press, topics focused on political economy revolved around two sets of issues and events. During the war, a series of official speeches given during the early phase of the war (1938-1939), which culminated during the Foreign Trade Week held in Shanghai in 1940, aimed to celebrate and foster the continuation of Sino-American relations despite disturbances provoked by the war (1371507091). After the war, the foreign press reflected Chinese elites’ concerns regarding US policy of restoring Japan’s economy and industry against the backdrop of the emerging Cold War, which was perceived as a direct threat to their country’s national security (1371519387). Topics that were specific to the English press focused on Russian refugees, the prevention of venereal diseases, and other issues that were perceived as immediate threats to the well-being of foreign residents in Shanghai. Russian emigrates had been a constant concern in the foreign press since the October (1917) revolution, but this concern was heightened as Russians became the largest group of foreign residents in Shanghai and the arrival of war refugees increased the pressure (<cite data-cite="626961/TPUGQE3W"></cite>, 50-55). 
+<!-- #endregion -->
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 By contrast, the Chinese press was more concerned with entertaining underprivileged children for Christmas and building a “beggar camp” (Qigai shourong suo 乞丐收容所) in an attempt to eradicate poverty from Shanghai foreign settlements (SPSP194101220901). The so-called “beggars” in fact referred to the massive waves of people seeking refuge from the Chinese municipality and the northeastern and eastern districts of the International Settlement, which were most exposed to war. At its highest point, the International Settlement harboured 160 camps with more than 90,000 refugees, while the French Concession’s dozens camps received 27,000 (<cite data-cite="626961/TPUGQE3W"></cite>, 84-86). This massive and sudden influx of refugees represented a significant challenge for both the local population and the municipal administrations. The idea of grouping the refugees into a single camp in preparation for their gradual evacuation came from the municipal authorities and local elite organizations like the Rotary Club. The proposed plan was financially supported by the Rotary Club of Shanghai and the SMC Public Works Department, while its management was entrusted to the Salvation Army (Jiushijun 救世軍) (SPSP194111040713, SPSP194101220901). Despite regular official reports that asserted that “beggary” was declining and that refugees were peacefully being sent back to their homes, the camp increased in scale and became a “beggar city” (Qigaishi 乞丐市) within a year, relocated in the Western outskirts of Shanghai (SPSP194110101113).
+<!-- #endregion -->
 
 <!-- #region jdh={"object": {"source": ["table 23: Five most prominent topics in the Shenbao and ProQuest corpora during the third period (1938-1949)."], "type": "table"}} tags=["hermeneutics", "table-23"] -->
 | **Language** | **Topic** | **Label**                    | **Description**                                                                 | **Proportion** | **Prob**                                                                                            | **Frex**                                                                                              |
@@ -777,9 +797,9 @@ These topical differences translated in differences in the network of actors inv
 
 #### Persons
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Rotary leaders were more prominent in the foreign press than they were in the Chinese press, and the most central persons differed. The foreign press centred on the two wartime district governors Kuang Fuzhuo and Yan Deqing (1878-1942). Railway engineer Yan Deqing 顏德慶 was a charter member and past president of the Peiping (Beijing) Rotary Club, of which he was a member from 1922 to 1929. In 1931, he established the Nanjing Rotary Club and became its first president. During the war, Yan took refuge in Shanghai, where he founded the “outport tiffin club” for refugee Rotarians (<cite data-cite="626961/4YPDTCZE"></cite>, p.251) and succeeded to Kuang Fuzhuo as district governor, when the latter died in December 1938 (1416767152). Yan helped to bridge topics related to war relief, specifically the refugee camp set up in cooperation with the Salvation Army, and topics related to Rotary organization during the war. Compared to his high degree centrality, S. Wolfe, an American citizen, president of the Rotary Club of Shanghai during the war, presented a lower betweenness centrality. Although he participated in numerous meetings and social events, he did not demonstrate the same brokering potential as Kuang Fuzhuo and Yan Deqing. By contrast, *Shenbao* focused on local members and post-war club presidents, such as Ma Boyue 馬伯樂, the officer in charge of the toy collection campaign, and Tan Wenxie 譚偉學, manager of the Shanghai Telephone Company (Shanghai dianhua gongsi 上海電話公司), president of the Shanghai Rotary Club and successor to Wang Zhengting (who remained central in *Shenbao*) as the new governor in charge of reorganizing the district after the war. 
-
+<!-- #endregion -->
 
 The non-Rotarians mentioned in the two presses also differed. The *Shenbao* placed a stronger emphasis on social workers involved in war relief, such as Ma Ruishan 馬瑞山 (which is likely to be the Chinese transliteration of Brigadier Morris in the English-language press), chief of the Salvation Army in charge of managing the “beggar camp”. Furthermore, the Chinese press focused on transnational or translocal actors, such as the leaders of two Chinese delegations from Burma, Yu Balun 宇巴倫 and Zeng Yangfu 曾養甫, who visited Kunming (the terminal of the Burma Road) and Chongqing (which hosted the Nationalist government in exile) in December 1939 (SPSP193912150301) and September 1941 (SPSP194109050601, SPSP194109060601), respectively. Zeng Yangfu 曾養甫, the chief of the second delegation, emphasized the long-term strategic importance of the Burma-Kunming Road, not only to support the war effort but also to help economic reconstruction after the war. As a sign of their political significance, they were welcomed by prominent political leaders including Premier Kong Xiangxi, Minister of Foreign Affairs Wang Zhengting, Guomindang high-ranking officials, and university presidents (SPSP193912150301). As these events were not covered in the foreign press, we can hypothesize that foreign reporters were not invited to participate in these meetings restricted to Chinese officials, business elites and Chinese newspapers. The foreign press instead focused on American officials who participated in Shanghai-based social events, such as the Foreign Trade Week and the US Maritime Day held in May 1940 to commemorate the ship “China Queen” (Zhongguo huanghou 中國皇后)'s inaugural voyage from New York to Guangdong in 1785 (SPSP194005200704). The key actors associated with these topics were American officials Horace Smith and Julean Arnold during the war, and John Cabot (1901-1981), the US Consul-General in Shanghai after the war. Horace Smith, who was head of the commercial department of the Consulate General in Shanghai, spoke before the Rotary Club on the subject of reciprocal trade agreements in 1939 (1371507091), while Julean Arnold delivered a talk on the situation in China after the Japanese invasion. He was also the subject of an obituary at the time of his death in New York City in 1946 (1371513579). US consul John Cabot gave a talk before the Rotary Club in 1948 to dispel misconceptions regarding the US policy in Asia and to appease fears that the US were neglecting China while helping to rebuild Japan (1371519387, 1371519097, 1419908902).
 
@@ -861,22 +881,24 @@ Due to its topical emphasis on macro-level geopolitics, the foreign press centre
 | China Weekly Review           | 3          | 0.02021597      | Lord Mayor's Fund            | 2          | 1.0903E-4       |
 <!-- #endregion -->
 
+<!-- #region editable=true slideshow={"slide_type": ""} -->
 ## Part III. Mapping the Public Sphere: Rotary Geographic Imagination(s)
+<!-- #endregion -->
 
-<!-- #region tags=["hermeneutics"] -->
+<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 This section seeks to empirically delineate the transnational contours of the public sphere in Republican Shanghai by mapping the geographic imaginations of Rotary members and newspaper readers. The primary step is to identify and standardize the names of locations and geopolitical entities (GPE) mentioned in the two corpora under study using named entity recognition. After standardizing place names, which involves homogenizing variants and finding contemporary names for old place names, R packages were employed to geolocate the countries and cities most frequently mentioned in the corpora. For mapping historical Chinese cities, the [Modern China Geospatial Database (MCGD)](https://analytics.huma-num.fr/enpchina/MCGD_interface/), a reference geospatial database for modern China created by the ENP-China project, was utilized. To compare the geographical imaginations of each language community and study how the geographic landscape evolved over time, a map was designed for each period and each corpus. It's crucial to note that the maps only represent places to which geographical coordinates can be associated. Metaphorical place names such as "Orient" or "Far East" are not included in the representations. To address this gap, the maps are supplemented with a series of tables listing all the most frequent place names in the two corpora, regardless of their "mappability". The complete code for extracting, standardizing, and mapping place names is accessible in the GitHub "script" folder. The subsequent narrative layer provides an in-depth interpretation of the resulting geographies.
 <!-- #endregion -->
 
 ```R jdh={"object": {"source": ["figure 16: Most frequent countries mentioned in the Shenbao (above) and ProQuest (below) Rotary corpus. The color gradient represents the mean frequency of mentions over all periods. Interactive maps are accessible on the Github repository."], "type": "image"}} tags=["figure-16"]
 library("IRdisplay")
-display_png(file="./media/Fig.16a.png")
-display_png(file="./media/Fig.16b.png")
+display_jpg(file="./media/Fig16a.JPG")
+display_jpg(file="./media/Fig16b.JPG")
 ```
 
 ```R jdh={"object": {"source": ["figure 17: Most frequent cities mentioned in the Shenbao (above) and ProQuest (below) Rotary corpus. The size of the circles is proportional to the mean frequency of mentions over all periods. Interactive maps are accessible on the Github repository."], "type": "image"}} tags=["figure-17"]
 library("IRdisplay")
-display_png(file="./media/Fig.17a.png")
-display_png(file="./media/Fig.17b.png")
+display_jpg(file="./media/Fig17a.JPG")
+display_jpg(file="./media/Fig17b.JPG")
 ```
 
 ### Pacific and Colonial Focuses (1919-1929)
@@ -1042,8 +1064,9 @@ By contrast, the geographical landscape in the English press was barely altered 
 | Nanking       | 6         | Tsingtao     | 4         | Siam          | 3         |
 <!-- #endregion -->
 
+<!-- #region citation-manager={"citations": {"": []}} -->
 In conclusion, this comparative, bilingual analysis of locations and geopolitical entities (GPE) over three decades highlights the persisting importance of nation-states, supporting the argument that the "transnational" did not mean the end of the national (<cite data-cite="626961/CDLF6DBW"></cite>, <cite data-cite="626961/8LDCAR4J"></cite>). Historically, the significance of country entities reflects the rise of international tensions and tedious efforts to maintain international cooperation during the interwar years. The list of countries is largely reflective of the major nationalities represented in Shanghai (<cite data-cite="626961/TPUGQE3W"></cite>), although horizons broadened in the 1930s and attention shifted to geopolitically sensitive areas as political tensions heightened and eventually led to WWII. 
-
+<!-- #endregion -->
 
 As observed for actors, the geographic imaginations of the two corpora converged during the 1930s but diverged again during the war and post-war period. The Pacific area remains central in the two corpora. Differences in scope and focus occurred at the external and internal borders of this core region. During the first period, *Shenbao* showed an intriguing interest in South America, whereas the English press remained within the confines of the British Empire. A persisting difference between the two linguistic communities is the total omission of Africa on *Shenbao*’s world map, reflecting the lack of interest among Chinese readers as much as the lack of Chinese reporters on this continent, whereas Africa enjoyed a continuing presence in the foreign press, reflecting the extent of colonial empires.
 
@@ -1102,7 +1125,7 @@ The results of this semantic exploration are presented in the following narrativ
 
 ```R jdh={"object": {"source": ["figure 18: Network graph illustrating the most frequent collocates of \u570b-based terms in the Shenbao Rotary corpus. Only collocates with a weight exceeding 2, calculated using pairwise count per document, are displayed. The color gradient reflects eigenvector centrality, with red nodes indicating higher centrality than yellow nodes. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables. Note: Eigenvector centrality is a measure of the influence of a node in a network, taking into account both the node's direct connections and the connections of its neighbors. Co-occurrence weights (pairwise count) were computed using tidytext and widyR, and the network visualizations were created using igraph, tidygraph, and ggraph."], "type": "image"}} tags=["figure-18"]
 library("IRdisplay")
-display_png(file="./media/Fig.18.png")
+display_jpg(file="./media/Fig18.JPG")
 ```
 
 The *guoji* constellation incorporates special programs sponsored by the Rotary Club, emphasizing economic development (*fazhan* 發展), construction (*jianshe* 建設), and public health (*weisheng* 衛生). It involves individuals who traverse borders, typically high-ranking officials of internal prominence, such as Wang Zhengting, who frequently traveled abroad (eventually returning to their home country, *huiguo* 回國), often making public appearances with their spouses (expressed through the term *furen 夫人, couple). The *guoji* cluster exhibits direct connections to other clusters, exemplified by *geguo* 各國 (translatable as multinational), or through intermediary terms such as China (Zhongguo 中國), bridging  *guoji*  with *guojia*  國家 (home country). Additionally, the term "meeting" (*canjia* 參加) serves as a link between *guoji* and *quanguo* 全國 (nationwide or throughout the country).
@@ -1121,7 +1144,7 @@ Furthermore, the contours of the transnational evolved over time, and this evolu
 
 ```R jdh={"object": {"source": ["figure 19: Most frequent two-character \u570b-based terms by decade in the Shenbao corpus, using TF-IDF as the metric."], "type": "image"}} tags=["figure-19"]
 library("IRdisplay")
-display_png(file="./media/Fig.19.png")
+display_jpg(file="./media/Fig19.JPG")
 ```
 
 During the 1930s, the decade witnessed a blend of multinational encounters, prominently showcased by the annual tennis tournament, and transnational exchanges, as evidenced by the use of the term *huiguo* (return to home country). The tennis competition aimed at promoting interest in sports and fostering international relations among participating countries (SPSP193008121208). The tournament was consistently won by Chinese tennis players during the first three years at least (SPSP193007291001, SPSP193107311036, SPSP193208151203). It was only in 1936 that a Western country (the United States) emerged victorious (SPSP193608271505). Similar to the national emblem ceremony organized in the previous decade, sports competition provided a space where China could seek revenge upon colonial countries with minimal consequences and risks for the aforementioned colonial nations. Transnational exchanges involved Chinese visitors abroad, such as the Chinese business delegation to the Philippines (Zhonghua shangye feilü binguan guangtuan 中華商業菲律賓觀光團) in 1935 (SPSP193502141101). Conversely, it also included foreign visitors to China, for instance, the president of the Rotary Club of Cleveland, who visited Shanghai and Hong Kong to study the automobile industry in 1931 (SPSP193102071618). Cross-border exchanges during this period involved the Chinese soldiers of the National Salvation Army (Zhongguo guomin jiuguo jun 中國國民救國軍) led by Wang Delin 王德林 (1875-1938), who, in 1933, returned with their families from Europe through Russia after being defeated by Japan in Manchuria (SPSP193303290901). Additionally, figures like Wang Zhengting, Chinese minister of foreign affairs and ambassador to the US, travelled across the Pacific in 1936 (SPSP193608210708, SPSP193610031001).
@@ -1155,21 +1178,21 @@ To further examine how the different terms relate to each other and identify the
 
 ```R jdh={"object": {"source": ["figure 20: Principal Component Analysis of the most frequent collocates of 'international' using log-likelihood as metrics."], "type": "image"}} tags=["figure-20"]
 library("IRdisplay")
-display_png(file="./media/Fig.20.png")
+display_jpg(file="./media/Fig20.JPG")
 ```
 
 Based on pairwise count, the most frequent collocates of "international" include world, conference (held), foreign, national, people, government, president, country, address, American, city, local, and united. These terms are quite similar to those associated with "national," with the ranking differing (e.g., "world" appears higher than "government" and "country"). Both terms maintain the nation as their core elements, but "international" emphasizes the "external" point of view. The network graph displays the most frequent collocates of "national" and "international" ([figure 21](#anchor-figure-21)). These two terms are closely connected, indicating that they frequently occurred together. Terms on the right side of the graph are more strongly associated with "national," while terms on the left are more linked to "international." The specific set of terms attached to each word reinforces the distinction between the inside/outside point of view. The graph also helps refine the two main senses of "international" identified through PCA. In the more common sense, it refers to external relations among nations or countries, expressed through terms like country, nations, national, people, and world. In a sense closer to the notion of "transnational," it relates to terms suggesting the crossing of national boundaries (mostly through business relations) and contact zones (city, local, hotel) facilitating the coming together of various nationalities. Terms like foreign, American, and Japanese pertain to both senses, though they are more likely associated with the "transnational" sense. On the contrary, terms like "life" and "public" are primarily associated with "national."
 
 ```R jdh={"object": {"source": ["figure 21: Network graph showing the most frequent collocates of 'national' and 'international' in the English-language Rotary corpus. Only collocates with a weight exceeding 50, calculated using pairwise count per document, are displayed. The color gradient reflects eigenvector centrality. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables."], "type": "image"}} tags=["figure-21"]
 library("IRdisplay")
-display_png(file="./media/Fig.21.png")
+display_jpg(file="./media/Fig21.JPG")
 ```
 
 Like in *Shenbao*, the transnational dimension of the foreign press underwent significant changes over time, with a similar trend towards heightened exchanges during the 1930s, followed by a return to national sentiments in the final decade of the Republic ([figure 22](#anchor-figure-22)). In the post-World War I period, the emphasis was on international relations, encompassing aspects such as the "international question," fear, disputes, peace, and conferences. However, it also carried transnational connotations through terms like "international city," referring to a "contact zone" that facilitated interactions among different nationalities, and "international journalist," denoting a border crosser. In the subsequent decade, there persisted an ambiguity between the two poles of transnational and international. The primary focus was on the establishment of the International Club, a multinational non-state organization aimed at promoting international friendship, initiated in 1936 with the support of various Rotary members. Alongside this initiative, Rotary lectures prominently featured terms associated with diplomatic relations and international trade. Other terms that leaned toward the "transnational" dimension encompassed the Tennis Cup, Rotary International, and less common expressions like "international character”. The last period, encompassing the wartime and post-war era, is characterized by more impersonal terms such as payments, news, situation, and balance. The discourse in this period clearly emphasized differences rather than points of contact. 
 
 ```R jdh={"object": {"source": ["figure 22: Most frequent bigrams by decade in the English-language corpus, using TF-IDF as the metric."], "type": "image"}} tags=["figure-22"]
 library("IRdisplay")
-display_png(file="./media/Fig.22.png")
+display_jpg(file="./media/Fig22.JPG")
 ```
 
 In the subsequent section, I apply the same methodology to analyze the public roles of the Rotary Club and to compare the concepts utilized in the Chinese and English presses for delineating the public sphere throughout the three decades under examination. 
@@ -1202,7 +1225,7 @@ Contrary to the *guo*-based collocates, the collocates of terms associated with 
 
 ```R jdh={"object": {"source": ["figure 23: Network graph displaying the most frequent collocates of \u516c-based terms in the Shenbao Rotary corpus. Only collocates with a weight equal or exceeding 2, calculated using pairwise count per document, are displayed. The color gradient reflects eigenvector centrality. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables. The code is accessible on the Github repository."], "type": "image"}} tags=["figure-23"]
 library("IRdisplay")
-display_png(file="./media/Fig.23.png")
+display_jpg(file="./media/Fig23.JPG")
 ```
 
 Public welfare primarily involves the promotion of public health and the eradication of poverty. Specifically, the term *gongyi* 公益 appeared in connection with philanthropic activities sponsored by the Rotary Club and other associations or individuals, such as Fei Wusheng 費吳生, a Chinese American citizen born in Suzhou, president of his local Rotary Club, portrayed as being “fervently dedicated to public welfare initiatives” (*Fei jun wei Mei ji zi you shengzhang Suzhou zaihua duiyu gongyi shiye jiwei rexin* 費君爲美籍自幼生長蘇州在華對於公益事業極爲熱心) (SPSP192306131801). After WWII, 公益 was specifically associated with a campaign against the habit of spitting among the public, presented as not only a visual nuisance but also a potential source of disease transmission. The campaign was launched by Lu Meiseng, president of the Public Welfare Society (Gongyi xiejinshe 公益協進社), in cooperation with other voluntary associations (SPSP194711070401). In this specific context, the term *gongmin* 公民 referred to civic associations such as the Civic education group (Gongmin jiaoyutuan 公民教育團) organized in 1927 (SPSP192705241014) and the Women's Civic Association (Funü gongmin huishe 婦女公民會社) devoted to youth and education (SPSP193705222001). This term helps to connect public welfare (*gongyi* 公益) with municipal cemeteries (*gongmu* 公墓) mentioned in Wu Liande’s talk advocating for cremation as an essential tool toward reducing the spread of disease and saving urban space (SPSP193606201501). This connection highlights cooperative practices between civil society and local authorities in the promotion of public welfare.
@@ -1216,7 +1239,7 @@ Other terms are less prominent and form separate clusters. Intriguingly, politic
 
 ```R jdh={"object": {"source": ["figure 24: Most frequent two-character \u516c-based terms by decade in the Shenbao corpus, using TF-IDF as metrics."], "type": "image"}} tags=["figure-24"]
 library("IRdisplay")
-display_png(file="./media/Fig.24.png")
+display_jpg(file="./media/Fig24.JPG")
 ```
 
 #### The Foreign Press: Nurturing Public Opinion, Developing Urban Amenities
@@ -1246,7 +1269,7 @@ The subsequent graph, illustrating the most prevalent collocates linked to the p
 
 ```R jdh={"object": {"source": ["figure 25: Network graph illustrating the most frequent collocates of public-based terms in the English-language corpus. Only collocates with a weight exceeding 5, calculated using pairwise count per document, are displayed. The color gradient reflects eigenvector centrality. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables."], "type": "image"}} tags=["figure-24"]
 library("IRdisplay")
-display_png(file="./media/Fig.25.png")
+display_jpg(file="./media/Fig25.JPG")
 ```
 
 The predominant cluster centers around the term "public opinion," establishing connections with a diverse array of terms. This cluster denotes the "forum" function fulfilled by both the Rotary Club and the press, acting as a conduit between the local, national, and international spheres. On one hand, the concept of public opinion is primarily associated with various lectures conducted during Rotary meetings. These lectures delve into the topic of public opinion in Western countries, notably the United States, concerning the political landscape in China, international peace, and other pertinent issues. Such lectures embody Rotary's central mission of disseminating knowledge and fostering spaces for discussion and the exchange of perspectives. 
@@ -1254,9 +1277,9 @@ The predominant cluster centers around the term "public opinion," establishing c
 
 While the physical attendance of Rotary meetings may be limited to a select few, detailed reports on the content of these lectures were published in newspapers, ensuring that the broader readership was informed. Certain readers extended these discussions beyond Rotary meetings by utilizing foreign newspapers, particularly through sections like "Correspondence" or "Letter to the Editor." For instance, an informed reader responded to Dr. Huang Zifang 黄子方 (1899-1940)'s lecture on the prevention of venereal disease, emphasizing a crucial point that was either overlooked or downplayed during the lecture—social, cultural, or religious taboos on sexuality. According to this reader, these taboos constituted a significant impediment to educating the public and fostering appropriate behaviors (1425493444, 1371783031). In this context, the term "public opinion" underscores the role of the foreign press as a vital platform for local elites to express their opinions regarding municipal policies and other societal issues at the city level. This subcluster is characterized by a set of terms that act as a bridge between the broader "public opinion" cluster and other clusters, particularly the public utilities cluster. 
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 The second, smaller cluster centred on “public utilities” overlaps with Rotary’s mission of promoting social welfare and emphasizes its primary anchorage in urban settings. While this cluster is connected to the “public opinion” cluster through shared terms like Shanghai, government, world, foreign, general, it also has its own set of terms, referring to the local level of municipal administration and taking account of Chinese municipalities outside Shanghai (city, mayor, Nanking). This cluster delineates specific areas of municipal intervention (waterworks, economic development) and highlights the role of private actors (company, commercial) which were engaged in public policies. As I have showed in my previous research on outdoor advertising in Republican Shanghai, the public and private realms often cooperated in the development of public amenities (<cite data-cite="626961/RZEKCMV6"></cite>).
-
+<!-- #endregion -->
 
 The third, more fragmented cluster encompasses more general terms (public welfare, public affairs, public service, public spirit), concurrently related to practical operations (public utilities) and the more abstract concept of public opinion. The term "public welfare" serves as a link between the local (public bureau) and the national sphere, connecting with public opinion. Public welfare was a primary focus of the newly established Bureau of Social Affairs of the Chinese municipal government, as noted by its director Cai Zhengya 蔡正雅 (1420035311). In Nanjing, the mayor envisioned public welfare as a collaboration between the municipality and charity organizations to combat "social evils" such as opium smoking, gambling, and prostitution (1416677367). Public welfare also emerged as a professional specialization, mentioned in reference to individuals such as Paul Sung (Song Ruhai 宋如海), a member of the Hankow Rotary Club, portrayed in the 1934 *Who's Who of China* as a "public welfare worker" (1371489116). The Rotary Club itself utilized the press to reaffirm its commitment to public welfare through various actions, such as sponsoring a school for the blind, providing scholarships to study in America, and improving the street numbering system in Shanghai. Similarly, the club used the press to emphasize its interest in public affairs, particularly in housing and other urban reforms. 
 
@@ -1268,7 +1291,7 @@ In contrast to *Shenbao*, where no clear semantic shifts occurred ([figure 24](#
 
 ```R jdh={"object": {"source": ["figure 26: Most frequent bigrams associated with 'public' by decade in the ProQuest corpus, using TF-IDF as metrics."], "type": "image"}} tags=["figure-26"]
 library("IRdisplay")
-display_png(file="./media/Fig.26.png")
+display_jpg(file="./media/Fig26.JPG")
 ```
 
 To summarize, the Rotary Club served as a bridge between the different senses of the public, reflecting its dual commitment to international peace and local community service through two main operating modes: fundraising campaigns and philanthropic actions aimed at promoting public welfare, and lectures and debates aimed at disseminating knowledge and exchanging ideas among elites. The concept of the public, as defined by the foreign press, manifested a stronger transnational dimension compared to *Shenbao*. It devoted more space to public opinion in foreign countries regarding the situation in China and global issues, as well as public amenities aimed at improving business conditions and the comfort of urban elites in foreign settlements. Instead of focusing on civic associations, the foreign press emphasized the role of municipal authorities, primarily the Shanghai Municipal Council (SMC). From 1927 onwards, however, the foreign press paid greater attention to the newly established Chinese municipality in Shanghai and Nanjing, increasingly highlighting the importance of cooperation between municipal administration and public-spirited organizations such as the Rotary Club.
@@ -1282,12 +1305,13 @@ Due to its transnational nature, focus on public welfare, and reliance on the lo
 
 While the contemporary newspapers did not explicitly use the terms "transnational" or "transnationalism," the transnational nature of the public sphere manifested through the diverse activities of the Rotary Club, encompassing multiple dimensions that evolved over time and varied across languages. Both the Chinese- and English-language presses focused on international relations and the pursuit of international peace among nations, a key principle of the Rotary Club often discussed in lectures and public meetings. *Shenbao*, the Chinese-language newspaper, emphasized transpacific exchanges and Chinese border crossers, highlighting the interconnectedness with regions like Southeast Asia. In contrast, the foreign press, particularly the English-language newspapers, concentrated primarily on multinational encounters in foreign settlements, viewing them as crucial modes of transnational exchanges. These differences in focus reflected the newspapers' reliance on distinct sources of information and the diverse interests of their readership. Readers of the English-language press were typically foreigners or foreign-educated Chinese elites, primarily concerned with the situation in foreign settlements, the lives of foreign communities in treaty ports, and news from their homelands in Europe, North America, and colonial empires. Foreign newspapers had established extensive networks of correspondents and relied on connections with Western newspapers to access information not readily available to Chinese newspapers. On the other hand, readers of the Chinese press were more concerned with news affecting overseas Chinese communities in Southeast Asia, Australia, and America, where significant numbers of Chinese individuals had emigrated since the 19th century for labor, business, or educational purposes. The transnational Chinese diaspora provided a valuable network of correspondents that Chinese homeland newspapers could tap into, offering up-to-date information to their readers. Furthermore, representatives of Chinese newspapers often received invitations to attend business meetings not open to foreign reporters, such as those organized by the China Business Management Association (Zhongguo gongshang guanli xiehui) modeled after the Rotary Club. They also accompanied Chinese business delegations abroad, such as the Philippines Tour Group in 1936 or the delegation from Burma during the Sino-Japanese War, offering unique perspectives and access to events not readily available to foreign press representatives.
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 Semantic analysis reveals that English-language periodicals emphasized verbal expressions of the public regarding both local and global issues, aligning with the forum function of both the Rotary Club and the press. In contrast, *Shenbao* placed a stronger emphasis on pragmatic actions taken by non-state organizations, reflecting Rotary's commitment to community service and elites' practices of using the periodical press to publicize philanthropic projects. The foreign press, particularly the English-language periodicals, highlighted the role of local authorities, primarily the Shanghai Municipal Council (SMC), reflecting the Council's personal connections with Rotary. Several SMC representatives were members of the club, and SMC members were frequently invited to lecture on their areas of expertise. Since its founding in 1854, the SMC was tasked with maintaining an environment conducive to business (<cite data-cite="626961/793ZT442"></cite>), and foreign elites in Shanghai traditionally relied on the SMC to manage urban affairs and social matters in the International Settlement. Conversely, the Chinese press placed a stronger emphasis on the roles of voluntary associations and local elites in taking charge of public welfare. These actions were a continuation of longstanding practices of elite activism since the late Qing dynasty but were also influenced by a novel American-inspired ethics of public service. Nevertheless, *Shenbao* increasingly highlighted Rotary's cooperation with the newly established local authorities. After the creation of the Chinese municipality in Shanghai in 1927, Chinese Mayor Wu Tiecheng took a keen interest in the club, and representatives of the Chinese municipal administration were regularly invited to give lectures on their areas of expertise. Similar connections between Chinese authorities and Rotary clubs developed in other cities as well, including Qingdao, Nanjing, and Chongqing during the Sino-Japanese War. After the outbreak of the war, *Shenbao* underscored Shanghai elites' cooperation with the SMC to address the significant challenge posed by the massive influx of refugees in Shanghai's foreign settlements.
+<!-- #endregion -->
 
-
+<!-- #region citation-manager={"citations": {"": []}} -->
 In the 1930s, the Chinese and foreign presses found common ground in their interest in multinational encounters, including international conventions and sports competitions, which proliferated during this decade. They also shared concerns about the currency crisis brought about in China by the global depression. Despite the disruptions caused by the war in both the Rotary Club and the press industry, foreign and Chinese newspapers continued to align during the war, particularly around the refugee problem and China-US trade relations. However, they diverged again after the war, with *Shenbao* becoming increasingly critical of the American policy of rebuilding Japan during the emerging Cold War. Moreover, internal tensions within the Rotary Club, not publicized in the press, led to the club splitting into separate Chinese- and English-speaking clubs after the war (<cite data-cite="626961/4YPDTCZE"></cite>). This highlights significant disparities between the narrative constructed from archival materials and the story presented in the press. While language and cultural barriers between foreign-educated and other Chinese elites emerged as a prominent concern in archival records, these issues were scarcely evident in the local press. The public facade that Rotary leaders aimed to present portrayed unity and social harmony, especially during those troubled times. Both the Chinese and English-language presses converged in shaping the image of an organization entirely devoted to promoting international goodwill among its members, concealing internal tensions that remained hidden in archival records. This corpus-driven investigation of the bilingual press therefore provides a valuable supplement and counterpoint to previous research based on Rotary archives (<cite data-cite="626961/4YPDTCZE"></cite>). Conversely, delving into archival materials and constructing a prosopography of Rotary members proved essential for interpreting the news delivered in the press on their subject. This reinforces the notion that computational approaches will not replace more traditional methods of archival research; instead, the two methods are most fruitfully employed when they complement and reinforce each other.
-
+<!-- #endregion -->
 
 Behind the public facade of unity and social harmony that Rotary elites aimed to build, this study has uncovered the hidden ideological dimension of both concepts—public and transnational—and the unequal power relations they concealed. Debates on tariff reform, the silver crisis, and unbalanced foreign trade in the 1930s echo the remnants of the "unequal treaties" system. Power relations are also evident in the hierarchical system of knowledge established in Rotary lectures, reflecting China's reliance on foreign or foreign-educated Chinese experts during the Republican era, with Chinese elites without foreign experience remaining underrepresented, particularly in the foreign press. Unequal power relations also manifest in asymmetries of information accessible to newspaper editors and readers. As mentioned earlier, the foreign press had access to information that the Chinese press did not, and vice versa. These asymmetries created a division among newspaper readers based on their language skills. Western-educated Chinese or foreign residents fluent in the Chinese language, who could read both presses, had access to a more comprehensive range of information and viewpoints. Aside from unequal relations among nations and nation-based groups, power relations within Chinese society should not be overlooked. Lastly, unequal relations between elites and non-elites were consistently evident through Rotary's commitment to public welfare and its campaigns in favor of the poor, the ill, and the weak. These widely publicized operations helped legitimize the social function of Rotary and enhance the reputation of its members.
 
@@ -1295,8 +1319,9 @@ Behind the public facade of unity and social harmony that Rotary elites aimed to
 This paper has developed a methodology that integrates topic modeling with other computational techniques, such as named entity recognition (NER), geographical information systems (GIS), network analysis and visualization, to enhance historical research. One notable contribution is the introduction of an iterative topic modeling method, involving multiple successive iterations to gradually refine the study corpus and achieve a higher-quality corpus suitable for more in-depth analysis. This research emphasizes the significance of combining topic modeling with contextual knowledge and close reading of documents for a proper interpretation of observed topics, aligning with recommendations from previous studies. Furthermore, the paper showcases the value of combining topic modeling with other relevant methods to yield more substantial analytical insights. For instance, named entity recognition and network analysis were employed to analyze the configurations of actors and topics across languages and over time. GIS was used to map the geographic imaginations of newspaper readers in Shanghai, while co-occurrence networks were utilized to compare the semantic constellations of the transnational public sphere in the English and Chinese presses.
 <!-- #endregion -->
 
+<!-- #region citation-manager={"citations": {"": []}} -->
 The challenges associated with working with digitized newspapers should not be underestimated. Besides the sheer size of digitized corpora, which represents a "big data deluge," for scholars accustomed to close reading of archival materials, this paper addresses one of the main challenges in dealing with digitized newspapers—namely, extracting appropriate news items within individual documents. The definition of the relevant unit of analysis is a crucial prerequisite for topic modeling and text mining, yet this step is often overlooked or briefly mentioned in scholarly publications. The challenge is particularly pronounced for scholars of modern China who rely on commercial publishers for digitized collections. These publishers may not adhere to the "best practices" typically followed by public libraries and cultural heritage institutions in Europe and North America. Inconsistencies and variability in data quality further complicate the work of historians. The guidelines and algorithms used by commercial providers for digitization, pre-processing, and metadata creation are often opaque, hindering historians' engagement with "digital hermeneutics" (<cite data-cite="626961/75E7A2UI"></cite>). While this paper may not provide definitive conclusions, it represents a significant step in acknowledging these challenges and makes a genuine attempt to offer ad hoc solutions to remedy the most problematic obstacles. 
-
+<!-- #endregion -->
 
 To conclude, the author advocates for a closer collaboration between historians and computer scientists to enhance digitized corpora and improve data quality for historical research. This collaboration is crucial for identifying problems and devising solutions upstream, aimed at reducing the time and effort spent on pre-processing and cleaning data, and allowing researchers to focus on analysis and interpretation. While the HistText application represents a significant advancement in using computational methods for historical research, there is still room for improvement. The author suggests three key areas for future collaborative work. First, refining text segmentation to define semantically coherent text units beneath the level of articles is essential for increasing the precision and accuracy of historical analyses. This involves moving beyond the preliminary topic modeling method based on concordance and the manual segmentation used for subsequent analyses of actors and concepts, especially when dealing with large corpora. Second, entity linking is crucial for facilitating the identification of persons and organizations, reducing the time and effort spent on disambiguating names, and standardizing variants across articles, periods, and languages. Finally, the automatic alignment of terms and topics across languages would enable cross-lingual comparisons and a more systematic study of news circulations across periodicals and linguistic communities. 
 
