@@ -149,11 +149,7 @@ The two sets of plots below show the uneven distribution of documents over time 
 
 ```R jdh={"object": {"source": ["Distribution of documents mentioning the Rotary Club in *Shenbao* (top) and the ProQuest collection (bottom). The additional graphs serve to contextualize the results of the query. The second graphs (blue lines) show the percentage of the entire corpora that the query results represent."], "type": "image"}} tags=["figure-2", "hermeneutics", "anchor-figure-2"]
 library("IRdisplay")
-display_jpg(file="./media/Fig2a.JPG")
-display_jpg(file="./media/Fig2c.JPG")
-
-display_jpg(file="./media/Fig2b.JPG")
-display_jpg(file="./media/Fig2d.JPG")
+display_jpg(file="./media/Fig2_a-d.jpg")
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
