@@ -113,8 +113,8 @@ While historians have increasingly relied on topic modeling to navigate the expa
 
 ```R jdh={"object": {"source": ["Examples of problematic text units from *Shenbao* (top) and *China Weekly Review* (bottom). Segments of interest are highlighted. For the sake of saving space, only parts of the articles are reproduced here."], "type": "image"}} tags=["figure-1", "hermeneutics", "anchor-figure-1"]
 library("IRdisplay")
-display_jpg(file="./media/Fig1a.JPG")
-display_jpg(file="./media/Fig1b.JPG")
+display_png(file="./media/Fig1a.png")
+display_png(file="./media/Fig1b.png")
 ```
 
 <!-- #region tags=["hermeneutics"] -->
@@ -149,7 +149,7 @@ The two sets of plots below show the uneven distribution of documents over time 
 
 ```R jdh={"object": {"source": ["Distribution of documents mentioning the Rotary Club in *Shenbao* (top) and the ProQuest collection (bottom). The additional graphs serve to contextualize the results of the query. The second graphs (blue lines) show the percentage of the entire corpora that the query results represent."], "type": "image"}} tags=["figure-2", "hermeneutics", "anchor-figure-2"]
 library("IRdisplay")
-display_jpg(file="./media/Fig2_a-d.jpg")
+display_png(file="./media/Fig2_a-d.png")
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -162,7 +162,7 @@ To tackle the issue of article separation, in the sense of extracting only the r
 
 ```R jdh={"object": {"source": ["A simple three-step method for creating short text units centred on the queried terms using concordance or Key Word In Context (KWIC): (1) Retrieve KWIC (2) Reconstruct the sequence (3) Re-unite the document. The above example is taken from an article published in *Shenbao* on 14 April 1947, which contains three instances of the key terms."], "type": "image"}} tags=["figure-3", "hermeneutics", "anchor-figure-3"]
 library("IRdisplay")
-display_jpg(file="./media/Fig3.JPG")
+display_png(file="./media/Fig3.png")
 ```
 
 <!-- #region tags=["hermeneutics"] -->
@@ -187,16 +187,16 @@ The results of topic modeling are usually presented in the forms of lists of wor
 
 ```R jdh={"object": {"source": ["Summary of topics for each model in the Chinese corpus. Each plot shows the most frequent words for each topic and the relative proportion of the topics for each model."], "type": "image"}} tags=["figure-4", "hermeneutics", "anchor-figure-4"]
 library("IRdisplay")
-display_jpg(file="./media/Fig4a.JPG")
-display_jpg(file="./media/Fig4b.JPG")
-display_jpg(file="./media/Fig4c.JPG")
+display_png(file="./media/Fig4a.png")
+display_png(file="./media/Fig4b.png")
+display_png(file="./media/Fig4c.png")
 ```
 
 ```R jdh={"object": {"source": ["Summary of topics for each model in the English corpus. Each plot shows the most frequent words for each topic and the relative proportion of the topics for each model."], "type": "image"}} tags=["figure-5", "hermeneutics", "anchor-figure-5"]
 library("IRdisplay")
-display_jpg(file="./media/Fig5a.JPG")
-display_jpg(file="./media/Fig5b.JPG")
-display_jpg(file="./media/Fig5c.JPG")
+display_png(file="./media/Fig5a.png")
+display_png(file="./media/Fig5b.png")
+display_png(file="./media/Fig5c.png")
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -205,16 +205,16 @@ Based on the list of words, I labelled the topics in the most meaningful way as 
 
 ```R jdh={"object": {"source": ["Topic labels for each model in the Chinese corpus."], "type": "image"}} tags=["figure-6", "hermeneutics", "anchor-figure-6"]
 library("IRdisplay")
-display_jpg(file="./media/Fig6a.JPG")
-display_jpg(file="./media/Fig6b.JPG")
-display_jpg(file="./media/Fig6c.JPG")
+display_png(file="./media/Fig6a.png")
+display_png(file="./media/Fig6b.png")
+display_png(file="./media/Fig6c.png")
 ```
 
 ```R jdh={"object": {"source": ["Topic labels for each model in the English corpus."], "type": "image"}} tags=["figure-7", "hermeneutics", "anchor-figure-7"]
 library("IRdisplay")
-display_jpg(file="./media/Fig7a.JPG")
-display_jpg(file="./media/Fig7b.JPG")
-display_jpg(file="./media/Fig7c.JPG")
+display_png(file="./media/Fig7a.png")
+display_png(file="./media/Fig7b.png")
+display_png(file="./media/Fig7c.png")
 ```
 
 <!-- #region tags=["hermeneutics"] -->
@@ -231,7 +231,7 @@ In the next step, I grouped the labelled topics into four broad categories ([fig
 
 ```R jdh={"object": {"source": ["Distribution of topical categories. PQ = ProQuest, SB = *Shenbao*. 5T = 5-topic model, 10T = 10-topic model, 20T = 20-topic model."], "type": "image"}} tags=["figure-8", "hermeneutics", "anchor-figure-8"]
 library("IRdisplay")
-display_jpg(file="./media/Fig8.JPG")
+display_png(file="./media/Fig8.png")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -260,8 +260,8 @@ As these examples suggest, invalid topics tend to become more frequent as we inc
 
 ```R jdh={"object": {"source": ["Plotting semantic coherence against exclusivity for the three models built from *Shenbao* (top) and ProQuest (bottom). The higher the number of topics, the lower the coherence, and the higher the exclusivity."], "type": "image"}} tags=["figure-9", "hermeneutics", "anchor-figure-9"]
 library("IRdisplay")
-display_jpg(file="./media/Fig9a.JPG")
-display_jpg(file="./media/Fig9b.JPG")
+display_png(file="./media/Fig9a.png")
+display_png(file="./media/Fig9b.png")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -302,8 +302,8 @@ The distinction between local and non-local topics, however, is not always strai
 
 ```R jdh={"object": {"source": ["The most frequent words defining the 10-topic models in *Shenbao* (top) and ProQuest (bottom)."], "type": "image"}} tags=["figure-10", "hermeneutics", "anchor-figure-10"]
 library("IRdisplay")
-display_jpg(file="./media/Fig10a.JPG")
-display_jpg(file="./media/Fig10b.JPG")
+display_png(file="./media/Fig10a.png")
+display_png(file="./media/Fig10b.png")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -312,7 +312,7 @@ Topics 1 and 3 in the Chinese corpus provide examples of mixed topics including 
 
 ```R jdh={"object": {"source": ["The most representative documents for topics 1 and 3 in the Chinese-language corpus (10-topic model)."], "type": "image"}} tags=["figure-11", "hermeneutics", "anchor-figure-11"]
 library("IRdisplay")
-display_jpg(file="./media/Fig11.JPG")
+display_png(file="./media/Fig11.png")
 ```
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
@@ -321,7 +321,7 @@ In the English corpus, mixed topics include topics 1, 5, and 10 ([see figure 12]
 
 ```R jdh={"object": {"source": ["The most representative documents for topics 1, 5, and 10 in the English-language corpus (10-topic model)."], "type": "image"}} tags=["figure-12", "hermeneutics", "anchor-figure-12"]
 library("IRdisplay")
-display_jpg(file="./media/Fig12.JPG")
+display_png(file="./media/Fig12.png")
 ```
 
 <!-- #region citation-manager={"citations": {"": []}} tags=["narrative", "hermeneutics"] -->
@@ -341,8 +341,8 @@ In the two corpora, local meetings tended to decline over time, whereas discussi
 
 ```R jdh={"object": {"source": ["Topic proportions over time (1919-1949) for the 10-topic model in *Shenbao* (top) and ProQuest (bottom). Topic proportions are aggregated by year."], "type": "image"}} tags=["figure-13", "anchor-figure-13"]
 library("IRdisplay")
-display_jpg(file="./media/Fig13a.JPG")
-display_jpg(file="./media/Fig13b.JPG")
+display_png(file="./media/Fig13a.png")
+display_png(file="./media/Fig13b.png")
 ```
 
 The remaining topics seem less stable. Topics 1, 6, 8, 9, and 10 in the Chinese corpus are examples of such unstable topics. Most refer to tiffin meetings (announcements or reports), which constitute a regular feature of the Rotary Club and can be defined as a “background topic” for the Rotary Club. Topics dealing with children peaked during the war and vanished afterwards. Topics dealing with the beggar camp and the refugee problem also peaked during the war. Their early appearances are misleading, however, resulting from polysemous terms used to define different topics (such as *xiwang* 希望 “hope”).
@@ -373,8 +373,8 @@ To conduct a more in-depth exploration of the contents and actors within the pub
 
 ```R jdh={"object": {"source": ["Histograms illustrating the document-topic distribution in the 5-topic model applied to the *Shenbao* corpus (above) and the 10-topic model of the English corpus (below)."], "type": "image"}} tags=["figure-14", "anchor-figure-14"]
 library("IRdisplay")
-display_jpg(file="./media/Fig14a.JPG")
-display_jpg(file="./media/Fig14b.JPG")
+display_png(file="./media/Fig14a.png")
+display_png(file="./media/Fig14b.png")
 ```
 
 <!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
@@ -484,7 +484,7 @@ From the list of individuals identified through named entity recognition (NER), 
 
 ```R jdh={"object": {"source": ["Two-mode networks of persons and documents in *Shenbao* during the first period (1919-1929). Red squares represent documents, orange circles represent persons. The graph was constructed using the igraph R package (layout: Fruchterman-Reingold)."], "type": "image"}} tags=["figure-15", "anchor-figure-15"]
 library("IRdisplay")
-display_jpg(file="./media/Fig15_labels.JPG")
+display_png(file="./media/Fig15_labels.png")
 ```
 
 In terms of degree centrality, the most central actors were Rotary leaders, particularly the club’s presidents ([table 14](#anchor-table-14), [table 15](#anchor-table-15)). This should not come as a surprise, as they presided over every Rotary meeting, introduced guests and programs, and were invited to represent the club at external events such as Boy Scout and business gatherings. The most central person in the two corpora, in terms of both degree and betweenness centrality, was Kuang Fuzhuo, mentioned earlier. Kuang appeared throughout the entire decade and was associated with a wide range of topics, serving as a bridge between different communities of topics and actors. Specifically, he was mentioned for his participation as a delegate at the Rotary Convention in Manila in 1922 (1369499644), for inviting US Senator Hiram Bingham during his visit to China in August 1927 (1420021041), for his election to the position of vice-president and eventually president of the Shanghai Rotary Club in 1929, and his retirement from the Commercial Press in 1929 (1420023531).
@@ -885,14 +885,14 @@ This section seeks to empirically delineate the transnational contours of the pu
 
 ```R jdh={"object": {"source": ["Most frequent countries mentioned in the *Shenbao* (above) and ProQuest (below) Rotary corpus. The color gradient represents the mean frequency of mentions over all periods. Interactive maps are accessible on the Github repository."], "type": "image"}} tags=["figure-16"]
 library("IRdisplay")
-display_jpg(file="./media/Fig16a.JPG")
-display_jpg(file="./media/Fig16b.JPG")
+display_png(file="./media/Fig16a.png")
+display_png(file="./media/Fig16b.png")
 ```
 
 ```R jdh={"object": {"source": ["Most frequent cities mentioned in the *Shenbao* (above) and ProQuest (below) Rotary corpus. The size of the circles is proportional to the mean frequency of mentions over all periods. Interactive maps are accessible on the Github repository."], "type": "image"}} tags=["figure-17"]
 library("IRdisplay")
-display_jpg(file="./media/Fig17a.JPG")
-display_jpg(file="./media/Fig17b.JPG")
+display_png(file="./media/Fig17a.png")
+display_png(file="./media/Fig17b.png")
 ```
 
 ### Pacific and Colonial Focuses (1919-1929)
@@ -1119,7 +1119,7 @@ The results of this semantic exploration are presented in the following narrativ
 
 ```R jdh={"object": {"source": ["Network graph illustrating the most frequent collocates of \u570b-based terms in the *Shenbao* Rotary corpus. Only collocates with a weight exceeding 2, calculated using pairwise count per document, are displayed. The colour gradient reflects eigenvector centrality, with red nodes indicating higher centrality than yellow nodes. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables. Note: Eigenvector centrality is a measure of the influence of a node in a network, taking into account both the node's direct connections and the connections of its neighbours. Co-occurrence weights (pairwise count) were computed using tidytext and widyR, and the network visualizations were created using igraph, tidygraph, and ggraph."], "type": "image"}} tags=["figure-18", "anchor-figure-18"]
 library("IRdisplay")
-display_jpg(file="./media/Fig18.JPG")
+display_png(file="./media/Fig18.png")
 ```
 
 The *guoji* constellation incorporates special programs sponsored by the Rotary Club, emphasizing economic development (*fazhan* 發展), construction (*jianshe* 建設), and public health (*weisheng* 衛生). It involves individuals who traverse borders, typically high-ranking officials of internal prominence, such as Wang Zhengting, who frequently traveled abroad (eventually returning to their home country, *huiguo* 回國), often making public appearances with their spouses (expressed through the term *furen* 夫人, couple). The *guoji* cluster exhibits direct connections to other clusters, exemplified by *geguo* 各國 (translatable as multinational), or through intermediary terms such as China (Zhongguo 中國), bridging  *guoji*  with *guojia*  國家 (home country). Additionally, the term "meeting" (*canjia* 參加) serves as a link between *guoji* and *quanguo* 全國 (nationwide or throughout the country).
@@ -1138,7 +1138,7 @@ Furthermore, the contours of the transnational evolved over time, and this evolu
 
 ```R jdh={"object": {"source": ["Most frequent two-character \u570b-based terms by decade in the *Shenbao* corpus, using TF-IDF as the metric."], "type": "image"}} tags=["figure-19", "anchor-figure-19"]
 library("IRdisplay")
-display_jpg(file="./media/Fig19.JPG")
+display_png(file="./media/Fig19.png")
 ```
 
 During the 1930s, the decade witnessed a blend of multinational encounters, prominently showcased by the annual tennis tournament, and transnational exchanges, as evidenced by the use of the term *huiguo* (return to home country). The tennis competition aimed at promoting interest in sports and fostering international relations among participating countries (SPSP193008121208). The tournament was consistently won by Chinese tennis players during the first three years at least (SPSP193007291001, SPSP193107311036, SPSP193208151203). It was only in 1936 that a Western country (the United States) emerged victorious (SPSP193608271505). Similar to the national emblem ceremony organized in the previous decade, sports competition provided a space where China could seek revenge upon colonial countries with minimal consequences and risks for the aforementioned colonial nations. Transnational exchanges involved Chinese visitors abroad, such as the Chinese business delegation to the Philippines (Zhonghua shangye feilü binguan guangtuan 中華商業菲律賓觀光團) in 1935 (SPSP193502141101). Conversely, it also included foreign visitors to China, for instance, the president of the Rotary Club of Cleveland, who visited Shanghai and Hong Kong to study the automobile industry in 1931 (SPSP193102071618). Cross-border exchanges during this period involved the Chinese soldiers of the National Salvation Army (Zhongguo guomin jiuguo jun 中國國民救國軍) led by Wang Delin 王德林 (1875-1938), who, in 1933, returned with their families from Europe through Russia after being defeated by Japan in Manchuria (SPSP193303290901). Additionally, figures like Wang Zhengting, Chinese minister of foreign affairs and ambassador to the US, travelled across the Pacific in 1936 (SPSP193608210708, SPSP193610031001).
@@ -1172,21 +1172,21 @@ To further examine how the different terms relate to each other and identify the
 
 ```R jdh={"object": {"source": ["Principal Component Analysis of the most frequent collocates of 'international' using log-likelihood as metrics."], "type": "image"}} tags=["figure-20", "anchor-figure-20"]
 library("IRdisplay")
-display_jpg(file="./media/Fig20.JPG")
+display_png(file="./media/Fig20.png")
 ```
 
 Based on pairwise count, the most frequent collocates of "international" include world, conference (held), foreign, national, people, government, president, country, address, American, city, local, and united. These terms are quite similar to those associated with "national," with the ranking differing (e.g., "world" appears higher than "government" and "country"). Both terms maintain the nation as their core elements, but "international" emphasizes the "external" point of view. The network graph displays the most frequent collocates of "national" and "international" ([figure 21](#anchor-figure-21)). These two terms are closely connected, indicating that they frequently occurred together. Terms on the right side of the graph are more strongly associated with "national," while terms on the left are more linked to "international." The specific set of terms attached to each word reinforces the distinction between the inside/outside point of view. The graph also helps refine the two main senses of "international" identified through PCA. In the more common sense, it refers to external relations among nations or countries, expressed through terms like country, nations, national, people, and world. In a sense closer to the notion of "transnational," it relates to terms suggesting the crossing of national boundaries (mostly through business relations) and contact zones (city, local, hotel) facilitating the coming together of various nationalities. Terms like foreign, American, and Japanese pertain to both senses, though they are more likely associated with the "transnational" sense. On the contrary, terms like "life" and "public" are primarily associated with "national."
 
 ```R jdh={"object": {"source": ["Network graph showing the most frequent collocates of 'national' and 'international' in the English-language Rotary corpus. Only collocates with a weight exceeding 50, calculated using pairwise count per document, are displayed. The colour gradient reflects eigenvector centrality. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables."], "type": "image"}} tags=["figure-21", "anchor-figure-21"]
 library("IRdisplay")
-display_jpg(file="./media/Fig21.JPG")
+display_png(file="./media/Fig21.png")
 ```
 
 Like in *Shenbao*, the transnational dimension of the foreign press underwent significant changes over time, with a similar trend towards heightened exchanges during the 1930s, followed by a return to national sentiments in the final decade of the Republic ([figure 22](#anchor-figure-22)). In the post-World War I period, the emphasis was on international relations, encompassing aspects such as the "international question," fear, disputes, peace, and conferences. However, it also carried transnational connotations through terms like "international city," referring to a "contact zone" that facilitated interactions among different nationalities, and "international journalist," denoting a border crosser. In the subsequent decade, there persisted an ambiguity between the two poles of transnational and international. The primary focus was on the establishment of the International Club, a multinational non-state organization aimed at promoting international friendship, initiated in 1936 with the support of various Rotary members. Alongside this initiative, Rotary lectures prominently featured terms associated with diplomatic relations and international trade. Other terms that leaned toward the "transnational" dimension encompassed the Tennis Cup, Rotary International, and less common expressions like "international character”. The last period, encompassing the wartime and post-war era, is characterized by more impersonal terms such as payments, news, situation, and balance. The discourse in this period clearly emphasized differences rather than points of contact.
 
 ```R jdh={"object": {"source": ["Most frequent bigrams by decade in the English-language corpus, using TF-IDF as the metric."], "type": "image"}} tags=["figure-22", "anchor-figure-22"]
 library("IRdisplay")
-display_jpg(file="./media/Fig22.JPG")
+display_png(file="./media/Fig22.png")
 ```
 
 In the subsequent section, I apply the same methodology to analyse the public roles of the Rotary Club and to compare the concepts utilized in the Chinese and English presses for delineating the public sphere throughout the three decades under examination.
@@ -1219,7 +1219,7 @@ Contrary to the *guo*-based collocates, the collocates of terms associated with 
 
 ```R jdh={"object": {"source": ["Network graph displaying the most frequent collocates of \u516c-based terms in the *Shenbao* Rotary corpus. Only collocates with a weight equal or exceeding 2, calculated using pairwise count per document, are displayed. The colour gradient reflects eigenvector centrality. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables. The code is accessible on the Github repository."], "type": "image"}} tags=["figure-23", "anchor-figure-23"]
 library("IRdisplay")
-display_jpg(file="./media/Fig23.JPG")
+display_png(file="./media/Fig23.png")
 ```
 
 Public welfare primarily involves the promotion of public health and the eradication of poverty. Specifically, the term *gongyi* 公益 appeared in connection with philanthropic activities sponsored by the Rotary Club and other associations or individuals, such as Fei Wusheng 費吳生, a Chinese American citizen born in Suzhou, president of his local Rotary Club, portrayed as being “fervently dedicated to public welfare initiatives” (*Fei jun wei Mei ji zi you shengzhang Suzhou zaihua duiyu gongyi shiye jiwei rexin* 費君爲美籍自幼生長蘇州在華對於公益事業極爲熱心) (SPSP192306131801). After WWII, 公益 was specifically associated with a campaign against the habit of spitting among the public, presented as not only a visual nuisance but also a potential source of disease transmission. The campaign was launched by Lu Meiseng, president of the Public Welfare Society (Gongyi xiejinshe 公益協進社), in cooperation with other voluntary associations (SPSP194711070401). In this specific context, the term *gongmin* 公民 referred to civic associations such as the Civic education group (Gongmin jiaoyutuan 公民教育團) organized in 1927 (SPSP192705241014) and the Women's Civic Association (Funü gongmin huishe 婦女公民會社) devoted to youth and education (SPSP193705222001). This term helps to connect public welfare (*gongyi* 公益) with municipal cemeteries (*gongmu* 公墓) mentioned in Wu Liande’s talk advocating for cremation as an essential tool toward reducing the spread of disease and saving urban space (SPSP193606201501). This connection highlights cooperative practices between civil society and local authorities in the promotion of public welfare.
@@ -1233,7 +1233,7 @@ Other terms are less prominent and form separate clusters. Intriguingly, politic
 
 ```R jdh={"object": {"source": ["Most frequent two-character \u516c-based terms by decade in the *Shenbao* corpus, using TF-IDF as metrics."], "type": "image"}} tags=["figure-24", "anchor-figure-24"]
 library("IRdisplay")
-display_jpg(file="./media/Fig24.JPG")
+display_png(file="./media/Fig24.png")
 ```
 
 #### The Foreign Press: Nurturing Public Opinion, Developing Urban Amenities
@@ -1263,7 +1263,7 @@ The subsequent graph, illustrating the most prevalent collocates linked to the p
 
 ```R jdh={"object": {"source": ["Network graph illustrating the most frequent collocates of public-based terms in the English-language corpus. Only collocates with a weight exceeding 5, calculated using pairwise count per document, are displayed. The colour gradient reflects eigenvector centrality. Node size corresponds to the frequency of each term in the corpus. For precise figures on weight and frequency, refer to the attached tables."], "type": "image"}} tags=["figure-25", "anchor-figure-25"]
 library("IRdisplay")
-display_jpg(file="./media/Fig25.JPG")
+display_png(file="./media/Fig25.png")
 ```
 
 The predominant cluster centers around the term "public opinion," establishing connections with a diverse array of terms. This cluster denotes the "forum" function fulfilled by both the Rotary Club and the press, acting as a conduit between the local, national, and international spheres. On one hand, the concept of public opinion is primarily associated with various lectures conducted during Rotary meetings. These lectures delved into the topic of public opinion in Western countries, notably the United States, concerning the political landscape in China, international peace, and other pertinent issues. Such lectures embodied Rotary's central mission of disseminating knowledge and fostering spaces for discussion and the exchange of perspectives.
@@ -1285,7 +1285,7 @@ In contrast to *Shenbao*, where no clear semantic shifts occurred ([figure 24](#
 
 ```R jdh={"object": {"source": ["Most frequent bigrams associated with 'public' by decade in the ProQuest corpus, using TF-IDF as metrics."], "type": "image"}} tags=["figure-26", "anchor-figure-26"]
 library("IRdisplay")
-display_jpg(file="./media/Fig26.JPG")
+display_png(file="./media/Fig26.png")
 ```
 
 To summarize, the Rotary Club served as a bridge between the different senses of the public, reflecting its dual commitment to international peace and local community service through two main operating modes: fundraising campaigns and philanthropic actions aimed at promoting public welfare, and lectures and debates aimed at disseminating knowledge and exchanging ideas among elites. The concept of the public, as defined by the foreign press, manifested a stronger transnational dimension compared to *Shenbao*. It devoted more space to public opinion in foreign countries regarding the situation in China and global issues, as well as public amenities aimed at improving business conditions and the comfort of urban elites in foreign settlements. Instead of focusing on civic associations, the foreign press emphasized the role of municipal authorities, primarily the Shanghai Municipal Council (SMC). From 1927 onwards, however, the foreign press paid greater attention to the newly established Chinese municipality in Shanghai and Nanjing, increasingly highlighting the importance of cooperation between municipal administration and public-spirited organizations such as the Rotary Club.
