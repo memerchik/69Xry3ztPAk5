@@ -6,7 +6,7 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.3'
-      jupytext_version: 1.16.4
+      jupytext_version: 1.14.4
   kernelspec:
     display_name: R
     language: R
@@ -129,11 +129,11 @@ Focusing on the Rotary Club as a case study, this initial section addresses thre
 The workflow follows three main steps: First, I created the text corpora. Second, I prepared the text data and built the topic models. Finally, I analysed and interpreted the topics. While this is a standard workflow in any topic modeling approach, this research introduces specific adaptations for building the bilingual corpora and for pre-processing the text data to overcome the problem of article separation described earlier.
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics", "anchor-step-1-corpus-building"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics", "anchor-step-1-corpus-building"] -->
 #### Step 1: Corpus building
 <!-- #endregion -->
 
-<!-- #region citation-manager={"citations": {"": []}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 In the first step, I created two separate corpora, one for each language. The Chinese-language corpus is based on the *Shenbao*, a leading newspaper published in Shanghai between 1872 and 1949. Despite low literacy rates among the Chinese population, the *Shenbao* reached 150,000 copies in the 1930s, making it one of the two most widely circulated newspapers in China (On the *Shenbao*, see <cite data-cite="626961/IE4K5VAI"></cite>, <cite data-cite="626961/IQFS98C6"></cite>, <cite data-cite="626961/5X6264E9"></cite>, see also [Christian Henriot's piece in this issue](https://journalofdigitalhistory.org/en/article/fwpktfFtn5jm)). Although it catered primarily to Shanghai intellectual, political, and business elites, its readership widened in the 1930s. The English-language corpus is based on the [ProQuest Chinese Newspapers Collection](https://about.proquest.com/en/products-services/hnp_cnc/), which includes a dozen of periodicals running from 1832 to 1953, with varying circulation, periodicity, and duration.  Despite the risk of overlap, I nonetheless chose to include all the periodicals included in the ProQuest collection to ensure the maximum coverage and to reduce the gap with the daily granularity of the *Shenbao*. Since the largest English periodicals were weekly publications, they were necessarily more selective than *Shenbao*, with the risk of missing some events that were reported in the *Shenbao*, but not in one or the other English periodicals. The most widely distributed foreign periodical was the *North-China Daily News*, peaking at 10,000 copies in the early 1930s, while its weekly edition, the *North-China Herald*, distributed almost 2,000 copies per week. They were read not only by foreign expatriates but also increasingly by foreign-educated Chinese elites. Although they were printed in Shanghai, both the *Shenbao* and the *North-China Herald* had a national, even international coverage, being circulated among overseas Chinese and foreign readers interested in Chinese affairs.
 <!-- #endregion -->
 
@@ -149,10 +149,10 @@ The two sets of plots below show the uneven distribution of documents over time 
 
 ```R jdh={"object": {"source": ["Distribution of documents mentioning the Rotary Club in *Shenbao* (top) and the ProQuest collection (bottom). The additional graphs serve to contextualize the results of the query. The second graphs (blue lines) show the percentage of the entire corpora that the query results represent."], "type": "image"}} tags=["figure-2", "hermeneutics", "anchor-figure-2"]
 library("IRdisplay")
-display_png(file="./media/Fig2_a-d.png")
+display_png(file="./media/Fig2a-d.png")
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 2: Text pre-processing
 <!-- #endregion -->
 
@@ -169,11 +169,11 @@ display_png(file="./media/Fig3.png")
 Next, I prepared the text data to make it processable by topic model algorithms. Standard pre-processing steps include tokenization, stemming, and lemmatization (optional), as well as various filtering options (stop words, punctuation, rare words). Tokenization involves segmenting the text into meaningful units, which, in this context, are essentially words. For the Chinese text, I used [jiebaR](https://github.com/qinwf/jiebaR/), one of the most popular tokenizers today. While primarily designed for tokenizing contemporary Chinese texts, it provided satisfactory results for texts published during the period under study (1919-1949). For the English text, I relied on the standard tokenizer included in the pre-processing function of the [stm R package](https://warin.ca/shiny/stm/#section-the-structural-topic-model), as described below. In the subsequent steps, I chose not to stem (i.e., reduce words to their root) or lemmatize words (reduce words to their common form) because, at this stage, I preferred to preserve all nuances conveyed in the original articles. Additionally, I provided a customized list of stop words, including the terms used for querying the corpus (“扶輪社”, “Rotary”, “club”) and common terms in this context, such as “中國”, “上海”, “China”, and “Shanghai”. Furthermore, I removed words containing fewer than two characters and occurring in fewer than two documents in Chinese, and those containing fewer than four characters and occurring in fewer than five documents in English. With these parameters, five documents were removed from the Chinese corpus. The resulting corpora eventually contain 2378 terms in English and 921 in Chinese, representing their respective vocabularies.
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 3: Model building
 <!-- #endregion -->
 
-<!-- #region citation-manager={"citations": {"": []}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 Various topic modeling algorithms have been implemented so far. For this research, I opted for a Latent Dirichlet Allocation (LDA) algorithm, which is one of the most popular methods today. LDA is a probabilistic model that treats topics as mixtures of words and documents as mixtures of topics. This implies that words can belong to different topics, while topics can be represented in multiple documents with varying proportions. More specifically, I relied on structural topic modeling (STM) to incorporate metadata such as the date of publication in order to investigate the effect of time on topical prevalence. From a technical perspective, I chose to use the [stm R package](https://warin.ca/shiny/stm/#section-the-structural-topic-model) which includes several built-in functions designed to facilitate the exploration of topics, including various visualizations and statistical outputs (<cite data-cite="626961/WA2GBZDB"></cite>). The full code for building the topic models in [Chinese](https://bookdown.enpchina.eu/PublicSphere_stm/PublicSphere_Chinese.html#Model_building) and [English](https://bookdown.enpchina.eu/PublicSphere_stm/PublicSphere_English.html#Model_building) is available in the GitHub repository.
 <!-- #endregion -->
 
@@ -199,7 +199,7 @@ display_png(file="./media/Fig5b.png")
 display_png(file="./media/Fig5c.png")
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 Based on the list of words, I labelled the topics in the most meaningful way as possible ([figure 6](#anchor-figure-6), [figure 7](#anchor-figure-7)). In cases where topics seemed unclear, I did not solely rely on the list of words; instead, I closely examined a sample of highly representative texts for each topic to better understand how the topics translated into concrete words and sentences. Additionally, I drew on my previous knowledge of the club and the broader historical context to enhance my final interpretation of the topics.
 <!-- #endregion -->
 
@@ -221,7 +221,7 @@ display_png(file="./media/Fig7c.png")
 Tables 1 to 6 in the ([Appendix](#anchor-appendix)) provide a summary of the topics for each model, including their label, the 10 most frequent words defining each topic, and their various attributes (topical group, dimension, proportion, and trend over time). Tables 7 and 8 show the topics aligned across models. Tables 9, 10, and 11 present the topics aligned across languages.
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 ### The *modus operandi* of the public sphere
 <!-- #endregion -->
 
@@ -284,11 +284,11 @@ Finally, the presence of forum-related topics (5 to 20%) in the two corpora illu
 The “forum” category nonetheless presents significant differences between the two corpora in terms of topic prevalence and topical contents. Forum-related topics were more prevalent in English periodicals than they were in the *Shenbao*. This again essentially reflects the weekly periodicity of English-language press, which allowed for lengthy and more detailed accounts of lectures and discussions, whereas the Chinese daily was more likely to publish brief accounts and announcements of lectures. Furthermore, the English press tended to focus on social/economic issues (PQ10T04 and PQ20T04) and international relations, especially the American presence in East Asia (PQ20T03). The two corpora shared a growing concern for Sino-Japanese relations after the Japanese invasion of Manchuria in September 1931. This critical topic, however, was not as prominent as expected and made only brief appearances in both corpora (PQ10T09, SB20T19).
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["narrative"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["narrative"] -->
 ### Negotiating between the local and the global
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["narrative", "hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["narrative", "hermeneutics"] -->
 To investigate the transnational nature of the public sphere, I further classified the topics into local/non-local categories. In this research, the term 'local' reflects the Shanghai point of view. Since the periodicals under study were published in Shanghai and catered primarily to a Shanghai-based audience, "local" refers to the perspective of Shanghai newspaper readers. In both languages, the local perspective can be empirically identified through terms referring to local places (street names, buildings, or hotels where the Rotary Club held its meetings), local time (day, date, exact time of meetings), local institutions (local companies or branches of external companies, municipal administration, civic associations, or local business organizations), and local positions (president, manager, director, board member). The local perspective, however, is not defined by individuals such as Rotary members or guests, who were mobile both geographically and professionally, and whose mindset and influence extended far beyond their daily routines and local spheres of action.
 <!-- #endregion -->
 
@@ -359,15 +359,15 @@ This section builds upon the outcomes of the preceding topic modeling to delve d
 
 The following hermeneutics layers outline the five-step methodology employed for refining corpora and reconstructing the networks of topics and actors over time. Subsequent narrative layers present key findings for each time period. The complete code is accessible in the "script" folder on the GitHub repository.
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 ### Methodology
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 1: Filtering topics
 <!-- #endregion -->
 
-<!-- #region citation-manager={"citations": {"": []}} editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region citation-manager={"citations": {"": []}} slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 To conduct a more in-depth exploration of the contents and actors within the public sphere, I opted to concentrate on topics related to lectures and speeches, as these provide substantial content for debates and diverse perspectives. Specifically, I focused on topic 3 in the 5-topic model within the English corpus and topics 2, 3, and 10 in the 10-topic model within *Shenbao* (refer to Tables in the Appendix for details). Within each topic, I retained articles that exhibited a minimum proportion of the selected topics. The determination of this minimal threshold requires clarification. While previous studies recommended a minimum of 25% (<cite data-cite="626961/IBT42XJB"></cite>), this research adopts a more flexible approach based on the document topic distribution in each corpus and model, as illustrated in the histograms ([figure 14](#anchor-figure-14)). Given the relatively small size of the corpora (hundreds of articles), this method aims to avoid excluding too many documents. Following this method, I selected all documents containing at least 0.11% of topic 3 in the English corpus 10-topic model. In the Chinese corpus, I retained 0.02% of topic 2, 0.01% of topic 3, and 0.02% of topic 10.
 <!-- #endregion -->
 
@@ -377,7 +377,7 @@ display_png(file="./media/Fig14a.png")
 display_png(file="./media/Fig14b.png")
 ```
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 2: Refining text units
 <!-- #endregion -->
 
@@ -385,7 +385,7 @@ display_png(file="./media/Fig14b.png")
 To comprehensively analyse the debates and actors present in the press, it is essential to consider entire news items as units of analysis, unlike the selected text segments used in the previous section to model the operating modes of the Rotary Club. This necessitates several additional pre-processing steps, which vary depending on the language. In the English corpus, I filtered the texts by category to retain only "feature articles" and remove brevities and other categories containing brief announcements with little substantial content. After filtering, the new English corpus contained 954 documents. In *Shenbao*, it was not possible to apply this method since no classification was available. Therefore, I reviewed the documents one by one to extract the relevant passages from each document and then computed the length of each passage to retain only substantial news items. Based on the set of manually re-segmented articles, I filtered out the shortest documents that did not contain any substantial information, such as brief announcements of meetings. After a close examination of the shortest texts, I set the threshold to 45 characters and removed all documents (166) containing less than 45 characters. After filtering, the final Chinese corpus contained 345 documents.
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 3: Time-based topic modeling
 <!-- #endregion -->
 
@@ -408,7 +408,7 @@ This division resulted in six sub-corpora, three for each language ([table 12](#
 | **Total**     | 345         | 954         |
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 4: Retrieving actors
 <!-- #endregion -->
 
@@ -420,7 +420,7 @@ To reconstruct the configurations of actors that shaped the public sphere and it
 I specifically utilized models developed by Baptiste Blouin, a computer scientist in the ENP-China project, for extracting historical entities in digitized texts in Chinese and English. These refined models, trained on appropriate historical data, offer several crucial advantages: (1) they are robust to noisy Optical Character Recognition (OCR) and missing punctuation, notably in the ProQuest collection of English-language newspapers; (2) they can identify the names of persons in Chinese, taking into account variants, co-references, and embedded titles (such as 君jun). More information on these models can be found in the [HistText manual](https://bookdown.enpchina.eu/HistText_Book/named-entity-recognition-ner.html) and Blouin’s related papers (<cite data-cite="626961/THBIYZ7E"></cite>, <cite data-cite="626961/U433KHD5"></cite>, <cite data-cite="626961/XN9I57AE"></cite>). The workflow used for extracting and cleaning the entities in this research is described in detail in the "script" folder in the GitHub repository.
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 #### Step 5: Building Networks
 <!-- #endregion -->
 
@@ -436,11 +436,11 @@ Furthermore, network metrics were utilized to identify the most central persons 
 The results are described and interpreted in the following narrative layers. *Note: The numbers indicated within parentheses below refer to the unique document identifier (DocId) used in the Modern China Textbase (MCTB) accessible through [HistText](https://bookdown.enpchina.eu/HistText_Book/set-up.html#available-corpora).*
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 ### Building International Peace through Youth and Education (1919-1929)
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 #### Topics
 <!-- #endregion -->
 
@@ -608,15 +608,15 @@ In contrast to *Shenbao*, which focused on local, non-state organizations, the f
 | Pan-Pacific Association                 | 4          | 0.0041689955    |
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 ### Handling Economic Crises, Social Unrest, and Mounting International Tensions (1930-1937)
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 #### Topics
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 The second period is characterized by a greater convergence between the two corpora in terms of both topics and actors. In the 1930s, international relations remained a prominent topic in both presses. In *Shenbao*, this topic centred on Chinese diplomat Wang Zhengting 王正廷 (1882-1961) who became a key player in both Rotary International and Sino-US diplomatic relations during this decade. Wang was minister of foreign affairs until 1936, when he was simultaneously appointed governor of the 81st district of the Rotary Club (which covered China, Hong Kong, and the Philippines) and Chinese ambassador to the United States. In the English press, concerns with international relations focused on the Japanese imperialist expansion in Asia and growing tensions between competing powers (Japan, United States, and Russia) for controlling the Pacific area.
 <!-- #endregion -->
 
@@ -875,11 +875,11 @@ Due to its topical emphasis on macro-level geopolitics, the foreign press centre
 | China Weekly Review           | 3          | 0.02021597      | Lord Mayor's Fund            | 2          | 1.0903E-4       |
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} -->
+<!-- #region slideshow={"slide_type": ""} -->
 ## Part III. Mapping the Public Sphere: Rotary Geographic Imagination(s)
 <!-- #endregion -->
 
-<!-- #region editable=true slideshow={"slide_type": ""} tags=["hermeneutics"] -->
+<!-- #region slideshow={"slide_type": ""} tags=["hermeneutics"] -->
 This section seeks to empirically delineate the transnational contours of the public sphere in Republican Shanghai by mapping the geographic imaginations of Rotary members and newspaper readers. The primary step is to identify and standardize the names of locations and geopolitical entities (GPE) mentioned in the two corpora under study using named entity recognition. After standardizing place names, which involves homogenizing variants and finding contemporary names for old place names, R packages were employed to geolocate the countries and cities most frequently mentioned in the corpora. For mapping historical Chinese cities, the [Modern China Geospatial Database (MCGD)](https://analytics.huma-num.fr/enpchina/MCGD_interface/), a reference geospatial database for modern China created by the ENP-China project, was utilized. To compare the geographical imaginations of each language community and study how the geographic landscape evolved over time, a map was designed for each period and each corpus. It's crucial to note that the maps only represent places to which geographical coordinates can be associated. Metaphorical place names such as "Orient" or "Far East" are not included in the representations. To address this gap, the maps are supplemented with a series of tables listing all the most frequent place names in the two corpora, regardless of their "mappability". The complete code for extracting, standardizing, and mapping place names is accessible in the GitHub "script" folder. The subsequent narrative layer provides an in-depth interpretation of the resulting geographies.
 <!-- #endregion -->
 
