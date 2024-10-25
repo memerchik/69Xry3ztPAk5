@@ -19,7 +19,7 @@ jupyter:
 
 <!-- #region tags=["contributor"] -->
 ### Cécile  Armand [![orcid](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0002-9107-6443)
-Aix-Marseille University
+Ecole Normale Supérieure de Lyon
 <!-- #endregion -->
 
 <!-- #region tags=["copyright"] -->
