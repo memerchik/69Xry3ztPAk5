@@ -1,7 +1,5 @@
 on:
-  pull_request:
-    types:
-      - closed
+  [workflow_dispatch]
 name: GitHub Actions for notebook syncing
 jobs:
   if_merged:
@@ -15,9 +13,7 @@ jobs:
       - name: installing & running jupytext
         run: |
           pip install jupytext || pip install jupytext --break-system-packages
-          jupytext --set-formats ipynb,md article.ipynb
-          jupytext --sync article.ipynb
-
+          jupytext --output article.md notebook.ipynb
       - name: committing changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
